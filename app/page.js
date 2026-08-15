@@ -6,6 +6,7 @@ const SIZE_GUIDE = "https://www.lakecityselfstorage.com/size-guide";
 const FAQ_URL = "https://www.lakecityselfstorage.com/faq";
 const BLOG_URL = "https://www.lakecityselfstorage.com/blog";
 const CONTACT_URL = "https://www.lakecityselfstorage.com/contact-us";
+const PAY_ONLINE_URL = "https://www.lakecityselfstorage.com/payonline";
 const LOGO_URL = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/outlook-1lwjlfpa_01032024100037323.png";
 const HERO_IMAGE = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%20dji_20250814143659_0214_d_08152025172434571.jpg";
 const FACILITY_IMAGE = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%20dji_20250814070645_0033_d_08152025174232437.jpg";
@@ -62,7 +63,7 @@ export default function Home() {
             <a href="#faq">FAQ</a>
             <a href={BLOG_URL}>Blogs</a>
             <a href={CONTACT_URL}>Contact Us</a>
-            <a href={HOME_SITE}>Pay Online</a>
+            <a href={PAY_ONLINE_URL}>Pay Online</a>
           </nav>
         </div>
       </header>
