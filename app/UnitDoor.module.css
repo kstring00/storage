@@ -1,0 +1,63 @@
+/* Conditioned-interior palette. Doors, walls and belongings are pure CSS + inline
+   SVG, so the whole bay costs nothing to load. Gradients are kept here so they
+   stay editable in one place. */
+
+.unit{position:relative;flex:0 0 auto;padding:0 11px;background:linear-gradient(90deg,#DFE5EA 0 6%,#EDF1F4 22% 78%,#DFE5EA 94% 100%)}
+.featured{box-shadow:0 0 0 3px rgba(74,163,55,.75)}
+.featuredFlag{position:absolute;top:-30px;left:8px;right:8px;text-align:center;background:#4aa337;color:#fff;padding:6px 8px;border-radius:5px 5px 0 0;font-size:9px;text-transform:uppercase;font-weight:800;letter-spacing:.04em;z-index:8}
+
+.card,.wide{width:100%;padding:0 9px}
+
+.fascia{height:30px;margin:0 -11px;background:linear-gradient(180deg,#FBFCFD 0 62%,#DBE2E7 62% 68%,#EDF1F4 68% 100%);display:flex;align-items:center;justify-content:center;border-top:4px solid #0C7CB8}
+.card .fascia,.wide .fascia{margin:0 -9px}
+.fascia span{font-weight:700;font-size:10px;letter-spacing:.14em;color:#93A6B2}
+
+/* aspect-ratio reserves the opening's height before paint, so the section adds
+   no layout shift. */
+.opening{position:relative;overflow:hidden;margin-top:7px;width:var(--door-w,100%);aspect-ratio:var(--door-ratio,4 / 3);background:#E7EDF1;box-shadow:inset 0 0 0 2px #D5DEE4}
+
+.interior{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,rgba(255,255,255,.85),rgba(255,255,255,0) 62%),linear-gradient(180deg,#F4F7F9 0%,#DCE4E9 100%);box-shadow:inset 0 10px 18px rgba(22,50,63,.10),inset 10px 0 18px rgba(22,50,63,.06),inset -10px 0 18px rgba(22,50,63,.06)}
+.interior:after{content:"";position:absolute;left:8%;right:8%;bottom:0;height:22%;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.28));clip-path:polygon(14% 0,86% 0,100% 100%,0 100%)}
+
+/* Floor strip. Width/height/fill/stroke are all declared because globals.css
+   sets a page-wide svg rule that would otherwise shrink this to 22px. */
+.stuff{position:absolute;left:0;bottom:0;width:100%;height:34%;z-index:1;fill:none;stroke:none;pointer-events:none;color:#7F94A3}
+.item{opacity:0;transform:translateY(14px);transition:opacity .34s ease,transform .5s cubic-bezier(.3,.9,.4,1)}
+.item[data-tone="wood"]{color:#B4753F}
+.item[data-tone="soft"]{color:#7F94A3}
+
+/* Sits above the floor strip so belongings and copy never overlap. */
+.info{position:absolute;left:0;right:0;top:0;bottom:36%;z-index:7;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;opacity:0;transition:opacity .16s ease .24s;pointer-events:none}
+.infoSize{font-weight:700;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#6C8091;margin:0 0 3px}
+.infoSqft{font-weight:800;font-size:31px;line-height:1;color:#16323F;margin:0 0 10px}
+.card .infoSqft{font-size:26px;margin-bottom:6px}
+.fitList{list-style:none;margin:0;padding:0;font-size:10px;line-height:1.55;color:#56707F}
+.climateTag{margin:9px 0 0;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#0A5A88;background:#DCEEF9;padding:4px 8px;border-radius:999px;font-weight:800}
+.compareLink{pointer-events:auto;margin-top:11px;display:inline-block;color:#fff;background:#0C7CB8;padding:7px 10px;border-radius:3px;font-size:9px;font-weight:800}
+.compareLink:hover{background:#1596d2}
+
+.door{position:absolute;inset:0;z-index:4;background:linear-gradient(90deg,rgba(22,50,63,.12) 0%,rgba(255,255,255,.75) 15%,rgba(255,255,255,0) 38% 62%,rgba(255,255,255,.55) 85%,rgba(22,50,63,.13) 100%),repeating-linear-gradient(180deg,#F3F6F8 0 6px,#E2E9ED 6px 8px,#CBD5DC 8px 9px);transition:transform .52s cubic-bezier(.32,.86,.4,1);will-change:transform;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#16323F}
+.door p{font-size:clamp(20px,7vw,34px);line-height:1;margin:0;font-weight:800;letter-spacing:.01em;color:#16323F}
+.door>span{margin-top:5px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#6C8091;font-weight:700}
+.door i{position:absolute;left:50%;transform:translateX(-50%);bottom:11px;width:30px;height:7px;background:#AFC0CA;border-radius:2px;box-shadow:0 1px 0 rgba(22,50,63,.18)}
+
+.sill{position:absolute;z-index:5;left:0;right:0;bottom:0;height:5px;background:linear-gradient(180deg,#D3DBE1,#B6C2CA)}
+
+/* Covers the opening so the whole door is one tab stop with a real button's
+   Enter/Space handling; the interior link sits above it on z-index. */
+.toggle{position:absolute;inset:0;z-index:6;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:pointer;appearance:none}
+.toggle:focus-visible{outline:3px solid #0C7CB8;outline-offset:-3px}
+.srOnly{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+
+@media(hover:hover) and (pointer:fine){
+  .unit:hover .door{transform:translateY(-100%)}
+  .unit:hover .info{opacity:1}
+  .unit:hover .item{opacity:1;transform:none}
+}
+.open .door{transform:translateY(-100%)}
+.open .info{opacity:1}
+.open .item{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  .door,.info,.item{transition:none}
+}
