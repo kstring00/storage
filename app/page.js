@@ -1,3 +1,5 @@
+import UnitDoorCarousel from "./UnitDoorCarousel";
+
 const PHONE_DISPLAY = "(386) 292-5494";
 const PHONE_LINK = "tel:+13862925494";
 const HOME_SITE = "https://www.lakecityselfstorage.com";
@@ -176,7 +178,8 @@ export default function Home() {
             <a href={UNITS_URL}>Storage Units</a>
             <a href="#why-climate">Why Climate Control</a>
             <a href="#deterioration">What Heat Can Do</a>
-            <a href="#sizes">Size Guide</a>
+            <a href="#unit-doors">Explore Sizes</a>
+            <a href="#sizes">Climate Sizes</a>
             <a href="#faq">FAQ</a>
             <a href={PAY_ONLINE_URL}>Pay Online</a>
           </nav>
@@ -270,6 +273,8 @@ export default function Home() {
           <div className="stabilityNote"><ShieldIcon /><span><strong>Why climate control helps:</strong> it reduces environmental extremes by providing a more stable indoor storage environment. Exact temperature and humidity conditions can vary; ask the facility about current controls for items with special requirements.</span></div>
         </div>
       </section>
+
+      <UnitDoorCarousel />
 
       <section id="sizes" className="section sizesSection">
         <div className="shell">
