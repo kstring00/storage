@@ -2,12 +2,11 @@ import UnitDoorCarousel from "./UnitDoorCarousel";
 
 const PHONE_DISPLAY = "(386) 292-5494";
 const PHONE_LINK = "tel:+13862925494";
-const HOME_SITE = "https://www.lakecityselfstorage.com";
 const UNITS_URL = "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055";
 const CONTACT_URL = "https://www.lakecityselfstorage.com/contact-us";
 const PAY_ONLINE_URL = "https://www.lakecityselfstorage.com/payonline";
 const LOGO_URL = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/outlook-1lwjlfpa_01032024100037323.png";
-const HERO_IMAGE = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%20dji_20250814143659_0214_d_08152025172434571.jpg";
+const HERO_IMAGE = "/images/climate-hero.svg";
 
 const deteriorationCards = [
   {
@@ -134,7 +133,7 @@ export default function Home() {
     <main>
       <header className="siteHeader">
         <div className="shell headerTop">
-          <a href={HOME_SITE} aria-label="Lake City Self Storage">
+          <a href="https://www.lakecityselfstorage.com" aria-label="Lake City Self Storage">
             <img className="logo" src={LOGO_URL} alt="Lake City Self Storage" />
           </a>
           <a className="callTop" href={PHONE_LINK}>Call Us Today! <strong>{PHONE_DISPLAY}</strong></a>
@@ -166,10 +165,14 @@ export default function Home() {
             </div>
           </div>
           <div className="heroClimateVisual">
-            <img src={HERO_IMAGE} alt="Lake City Self Storage facility" />
+            <img src={HERO_IMAGE} alt="Indoor climate-controlled storage hallway at Lake City Self Storage" />
             <div className="climateVisualOverlay">
               <SnowflakeIcon />
-              <div><strong>More Stable</strong><span>Indoor Environment</span><small>Reduce exposure to Florida heat swings.</small></div>
+              <div>
+                <strong>Indoor Climate-Controlled</strong>
+                <span>Clean, enclosed storage environment</span>
+                <small>A better fit for furniture, electronics, documents, and household belongings.</small>
+              </div>
             </div>
           </div>
         </div>
