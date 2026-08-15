@@ -77,15 +77,6 @@ function LockIcon() {
   );
 }
 
-function BoxIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="m4 7 8-4 8 4-8 4-8-4Z" />
-      <path d="M4 7v10l8 4 8-4V7M12 11v10" />
-    </svg>
-  );
-}
-
 function FurnitureIcon() {
   return (
     <svg viewBox="0 0 64 64" aria-hidden="true">
@@ -153,7 +144,6 @@ export default function Home() {
             <a href="#why-climate">Why Climate Control</a>
             <a href="#deterioration">What Heat Can Do</a>
             <a href="#unit-doors">Choose a Size</a>
-            <a href="#featured-1015">Why 10 × 15</a>
             <a href="#faq">FAQ</a>
             <a href={PAY_ONLINE_URL}>Pay Online</a>
           </nav>
@@ -205,6 +195,7 @@ export default function Home() {
               </ul>
               <div className="bestFor"><strong>Best for:</strong><span>Tools, patio furniture, lawn equipment, durable plastic totes, and other less-sensitive items.</span></div>
             </article>
+
             <article className="comparisonCard climateCard">
               <div className="recommendedRibbon">★ Recommended for sensitive belongings</div>
               <div className="comparisonIcon climateIcon"><SnowflakeIcon /></div>
@@ -244,51 +235,14 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <div className="stabilityNote"><ShieldIcon /><span><strong>Why climate control helps:</strong> it reduces environmental extremes by providing a more stable indoor storage environment. Exact temperature and humidity conditions can vary; ask the facility about current controls for items with special requirements.</span></div>
+          <div className="stabilityNote">
+            <ShieldIcon />
+            <span><strong>Why climate control helps:</strong> it reduces environmental extremes by providing a more stable indoor storage environment. Exact temperature and humidity conditions can vary; ask the facility about current controls for items with special requirements.</span>
+          </div>
         </div>
       </section>
 
       <UnitDoorCarousel />
-
-      <section id="featured-1015" className="section spotlightSection">
-        <div className="shell spotlightPanel">
-          <div className="spotlightVisual">
-            <div className="largeUnitIllustration" aria-hidden="true">
-              <div className="largeCeiling" />
-              <div className="largeDresser" />
-              <div className="largeSofa" />
-              <div className="largeFridge" />
-              <div className="largeBoxes b1" />
-              <div className="largeBoxes b2" />
-              <div className="largeBoxes b3" />
-              <div className="largeLamp" />
-            </div>
-          </div>
-          <div className="spotlightCopy">
-            <div className="eyebrow">Featured household size • 150 sq. ft.</div>
-            <h2>Why the 10 × 15 Is the Sweet Spot for Household Storage</h2>
-            <p>It gives you meaningful room for furniture and household belongings without immediately jumping to the largest footprint. For many moves, remodels, and crowded seasons at home, it is a practical place to start.</p>
-            <div className="spotlightLists">
-              <ul>
-                <Check>Furniture from multiple rooms</Check>
-                <Check>Moving or remodeling</Check>
-                <Check>Mattresses, bedding & décor</Check>
-              </ul>
-              <ul>
-                <Check>Electronics & appliances</Check>
-                <Check>Documents, photos & keepsakes</Check>
-                <Check>Household overflow</Check>
-              </ul>
-            </div>
-            <div className="trustTiles">
-              <div><CameraIcon /><span>24-Hour<br />Video Surveillance</span></div>
-              <div><SnowflakeIcon /><span>Indoor<br />Climate-Controlled</span></div>
-              <div><BoxIcon /><span>150 SQ. FT.<br />of Floor Space</span></div>
-            </div>
-            <a className="primaryButton spotlightButton" href={UNITS_URL}>View 10 × 15 Availability <span>→</span></a>
-          </div>
-        </div>
-      </section>
 
       <section id="faq" className="section faqSection">
         <div className="shell faqShell">
