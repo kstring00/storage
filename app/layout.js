@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "10x15 Climate-Controlled Storage in Lake City, FL | Lake City Self Storage",
+  title: "Climate-Controlled Storage in Lake City, FL | Lake City Self Storage",
   description:
-    "Explore 10x15 climate-controlled storage in Lake City, Florida for furniture, moving, remodeling, downsizing and household overflow. View current availability from Lake City Self Storage.",
+    "Learn why climate-controlled storage can make sense for furniture, electronics, mattresses, documents, moving, remodeling, and household belongings. Compare popular climate-controlled sizes and view current availability at Lake City Self Storage.",
 };
 
 export default function RootLayout({ children }) {
