@@ -4,35 +4,10 @@ const PHONE_DISPLAY = "(386) 292-5494";
 const PHONE_LINK = "tel:+13862925494";
 const HOME_SITE = "https://www.lakecityselfstorage.com";
 const UNITS_URL = "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055";
-const SIZE_GUIDE = "https://www.lakecityselfstorage.com/size-guide";
-const BLOG_URL = "https://www.lakecityselfstorage.com/blog";
 const CONTACT_URL = "https://www.lakecityselfstorage.com/contact-us";
 const PAY_ONLINE_URL = "https://www.lakecityselfstorage.com/payonline";
 const LOGO_URL = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/outlook-1lwjlfpa_01032024100037323.png";
 const HERO_IMAGE = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%20dji_20250814143659_0214_d_08152025172434571.jpg";
-const FACILITY_IMAGE = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%20dji_20250814070645_0033_d_08152025174232437.jpg";
-
-const climateSizes = [
-  {
-    size: "10' × 10'",
-    sqft: "100 SQ. FT.",
-    description: "A practical climate-controlled option for a studio, one-bedroom apartment, or smaller household overflow.",
-    bestFor: "Seasonal items, smaller furniture, boxes, décor, electronics, and documents.",
-  },
-  {
-    size: "10' × 15'",
-    sqft: "150 SQ. FT.",
-    featured: true,
-    description: "A strong fit for the contents of multiple rooms, moving transitions, remodeling projects, and meaningful household storage.",
-    bestFor: "Furniture, mattresses, appliances, electronics, documents, moving, and remodeling.",
-  },
-  {
-    size: "10' × 20'",
-    sqft: "200 SQ. FT.",
-    description: "More climate-controlled space for larger household contents, furniture sets, and substantial storage needs.",
-    bestFor: "Larger furniture, appliances, larger moves, remodeling, and long-term household storage.",
-  },
-];
 
 const deteriorationCards = [
   {
@@ -175,11 +150,10 @@ export default function Home() {
         </div>
         <div className="shell navRow">
           <nav aria-label="Primary navigation">
-            <a href={UNITS_URL}>Storage Units</a>
             <a href="#why-climate">Why Climate Control</a>
             <a href="#deterioration">What Heat Can Do</a>
-            <a href="#unit-doors">Explore Sizes</a>
-            <a href="#sizes">Climate Sizes</a>
+            <a href="#unit-doors">Choose a Size</a>
+            <a href="#featured-1015">Why 10 × 15</a>
             <a href="#faq">FAQ</a>
             <a href={PAY_ONLINE_URL}>Pay Online</a>
           </nav>
@@ -193,7 +167,7 @@ export default function Home() {
             <h1>Find Your Climate-Controlled Storage Unit</h1>
             <p className="heroLead">Keep furniture, documents, electronics, mattresses, and household belongings in a more stable indoor environment than traditional unconditioned storage exposed to Florida heat.</p>
             <div className="heroActions">
-              <a className="primaryButton" href="#sizes">View Climate-Controlled Units <span>→</span></a>
+              <a className="primaryButton" href="#unit-doors">Choose Your Climate-Controlled Size <span>→</span></a>
             </div>
             <div className="heroTrust">
               <span><ShieldIcon /> Secure Facility</span>
@@ -276,42 +250,7 @@ export default function Home() {
 
       <UnitDoorCarousel />
 
-      <section id="sizes" className="section sizesSection">
-        <div className="shell">
-          <div className="centerHeading compactHeading">
-            <h2>Which Climate-Controlled Size Do You Need?</h2>
-            <p>Start with what you are storing, then choose the amount of climate-controlled space that fits your household.</p>
-          </div>
-          <div className="sizeCardGrid">
-            {climateSizes.map((unit) => (
-              <article className={`sizeCard ${unit.featured ? "featuredSizeCard" : ""}`} key={unit.size}>
-                {unit.featured ? <div className="recommendedTop">★ Recommended</div> : null}
-                <div className="sizeBadge"><SnowflakeIcon /> Indoor Climate-Controlled</div>
-                <h3>{unit.size}</h3>
-                <div className="sqft">{unit.sqft}</div>
-                <div className="unitIllustration" aria-hidden="true">
-                  <div className="unitCeiling" />
-                  <div className="box boxA" />
-                  <div className="box boxB" />
-                  <div className="box boxC" />
-                  <div className="cabinet" />
-                  <div className="sofa" />
-                  <div className="lamp" />
-                </div>
-                <p className="sizeDescription">{unit.description}</p>
-                <div className="sizeBestFor"><strong>Best for:</strong> {unit.bestFor}</div>
-                <div className="sizeActions">
-                  <a className={`availabilityButton ${unit.featured ? "greenButton" : ""}`} href={UNITS_URL}>View Availability <span>→</span></a>
-                  <a className="callButton" href={PHONE_LINK}>☎ Call to Ask</a>
-                </div>
-              </article>
-            ))}
-          </div>
-          <p className="availabilityNote">Popular sizes shown for guidance. Current sizes, pricing, promotions, and availability should be confirmed through Lake City Self Storage.</p>
-        </div>
-      </section>
-
-      <section className="section spotlightSection">
+      <section id="featured-1015" className="section spotlightSection">
         <div className="shell spotlightPanel">
           <div className="spotlightVisual">
             <div className="largeUnitIllustration" aria-hidden="true">
@@ -326,8 +265,9 @@ export default function Home() {
             </div>
           </div>
           <div className="spotlightCopy">
-            <h2>Why 10' × 15' Climate-Controlled Is Our Featured Household Size</h2>
-            <p>The 10 × 15 offers a strong balance of usable space and climate-controlled protection for the kinds of belongings people commonly store during a move, remodel, downsizing project, or crowded season at home.</p>
+            <div className="eyebrow">Featured household size • 150 sq. ft.</div>
+            <h2>Why the 10 × 15 Is the Sweet Spot for Household Storage</h2>
+            <p>It gives you meaningful room for furniture and household belongings without immediately jumping to the largest footprint. For many moves, remodels, and crowded seasons at home, it is a practical place to start.</p>
             <div className="spotlightLists">
               <ul>
                 <Check>Furniture from multiple rooms</Check>
@@ -364,21 +304,21 @@ export default function Home() {
             </details>
             <details>
               <summary>Is climate-controlled the same as humidity-controlled?</summary>
-              <p>No. Those terms are not interchangeable. Ask Lake City Self Storage about the facility's current environmental controls if your items require a specific temperature or humidity range.</p>
+              <p>No. Those terms are not interchangeable. Ask Lake City Self Storage about the facility&apos;s current environmental controls if your items require a specific temperature or humidity range.</p>
             </details>
             <details>
               <summary>Is climate-controlled storage necessary for everything?</summary>
               <p>No. If you mainly need space for tougher, less-sensitive items such as tools, outdoor equipment, or durable plastic totes, standard storage may be a perfectly reasonable choice.</p>
             </details>
           </div>
-          <div className="standardExit"><GarageIcon /><span>Looking for standard drive-up storage instead?</span><a href={UNITS_URL}>View standard units →</a></div>
+          <div className="standardExit"><GarageIcon /><span>Just storing durable items?</span><a href={UNITS_URL}>View standard drive-up storage →</a></div>
         </div>
       </section>
 
       <section className="finalCta">
         <div className="shell finalCtaInner">
-          <div><strong>Clean. Secure. Climate Controlled.</strong><span>A more stable indoor storage environment for the belongings you care about.</span></div>
-          <a className="finalButton" href="#sizes">View Climate-Controlled Units →</a>
+          <div><strong>Clean. Secure. Climate Controlled.</strong><span>Choose the amount of climate-controlled space that fits the belongings you care about.</span></div>
+          <a className="finalButton" href="#unit-doors">Choose Your Size →</a>
         </div>
       </section>
 
