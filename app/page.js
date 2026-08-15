@@ -1,4 +1,6 @@
 import UnitDoorCarousel from "./UnitDoorCarousel";
+import UnitDoor from "./UnitDoor";
+import { doorUnitsById } from "./doorUnits";
 
 const PHONE_DISPLAY = "(386) 292-5494";
 const PHONE_LINK = "tel:+13862925494";
@@ -16,12 +18,14 @@ const climateSizes = [
   {
     size: "10' × 10'",
     sqft: "100 SQ. FT.",
+    doorId: "10x10",
     description: "A practical climate-controlled option for a studio, one-bedroom apartment, or smaller household overflow.",
     bestFor: "Seasonal items, smaller furniture, boxes, décor, electronics, and documents.",
   },
   {
     size: "10' × 15'",
     sqft: "150 SQ. FT.",
+    doorId: "10x15",
     featured: true,
     description: "A strong fit for the contents of multiple rooms, moving transitions, remodeling projects, and meaningful household storage.",
     bestFor: "Furniture, mattresses, appliances, electronics, documents, moving, and remodeling.",
@@ -29,6 +33,7 @@ const climateSizes = [
   {
     size: "10' × 20'",
     sqft: "200 SQ. FT.",
+    doorId: "10x20",
     description: "More climate-controlled space for larger household contents, furniture sets, and substantial storage needs.",
     bestFor: "Larger furniture, appliances, larger moves, remodeling, and long-term household storage.",
   },
@@ -289,14 +294,13 @@ export default function Home() {
                 <div className="sizeBadge"><SnowflakeIcon /> Indoor Climate-Controlled</div>
                 <h3>{unit.size}</h3>
                 <div className="sqft">{unit.sqft}</div>
-                <div className="unitIllustration" aria-hidden="true">
-                  <div className="unitCeiling" />
-                  <div className="box boxA" />
-                  <div className="box boxB" />
-                  <div className="box boxC" />
-                  <div className="cabinet" />
-                  <div className="sofa" />
-                  <div className="lamp" />
+                <div className="sizeDoor">
+                  <UnitDoor
+                    unit={doorUnitsById[unit.doorId]}
+                    variant="card"
+                    ratio="4 / 3"
+                    autoOpen={Boolean(unit.featured)}
+                  />
                 </div>
                 <p className="sizeDescription">{unit.description}</p>
                 <div className="sizeBestFor"><strong>Best for:</strong> {unit.bestFor}</div>
@@ -314,16 +318,7 @@ export default function Home() {
       <section className="section spotlightSection">
         <div className="shell spotlightPanel">
           <div className="spotlightVisual">
-            <div className="largeUnitIllustration" aria-hidden="true">
-              <div className="largeCeiling" />
-              <div className="largeDresser" />
-              <div className="largeSofa" />
-              <div className="largeFridge" />
-              <div className="largeBoxes b1" />
-              <div className="largeBoxes b2" />
-              <div className="largeBoxes b3" />
-              <div className="largeLamp" />
-            </div>
+            <UnitDoor unit={doorUnitsById["10x15"]} variant="wide" ratio="16 / 9" autoOpen />
           </div>
           <div className="spotlightCopy">
             <h2>Why 10' × 15' Climate-Controlled Is Our Featured Household Size</h2>
