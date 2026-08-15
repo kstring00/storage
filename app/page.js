@@ -12,26 +12,46 @@ const FACILITY_IMAGE = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-
 
 const climateSizes = [
   {
-    size: "10 × 10",
-    sqft: "100 sq. ft.",
-    label: "Climate-Controlled",
-    description: "A practical choice for a smaller apartment, boxed household storage, electronics, documents, and select furniture.",
-    bestFor: "Smaller furniture, boxes, seasonal décor, electronics, records",
+    size: "10' × 10'",
+    sqft: "100 SQ. FT.",
+    description: "A practical climate-controlled option for a studio, one-bedroom apartment, or smaller household overflow.",
+    bestFor: "Seasonal items, smaller furniture, boxes, décor, electronics, and documents.",
   },
   {
-    size: "10 × 15",
-    sqft: "150 sq. ft.",
-    label: "Recommended",
+    size: "10' × 15'",
+    sqft: "150 SQ. FT.",
     featured: true,
-    description: "A strong fit for larger household storage, furniture from multiple rooms, moving transitions, and remodeling projects.",
-    bestFor: "Furniture, mattresses, moving, remodeling, household overflow",
+    description: "A strong fit for the contents of multiple rooms, moving transitions, remodeling projects, and meaningful household storage.",
+    bestFor: "Furniture, mattresses, appliances, electronics, documents, moving, and remodeling.",
   },
   {
-    size: "10 × 20",
-    sqft: "200 sq. ft.",
-    label: "Climate-Controlled",
-    description: "More room for larger household contents, multiple furniture sets, and customers who need substantial indoor storage space.",
-    bestFor: "Larger moves, major household storage, furniture, appliances",
+    size: "10' × 20'",
+    sqft: "200 SQ. FT.",
+    description: "More climate-controlled space for larger household contents, furniture sets, and substantial storage needs.",
+    bestFor: "Larger furniture, appliances, larger moves, remodeling, and long-term household storage.",
+  },
+];
+
+const deteriorationCards = [
+  {
+    title: "Wood Furniture",
+    type: "furniture",
+    copy: "Repeated heat and moisture changes can make wood expand and contract, contributing to warping, cracking, swelling, joint stress, or finish changes over time.",
+  },
+  {
+    title: "Photos & Documents",
+    type: "documents",
+    copy: "Warm, humid conditions can accelerate fading, yellowing, curling, sticking, and deterioration of paper, photographs, books, and printed materials.",
+  },
+  {
+    title: "Clothing & Fabrics",
+    type: "fabrics",
+    copy: "Textiles can absorb moisture. In damp conditions that can contribute to musty odors, mildew risk, and stress on fabrics during longer storage periods.",
+  },
+  {
+    title: "Electronics & Sensitive Items",
+    type: "electronics",
+    copy: "Heat and moisture exposure can stress components and contribute to corrosion or performance issues. A more stable indoor environment can be a better fit.",
   },
 ];
 
@@ -89,6 +109,42 @@ function BoxIcon() {
   );
 }
 
+function FurnitureIcon() {
+  return (
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <rect x="10" y="16" width="44" height="33" rx="2" />
+      <path d="M10 27h44M10 38h44M25 16v33M40 16v33M15 49v5M49 49v5" />
+    </svg>
+  );
+}
+
+function DocumentIcon() {
+  return (
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M18 9h21l8 8v38H18z" />
+      <path d="M39 9v10h10M24 28h18M24 35h18M24 42h13" />
+    </svg>
+  );
+}
+
+function FabricIcon() {
+  return (
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="m24 14-11 8 8 12 7-5v27h21V29l7 5 8-12-11-8-8 5c-5 3-11 3-16 0l-5-5Z" />
+    </svg>
+  );
+}
+
+function MonitorIcon() {
+  return (
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <rect x="8" y="11" width="48" height="34" rx="2" />
+      <path d="M25 54h14M32 45v9" />
+      <circle cx="47" cy="35" r="3" />
+    </svg>
+  );
+}
+
 function Check({ children }) {
   return (
     <li>
@@ -96,6 +152,13 @@ function Check({ children }) {
       <span>{children}</span>
     </li>
   );
+}
+
+function DeteriorationIcon({ type }) {
+  if (type === "furniture") return <FurnitureIcon />;
+  if (type === "documents") return <DocumentIcon />;
+  if (type === "fabrics") return <FabricIcon />;
+  return <MonitorIcon />;
 }
 
 export default function Home() {
@@ -106,17 +169,15 @@ export default function Home() {
           <a href={HOME_SITE} aria-label="Lake City Self Storage">
             <img className="logo" src={LOGO_URL} alt="Lake City Self Storage" />
           </a>
-          <a className="callTop" href={PHONE_LINK}>
-            Call Us Today! <strong>{PHONE_DISPLAY}</strong>
-          </a>
+          <a className="callTop" href={PHONE_LINK}>Call Us Today! <strong>{PHONE_DISPLAY}</strong></a>
         </div>
         <div className="shell navRow">
           <nav aria-label="Primary navigation">
             <a href={UNITS_URL}>Storage Units</a>
             <a href="#why-climate">Why Climate Control</a>
+            <a href="#deterioration">What Heat Can Do</a>
             <a href="#sizes">Size Guide</a>
             <a href="#faq">FAQ</a>
-            <a href={CONTACT_URL}>Contact</a>
             <a href={PAY_ONLINE_URL}>Pay Online</a>
           </nav>
         </div>
@@ -127,15 +188,9 @@ export default function Home() {
           <div className="heroClimateCopy">
             <div className="climateBadge"><SnowflakeIcon /> Indoor Climate-Controlled Storage</div>
             <h1>Find Your Climate-Controlled Storage Unit</h1>
-            <p className="heroLead">
-              When you are storing furniture, electronics, documents, mattresses, and household belongings you care about, the storage environment matters too.
-            </p>
-            <p className="heroSupport">
-              Climate-controlled storage offers a more controlled indoor environment than many garages, sheds, and traditional unconditioned storage spaces exposed to Florida heat.
-            </p>
+            <p className="heroLead">Keep furniture, documents, electronics, mattresses, and household belongings in a more stable indoor environment than traditional unconditioned storage exposed to Florida heat.</p>
             <div className="heroActions">
               <a className="primaryButton" href="#sizes">View Climate-Controlled Units <span>→</span></a>
-              <a className="textButton" href={PHONE_LINK}>Not sure what you need? Call us</a>
             </div>
             <div className="heroTrust">
               <span><ShieldIcon /> Secure Facility</span>
@@ -143,15 +198,11 @@ export default function Home() {
               <span><LockIcon /> Gated Access</span>
             </div>
           </div>
-
           <div className="heroClimateVisual">
             <img src={HERO_IMAGE} alt="Lake City Self Storage facility" />
             <div className="climateVisualOverlay">
               <SnowflakeIcon />
-              <div>
-                <strong>Indoor</strong>
-                <span>Climate-Controlled</span>
-              </div>
+              <div><strong>More Stable</strong><span>Indoor Environment</span><small>Reduce exposure to Florida heat swings.</small></div>
             </div>
           </div>
         </div>
@@ -161,46 +212,62 @@ export default function Home() {
         <div className="shell">
           <div className="centerHeading">
             <h2>Why Choose Climate Control?</h2>
-            <p>Because sometimes you are not just paying for more space — you are paying for a better environment around what you store.</p>
+            <p>Florida weather can be tough on stored belongings. The right storage environment depends on what you are putting inside.</p>
           </div>
-
           <div className="comparisonGrid">
             <article className="comparisonCard standardCard">
               <div className="comparisonIcon"><GarageIcon /></div>
-              <h3>Standard Storage</h3>
-              <p className="comparisonSub">Great when you mainly need extra space.</p>
-              <ul>
-                <Check>Good for tougher, less-sensitive items</Check>
-                <Check>Useful for tools, outdoor gear, and basic overflow</Check>
-                <Check>Often the better fit when the storage environment is not a concern</Check>
-              </ul>
-              <div className="bestFor">
-                <strong>Best for:</strong>
-                <span>Durable items, tools, outdoor equipment, plastic bins, and basic storage.</span>
+              <div>
+                <h3>Standard Storage</h3>
+                <p className="comparisonSub">Great for tougher items</p>
               </div>
+              <ul>
+                <Check>More exposed to outdoor temperature swings</Check>
+                <Check>Better for items that can handle a less-controlled environment</Check>
+                <Check>Usually the lower monthly rate</Check>
+              </ul>
+              <div className="bestFor"><strong>Best for:</strong><span>Tools, patio furniture, lawn equipment, durable plastic totes, and other less-sensitive items.</span></div>
             </article>
-
             <article className="comparisonCard climateCard">
               <div className="recommendedRibbon">★ Recommended for sensitive belongings</div>
               <div className="comparisonIcon climateIcon"><SnowflakeIcon /></div>
-              <h3>Climate-Controlled Storage</h3>
-              <p className="comparisonSub">Better when the belongings themselves matter.</p>
-              <ul>
-                <Check>A more controlled indoor environment</Check>
-                <Check>Popular for furniture, electronics, mattresses, documents, and décor</Check>
-                <Check>A strong fit for moving, remodeling, and longer-term household storage</Check>
-              </ul>
-              <div className="bestFor">
-                <strong>Best for:</strong>
-                <span>Furniture, electronics, mattresses, documents, décor, keepsakes, and household belongings.</span>
+              <div>
+                <h3>Climate-Controlled Storage</h3>
+                <p className="comparisonSub">Best for belongings you care about</p>
               </div>
+              <ul>
+                <Check>Provides a more stable indoor storage environment</Check>
+                <Check>Helps reduce exposure to Florida heat and temperature swings</Check>
+                <Check>Ideal for furniture, electronics, documents, textiles, and household items</Check>
+              </ul>
+              <div className="bestFor"><strong>Best for:</strong><span>Furniture, electronics, mattresses, documents, clothing, décor, artwork, keepsakes, and household belongings.</span></div>
             </article>
           </div>
+        </div>
+      </section>
 
-          <div className="honestyNote">
-            <span className="infoCircle">i</span>
-            <p><strong>Honesty first:</strong> if you are storing basic, durable items and only need extra space, a standard unit may be enough. Climate control makes the most sense when you care about the environment surrounding what you are storing.</p>
+      <section id="deterioration" className="section deteriorationSection">
+        <div className="shell">
+          <div className="centerHeading deteriorationHeading">
+            <h2>What Florida Heat & Humidity Can Do to Stored Belongings</h2>
+            <p>Heat, moisture, and repeated environmental swings can affect common household materials over time.</p>
           </div>
+          <div className="deteriorationGrid">
+            {deteriorationCards.map((item) => (
+              <article className="deteriorationCard" key={item.title}>
+                <div className="deteriorationIcon"><DeteriorationIcon type={item.type} /></div>
+                <div className={`objectVisual ${item.type}`} aria-hidden="true">
+                  {item.type === "furniture" && <div className="dresser"><span /><span /><span /></div>}
+                  {item.type === "documents" && <div className="paperStack"><span /><span /><span /></div>}
+                  {item.type === "fabrics" && <div className="fabricStack"><span /><span /><span /></div>}
+                  {item.type === "electronics" && <div className="screenVisual"><span /></div>}
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))}
+          </div>
+          <div className="stabilityNote"><ShieldIcon /><span><strong>Why climate control helps:</strong> it reduces environmental extremes by providing a more stable indoor storage environment. Exact temperature and humidity conditions can vary; ask the facility about current controls for items with special requirements.</span></div>
         </div>
       </section>
 
@@ -208,9 +275,8 @@ export default function Home() {
         <div className="shell">
           <div className="centerHeading compactHeading">
             <h2>Which Climate-Controlled Size Do You Need?</h2>
-            <p>Start with the type of belongings you are storing, then choose the amount of space you need.</p>
+            <p>Start with what you are storing, then choose the amount of climate-controlled space that fits your household.</p>
           </div>
-
           <div className="sizeCardGrid">
             {climateSizes.map((unit) => (
               <article className={`sizeCard ${unit.featured ? "featuredSizeCard" : ""}`} key={unit.size}>
@@ -219,10 +285,11 @@ export default function Home() {
                 <h3>{unit.size}</h3>
                 <div className="sqft">{unit.sqft}</div>
                 <div className="unitIllustration" aria-hidden="true">
-                  <div className="unitWall" />
+                  <div className="unitCeiling" />
                   <div className="box boxA" />
                   <div className="box boxB" />
                   <div className="box boxC" />
+                  <div className="cabinet" />
                   <div className="sofa" />
                   <div className="lamp" />
                 </div>
@@ -235,38 +302,43 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <p className="availabilityNote">Popular sizes shown for guidance. Current climate-controlled unit types, pricing, and availability should be confirmed through Lake City Self Storage.</p>
+          <p className="availabilityNote">Popular sizes shown for guidance. Current sizes, pricing, promotions, and availability should be confirmed through Lake City Self Storage.</p>
         </div>
       </section>
 
       <section className="section spotlightSection">
         <div className="shell spotlightPanel">
           <div className="spotlightVisual">
-            <img src={FACILITY_IMAGE} alt="Lake City Self Storage property" />
-            <div className="spotlightBadge">10 × 15 • 150 sq. ft.</div>
+            <div className="largeUnitIllustration" aria-hidden="true">
+              <div className="largeCeiling" />
+              <div className="largeDresser" />
+              <div className="largeSofa" />
+              <div className="largeFridge" />
+              <div className="largeBoxes b1" />
+              <div className="largeBoxes b2" />
+              <div className="largeBoxes b3" />
+              <div className="largeLamp" />
+            </div>
           </div>
           <div className="spotlightCopy">
-            <div className="eyebrow">Featured household storage size</div>
-            <h2>Why the 10 × 15 Climate-Controlled Unit Stands Out</h2>
-            <p>
-              A 10 × 15 gives you enough room for meaningful household storage without immediately jumping to a much larger footprint. It is especially compelling when the things taking up that space are furniture, mattresses, electronics, documents, décor, and belongings from several rooms.
-            </p>
+            <h2>Why 10' × 15' Climate-Controlled Is Our Featured Household Size</h2>
+            <p>The 10 × 15 offers a strong balance of usable space and climate-controlled protection for the kinds of belongings people commonly store during a move, remodel, downsizing project, or crowded season at home.</p>
             <div className="spotlightLists">
               <ul>
                 <Check>Furniture from multiple rooms</Check>
-                <Check>Moving between homes</Check>
-                <Check>Remodeling projects</Check>
+                <Check>Moving or remodeling</Check>
+                <Check>Mattresses, bedding & décor</Check>
               </ul>
               <ul>
-                <Check>Mattresses and bedroom sets</Check>
-                <Check>Electronics and documents</Check>
-                <Check>Household overflow and keepsakes</Check>
+                <Check>Electronics & appliances</Check>
+                <Check>Documents, photos & keepsakes</Check>
+                <Check>Household overflow</Check>
               </ul>
             </div>
             <div className="trustTiles">
               <div><CameraIcon /><span>24-Hour<br />Video Surveillance</span></div>
               <div><SnowflakeIcon /><span>Indoor<br />Climate-Controlled</span></div>
-              <div><BoxIcon /><span>150 sq. ft.<br />of floor space</span></div>
+              <div><BoxIcon /><span>150 SQ. FT.<br />of Floor Space</span></div>
             </div>
             <a className="primaryButton spotlightButton" href={UNITS_URL}>View 10 × 15 Availability <span>→</span></a>
           </div>
@@ -275,42 +347,32 @@ export default function Home() {
 
       <section id="faq" className="section faqSection">
         <div className="shell faqShell">
-          <div className="centerHeading compactHeading">
-            <h2>Frequently Asked Questions</h2>
-          </div>
+          <div className="centerHeading compactHeading"><h2>Frequently Asked Questions</h2></div>
           <div className="faqList">
             <details>
               <summary>Why would I pay more for climate-controlled storage?</summary>
-              <p>Because the upgrade is not only about square footage. Climate-controlled storage is designed for customers who want a more controlled indoor environment around furniture, electronics, mattresses, documents, décor, and other belongings they care about.</p>
+              <p>Because the upgrade is not only about square footage. Climate-controlled storage is designed for people who want a more stable indoor environment around furniture, electronics, mattresses, documents, textiles, décor, and other belongings they care about.</p>
             </details>
             <details>
-              <summary>When is a standard unit probably enough?</summary>
-              <p>If you mainly need extra space for tougher, less-sensitive items such as tools, outdoor equipment, or durable plastic bins, standard storage may be the better value.</p>
+              <summary>What kinds of belongings benefit most from climate-controlled storage?</summary>
+              <p>Customers commonly consider climate control for wood and upholstered furniture, mattresses, electronics, paper records, photos, books, clothing, artwork, décor, and mixed household belongings.</p>
             </details>
             <details>
-              <summary>Is climate control the same as humidity control?</summary>
-              <p>No. Those terms are not interchangeable. Ask the facility about its current environmental controls if you are storing items with specific temperature or humidity requirements.</p>
+              <summary>Is climate-controlled the same as humidity-controlled?</summary>
+              <p>No. Those terms are not interchangeable. Ask Lake City Self Storage about the facility's current environmental controls if your items require a specific temperature or humidity range.</p>
             </details>
             <details>
-              <summary>Why is a 10 × 15 a good household storage size?</summary>
-              <p>It provides approximately 150 square feet of floor space and can work well for furniture from multiple rooms, moving transitions, remodeling, and larger household overflow. Exact fit depends on your belongings and how they are packed.</p>
+              <summary>Is climate-controlled storage necessary for everything?</summary>
+              <p>No. If you mainly need space for tougher, less-sensitive items such as tools, outdoor equipment, or durable plastic totes, standard storage may be a perfectly reasonable choice.</p>
             </details>
           </div>
-
-          <div className="standardExit">
-            <GarageIcon />
-            <span>Looking for standard drive-up storage instead?</span>
-            <a href={UNITS_URL}>View standard units →</a>
-          </div>
+          <div className="standardExit"><GarageIcon /><span>Looking for standard drive-up storage instead?</span><a href={UNITS_URL}>View standard units →</a></div>
         </div>
       </section>
 
       <section className="finalCta">
         <div className="shell finalCtaInner">
-          <div>
-            <strong>Clean. Secure. Climate Controlled.</strong>
-            <span>Choose the storage environment that fits the belongings you care about.</span>
-          </div>
+          <div><strong>Clean. Secure. Climate Controlled.</strong><span>A more stable indoor storage environment for the belongings you care about.</span></div>
           <a className="finalButton" href="#sizes">View Climate-Controlled Units →</a>
         </div>
       </section>
@@ -318,17 +380,11 @@ export default function Home() {
       <footer>
         <div className="shell footerMain">
           <img className="footerLogo" src={LOGO_URL} alt="Lake City Self Storage" />
-          <div className="footerDetails">
-            <a href={PHONE_LINK}>{PHONE_DISPLAY}</a>
-            <a href={CONTACT_URL}>Contact Us</a>
-            <a href={PAY_ONLINE_URL}>Pay Online</a>
-          </div>
-          <div className="footerDetails rightFooter">
-            <span>Lake City Self Storage</span>
-            <span>Lake City, Florida</span>
-          </div>
+          <div className="footerDetail"><span className="footerIcon">⌖</span><span>1143 NW Lake Jeffrey Rd<br />Lake City, FL 32055</span></div>
+          <div className="footerDetail"><span className="footerIcon">☎</span><a href={PHONE_LINK}>{PHONE_DISPLAY}</a></div>
+          <div className="footerDetail"><span className="footerIcon">◷</span><span>Access Hours<br />7:00 AM - 8:00 PM</span></div>
         </div>
-        <div className="shell footerLegal">© Lake City Self Storage • All sizes are approximate • Some restrictions may apply</div>
+        <div className="shell footerLegal"><span>© Lake City Self Storage</span><span>All sizes are approximate. Restrictions may apply.</span><a href={CONTACT_URL}>Contact</a></div>
       </footer>
     </main>
   );
