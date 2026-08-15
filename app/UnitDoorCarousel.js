@@ -13,7 +13,10 @@ const units = [
     size: "10 × 10",
     sqft: "100 sq ft",
     label: "Smaller household storage",
-    fit: ["A bed set, sofa, and boxes", "Electronics, documents, décor, and smaller furniture"],
+    fit: [
+      "A bed set, sofa, and boxes",
+      "Electronics, documents, décor, and smaller furniture",
+    ],
     items: [
       ["bed", 6, 60, 76, 38],
       ["sofa", 90, 61, 64, 37],
@@ -28,7 +31,10 @@ const units = [
     sqft: "150 sq ft",
     label: "Recommended for most households",
     featured: true,
-    fit: ["Furniture from multiple rooms", "Mattresses, appliances, boxes, electronics, and décor"],
+    fit: [
+      "Furniture from multiple rooms",
+      "Mattresses, appliances, boxes, electronics, and décor",
+    ],
     items: [
       ["bed", 4, 61, 74, 37],
       ["dresser", 84, 56, 48, 42],
@@ -43,7 +49,10 @@ const units = [
     size: "10 × 20",
     sqft: "200 sq ft",
     label: "Larger household storage",
-    fit: ["Larger furniture and appliances", "A substantial move, remodel, or long-term household storage"],
+    fit: [
+      "Larger furniture and appliances",
+      "A substantial move, remodel, or long-term household storage",
+    ],
     items: [
       ["bed", 2, 63, 70, 35],
       ["sofa", 76, 66, 56, 32],
@@ -55,6 +64,15 @@ const units = [
   },
 ];
 
+const reasons = [
+  "Furniture from multiple rooms",
+  "Moving or remodeling",
+  "Mattresses and bedroom sets",
+  "Electronics and appliances",
+  "Documents, photos, and keepsakes",
+  "Household overflow",
+];
+
 function ItemSymbols() {
   return (
     <svg className={styles.symbols} aria-hidden="true" focusable="false">
@@ -63,7 +81,6 @@ function ItemSymbols() {
         <rect x="11" y="30" width="126" height="18" rx="4" fill="currentColor" opacity=".55" />
         <rect x="11" y="25" width="126" height="7" rx="3" fill="currentColor" opacity=".88" />
         <rect x="18" y="16" width="32" height="12" rx="6" fill="currentColor" opacity=".8" />
-        <rect x="11" y="48" width="126" height="8" rx="2" fill="currentColor" opacity=".42" />
       </symbol>
       <symbol id="door-boxstack" viewBox="0 0 100 130">
         <rect x="8" y="58" width="84" height="72" fill="currentColor" opacity=".55" />
@@ -98,7 +115,7 @@ function ItemSymbols() {
 }
 
 export default function UnitDoorCarousel() {
-  const [openId, setOpenId] = useState(null);
+  const [openId, setOpenId] = useState("10x15");
 
   return (
     <section id="unit-doors" className={styles.section} aria-labelledby="door-carousel-title">
@@ -106,8 +123,10 @@ export default function UnitDoorCarousel() {
 
       <div className={styles.headingShell}>
         <p className={styles.eyebrow}>Choose your climate-controlled size</p>
-        <h2 id="door-carousel-title">Which Climate-Controlled Size Fits Your Life?</h2>
-        <p className={styles.subhead}>Open a door to see what fits. The 10 × 15 is highlighted because it gives many households a useful balance of space without jumping straight to the largest option.</p>
+        <h2 id="door-carousel-title">How Much Space Do You Need?</h2>
+        <p className={styles.subhead}>
+          Open a door to picture what fits. All three options below are climate-controlled, so you can focus on choosing the right amount of space instead of comparing storage environments again.
+        </p>
       </div>
 
       <div className={styles.stage}>
@@ -119,6 +138,7 @@ export default function UnitDoorCarousel() {
                 key={unit.id}
                 className={`${styles.unit} ${open ? styles.open : ""} ${unit.featured ? styles.featured : ""}`}
                 tabIndex={0}
+                aria-label={`${unit.size} climate-controlled storage. ${unit.label}.`}
                 onClick={(event) => {
                   if (event.target.closest("a")) return;
                   setOpenId(open ? null : unit.id);
@@ -130,7 +150,7 @@ export default function UnitDoorCarousel() {
                   }
                 }}
               >
-                {unit.featured ? <div className={styles.featuredFlag}>★ Recommended for most households</div> : null}
+                {unit.featured ? <div className={styles.featuredFlag}>★ Recommended</div> : null}
                 <div className={styles.fascia}><span>{unit.number}</span></div>
                 <div className={styles.opening}>
                   <div className={styles.interior} />
@@ -168,12 +188,34 @@ export default function UnitDoorCarousel() {
         </div>
       </div>
 
-      <div className={styles.decisionBar}>
-        <div>
-          <strong>Not sure which one?</strong>
-          <span>For furniture from multiple rooms, moving, remodeling, mattresses, electronics, and household overflow, start with the 10 × 15.</span>
+      <div id="featured-1015" className={styles.recommendationPanel}>
+        <div className={styles.recommendationLead}>
+          <span className={styles.recommendationBadge}>★ Featured household size</span>
+          <div className={styles.recommendationSize}>10 × 15</div>
+          <div className={styles.recommendationSqft}>150 sq. ft. climate-controlled</div>
+          <h3>The practical middle ground for a lot of households.</h3>
+          <p>
+            Enough room for meaningful furniture and household storage without immediately stepping up to the largest option.
+          </p>
+          <div className={styles.recommendationActions}>
+            <a className={styles.primaryCta} href={UNITS_URL}>View 10 × 15 Availability →</a>
+            <a className={styles.secondaryCta} href={PHONE_LINK}>Call to Ask</a>
+          </div>
         </div>
-        <a href="#featured-1015">Why 10 × 15 stands out →</a>
+
+        <div className={styles.reasonGrid}>
+          {reasons.map((reason) => (
+            <div className={styles.reasonItem} key={reason}>
+              <span>✓</span>
+              <strong>{reason}</strong>
+            </div>
+          ))}
+          <div className={styles.trustRow}>
+            <span>❄ Indoor climate-controlled</span>
+            <span>◉ 24-hour video surveillance</span>
+            <span>□ 150 sq. ft. of floor space</span>
+          </div>
+        </div>
       </div>
     </section>
   );
