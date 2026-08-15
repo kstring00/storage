@@ -1,6 +1,7 @@
 const PHONE_DISPLAY = "(386) 292-5494";
 const PHONE_LINK = "tel:+13862925494";
-const MAIN_SITE = "https://lakecityselfstorage.com";
+const HOME_SITE = "https://lakecityselfstorage.com";
+const UNITS_URL = "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055";
 
 function Icon({ children }) {
   return <span className="iconWrap" aria-hidden="true">{children}</span>;
@@ -161,7 +162,7 @@ export default function Home() {
             <div className="reasonList">
               <div><span>01</span><p><strong>More consistent surroundings.</strong> An indoor environment designed to reduce exposure to outdoor temperature swings.</p></div>
               <div><span>02</span><p><strong>Built for household belongings.</strong> A practical option for furniture, documents, electronics, décor, and boxed household items.</p></div>
-              <div><span>03</span><p><strong>Comfortable access.</strong> Load, organize, and visit your unit from an indoor climate-controlled area.</p></div>
+              <div><span>03</span><p><strong>Purpose-built storage.</strong> Choose a dedicated climate-controlled space instead of leaving belongings in an unconditioned garage, attic, or shed.</p></div>
             </div>
             <p className="disclaimer">Climate-controlled storage is not the same as humidity-controlled storage. Ask the facility about current environmental controls for items with specific requirements.</p>
           </div>
@@ -254,9 +255,9 @@ export default function Home() {
               <h3>Prioritize the storage environment</h3>
               <p>Best suited for customers storing household belongings that they prefer to keep in a more controlled indoor setting.</p>
               <ul>
-                <li>Indoor environment</li>
+                <li>More controlled environment</li>
                 <li>Household-friendly storage</li>
-                <li>Comfortable indoor access</li>
+                <li>Designed for sensitive belongings</li>
               </ul>
             </article>
             <article className="compareCard">
@@ -281,7 +282,7 @@ export default function Home() {
             <p>Get current availability, compare climate-controlled sizes, or talk with the Lake City team before you choose.</p>
           </div>
           <div className="availabilityActions">
-            <a className="button buttonWhite wideButton" href={MAIN_SITE}>View Current Units <ArrowIcon /></a>
+            <a className="button buttonWhite wideButton" href={UNITS_URL}>View Current Units <ArrowIcon /></a>
             <a className="button buttonOutlineWhite wideButton" href={PHONE_LINK}>Call {PHONE_DISPLAY}</a>
             <small>Current unit availability and pricing are confirmed through Lake City Self Storage.</small>
           </div>
@@ -336,7 +337,7 @@ export default function Home() {
             <span className="brandWords"><strong>Lake City</strong><small>Self Storage</small></span>
           </div>
           <p>Climate-controlled and drive-up storage in Lake City, Florida.</p>
-          <div className="footerLinks"><a href={PHONE_LINK}>{PHONE_DISPLAY}</a><a href={MAIN_SITE}>Main Website</a></div>
+          <div className="footerLinks"><a href={PHONE_LINK}>{PHONE_DISPLAY}</a><a href={HOME_SITE}>Main Website</a></div>
         </div>
         <div className="shell legal">Promotional terms and unit availability may change. Restrictions may apply. Confirm current rental terms with Lake City Self Storage.</div>
       </footer>
