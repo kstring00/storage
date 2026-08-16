@@ -15,11 +15,6 @@ export default function StorageTypePage({ config }) {
   const storageFitFooterNote = config.decisionNoteOnly
     ? { title: config.noteTitle, copy: config.noteCopy }
     : null;
-  const finalUnitsHref = config.showClimateDoors
-    ? "#unit-doors"
-    : config.showDriveUpDoors
-      ? "#drive-up-sizes"
-      : UNITS_URL;
 
   return (
     <main className={styles.page}>
@@ -165,19 +160,14 @@ export default function StorageTypePage({ config }) {
             <span>{config.finalCopy}</span>
           </div>
 
-          <div className={styles.finalPrimary}>
-            <a className={styles.finalButton} href={finalUnitsHref}>
-              <span className={styles.finalButtonIcon}>{config.icon}</span>
-              <span className={styles.finalButtonText}>{config.finalCta}</span>
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-
           <div className={styles.finalCompare}>
-            <span className={styles.compareLabel}>Also compare</span>
+            <span className={styles.compareLabel}>Explore the other option</span>
             <strong>{config.crossTitle}</strong>
             <span>{config.crossCopy}</span>
-            <a href={config.crossHref}>{config.crossCta} →</a>
+            <a className={styles.finalButton} href={config.crossHref}>
+              <span className={styles.finalButtonText}>{config.crossCta}</span>
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </section>
