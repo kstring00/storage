@@ -10,6 +10,10 @@ const PAY_ONLINE_URL = "https://www.lakecityselfstorage.com/payonline";
 const LOGO_URL = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/outlook-1lwjlfpa_01032024100037323.png";
 
 export default function StorageTypePage({ config }) {
+  const storageFitFooterNote = config.decisionNoteOnly
+    ? { title: config.noteTitle, copy: config.noteCopy }
+    : null;
+
   return (
     <main className={styles.page}>
       <header className="siteHeader">
@@ -76,7 +80,7 @@ export default function StorageTypePage({ config }) {
         </div>
       </section>
 
-      <StorageFitTabs config={config.storageFit} />
+      <StorageFitTabs config={config.storageFit} footerNote={storageFitFooterNote} />
 
       {!config.hideUses ? (
         <section id="best-uses" className={styles.section}>
@@ -100,13 +104,7 @@ export default function StorageTypePage({ config }) {
         </section>
       ) : null}
 
-      {config.decisionNoteOnly ? (
-        <section id="decision" className={styles.compactNoteSection}>
-          <div className={styles.shell}>
-            <div className={styles.note}><strong>{config.noteTitle}</strong> {config.noteCopy}</div>
-          </div>
-        </section>
-      ) : (
+      {!config.decisionNoteOnly ? (
         <section id="decision" className={styles.sectionAlt}>
           <div className={styles.shell}>
             <div className={styles.heading}>
@@ -132,7 +130,7 @@ export default function StorageTypePage({ config }) {
             <div className={styles.note}><strong>{config.noteTitle}</strong> {config.noteCopy}</div>
           </div>
         </section>
-      )}
+      ) : null}
 
       <section id="faq" className={styles.section}>
         <div className={styles.shell}>
