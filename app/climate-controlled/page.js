@@ -112,7 +112,7 @@ const config = {
         "No. Those terms are not interchangeable. If your belongings require a specific humidity or temperature range, contact the facility to ask about the current controls.",
     },
   ],
-  crossTitle: "Mostly storing durable items?",
+  crossTitle: "Need tougher-item storage instead?",
   crossCopy:
     "Non-climate-controlled storage may be the more practical and economical choice for tougher belongings.",
   crossHref: "/non-climate-control",
