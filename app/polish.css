@@ -2,3 +2,133 @@
   grid-template-rows: auto 1fr auto;
   align-content: stretch;
 }
+
+/* Make the staging/mock monthly specials unmistakable on the animated climate doors. */
+[id^="climate-unit-"]:not(#climate-unit-5x5) [class*="info"] > div[style] {
+  width: min(238px, calc(100% - 18px)) !important;
+  margin: 0 auto 12px !important;
+  padding: 9px 11px 10px !important;
+  display: grid !important;
+  grid-template-columns: auto auto auto !important;
+  align-items: baseline !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  background: linear-gradient(180deg, rgba(82, 162, 64, .22), rgba(255, 255, 255, .07)) !important;
+  border: 1px solid rgba(155, 227, 131, .36) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 9px 22px rgba(0, 0, 0, .2) !important;
+}
+
+[id^="climate-unit-"]:not(#climate-unit-5x5) [class*="info"] > div[style]::before {
+  content: "DEMO MONTHLY SPECIAL";
+  grid-column: 1 / -1;
+  display: block;
+  margin-bottom: 2px;
+  color: #a9e899;
+  font-size: 7px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+[id^="climate-unit-"]:not(#climate-unit-5x5) [class*="info"] > div[style] > span:first-child {
+  color: #aab9c2 !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  text-decoration-thickness: 1.5px !important;
+}
+
+[id^="climate-unit-"]:not(#climate-unit-5x5) [class*="info"] > div[style] > strong {
+  color: #ffffff !important;
+  font-size: 22px !important;
+  line-height: 1 !important;
+  font-weight: 950 !important;
+  letter-spacing: -.03em !important;
+  text-shadow: 0 2px 9px rgba(0, 0, 0, .38) !important;
+}
+
+[id^="climate-unit-"]:not(#climate-unit-5x5) [class*="info"] > div[style] > strong span {
+  color: #d0efc8 !important;
+  font-size: 8px !important;
+  font-weight: 850 !important;
+}
+
+[id^="climate-unit-"]:not(#climate-unit-5x5) [class*="info"] > div[style] > span:last-child {
+  align-self: center;
+  padding: 3px 6px;
+  border-radius: 999px;
+  background: #78c95f;
+  color: #102d19 !important;
+  font-size: 6.5px !important;
+  font-weight: 950 !important;
+  letter-spacing: .06em !important;
+}
+
+/* Closed-door price treatment: large enough to read before the visitor opens a unit. */
+[id^="climate-unit-"]:not(#climate-unit-5x5) div[class*="door"] > div[style] {
+  min-width: 168px !important;
+  margin-top: 11px !important;
+  padding: 8px 11px 9px !important;
+  display: grid !important;
+  grid-template-columns: auto auto auto !important;
+  align-items: baseline !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  background: rgba(237, 249, 233, .98) !important;
+  border: 1px solid #b9ddb1 !important;
+  border-radius: 9px !important;
+  box-shadow: 0 6px 16px rgba(54, 124, 43, .13) !important;
+  color: #2f7d27 !important;
+}
+
+[id^="climate-unit-"]:not(#climate-unit-5x5) div[class*="door"] > div[style]::before {
+  content: "DEMO SPECIAL";
+  grid-column: 1 / -1;
+  color: #438b36;
+  font-size: 6.5px;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+[id^="climate-unit-"]:not(#climate-unit-5x5) div[class*="door"] > div[style] > span:first-child {
+  color: #7d8e95 !important;
+  font-size: 8px !important;
+  font-weight: 800 !important;
+  text-decoration-thickness: 1.3px !important;
+}
+
+[id^="climate-unit-"]:not(#climate-unit-5x5) div[class*="door"] > div[style] > strong {
+  color: #2d7e28 !important;
+  font-size: 17px !important;
+  line-height: 1 !important;
+  font-weight: 950 !important;
+  letter-spacing: -.03em !important;
+}
+
+[id^="climate-unit-"]:not(#climate-unit-5x5) div[class*="door"] > div[style] > strong span {
+  font-size: 7px !important;
+  font-weight: 850 !important;
+}
+
+[id^="climate-unit-"]:not(#climate-unit-5x5) div[class*="door"] > div[style] > span:last-child {
+  padding: 2px 5px;
+  border-radius: 999px;
+  background: #d9efd3;
+  color: #438b36 !important;
+  font-size: 6.2px !important;
+  font-weight: 950 !important;
+  letter-spacing: .06em !important;
+}
+
+@media (max-width: 680px) {
+  [id^="climate-unit-"]:not(#climate-unit-5x5) div[class*="door"] > div[style] {
+    min-width: 154px !important;
+  }
+
+  [id^="climate-unit-"]:not(#climate-unit-5x5) [class*="info"] > div[style] > strong {
+    font-size: 20px !important;
+  }
+}
