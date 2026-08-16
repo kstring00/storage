@@ -1,4 +1,5 @@
 import ORIGINAL_HERO from "./originalHero";
+import StorageFitTabs from "./StorageFitTabs";
 import styles from "./storageTypePage.module.css";
 
 const PHONE_DISPLAY = "(386) 292-5494";
@@ -21,6 +22,7 @@ export default function StorageTypePage({ config }) {
         <div className="shell navRow">
           <nav aria-label="Primary navigation">
             <a href="#benefits">Benefits</a>
+            <a href="#storage-fit">What to Store</a>
             <a href="#best-uses">Best Uses</a>
             <a href="#decision">Is It Right for Me?</a>
             <a href="#faq">FAQ</a>
@@ -74,7 +76,9 @@ export default function StorageTypePage({ config }) {
         </div>
       </section>
 
-      <section id="best-uses" className={styles.sectionAlt}>
+      <StorageFitTabs config={config.storageFit} />
+
+      <section id="best-uses" className={styles.section}>
         <div className={styles.shell}>
           <div className={styles.heading}>
             <h2>{config.usesTitle}</h2>
@@ -94,7 +98,7 @@ export default function StorageTypePage({ config }) {
         </div>
       </section>
 
-      <section id="decision" className={styles.section}>
+      <section id="decision" className={styles.sectionAlt}>
         <div className={styles.shell}>
           <div className={styles.heading}>
             <h2>{config.decisionTitle}</h2>
@@ -120,7 +124,7 @@ export default function StorageTypePage({ config }) {
         </div>
       </section>
 
-      <section id="faq" className={styles.sectionAlt}>
+      <section id="faq" className={styles.section}>
         <div className={styles.shell}>
           <div className={styles.heading}><h2>Frequently Asked Questions</h2></div>
           <div className={styles.faq}>
