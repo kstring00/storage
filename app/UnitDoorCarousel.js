@@ -6,7 +6,25 @@ import styles from "./UnitDoorCarousel.module.css";
 const UNITS_URL = "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055";
 const PHONE_LINK = "tel:+13862925494";
 
-const units = [
+const occupiedSmallUnit = {
+  id: "5x5",
+  number: "SMALL",
+  size: "5 × 5",
+  sqft: "25 sq ft",
+  label: "Small climate-controlled storage",
+  occupiedDemo: true,
+  fit: [
+    "A compact option for boxes, seasonal items, and smaller belongings",
+    "Example availability state: this size is shown as fully occupied",
+  ],
+  items: [
+    ["boxstack", 60, 42, 58, 58],
+    ["bin", 142, 69, 52, 29],
+    ["bin", 196, 72, 42, 26],
+  ],
+};
+
+const standardUnits = [
   {
     id: "10x10",
     number: "B-03",
@@ -105,8 +123,9 @@ function ItemSymbols() {
   );
 }
 
-export default function UnitDoorCarousel() {
-  const [openId, setOpenId] = useState("10x15");
+export default function UnitDoorCarousel({ includeOccupiedSmallest = false }) {
+  const units = includeOccupiedSmallest ? [occupiedSmallUnit, ...standardUnits] : standardUnits;
+  const [openId, setOpenId] = useState(includeOccupiedSmallest ? "5x5" : "10x15");
 
   return (
     <section id="unit-doors" className={styles.section} aria-labelledby="door-carousel-title">
@@ -116,16 +135,20 @@ export default function UnitDoorCarousel() {
         <p className={styles.eyebrow}>Choose your climate-controlled size</p>
         <h2 id="door-carousel-title">How Much Space Do You Need?</h2>
         <p className={styles.subhead}>
-          Open a door to picture what fits. All three options below are climate-controlled, so you can focus on choosing the right amount of space instead of comparing storage environments again.
+          Open a door to picture what fits. Climate-controlled inventory and rates can change, so use this guide to compare space and then check the facility&apos;s live availability.
         </p>
       </div>
 
       <div className={styles.stage}>
-        <div className={styles.rail}>
+        <div
+          className={styles.rail}
+          style={includeOccupiedSmallest ? { gridTemplateColumns: "repeat(4, minmax(0, 1fr))" } : undefined}
+        >
           {units.map((unit) => {
             const open = openId === unit.id;
             return (
               <article
+                id={`climate-unit-${unit.id}`}
                 key={unit.id}
                 className={`${styles.unit} ${open ? styles.open : ""} ${unit.featured ? styles.featured : ""}`}
                 tabIndex={0}
@@ -152,22 +175,50 @@ export default function UnitDoorCarousel() {
                   </svg>
                   <div className={styles.scrim} />
                   <div className={styles.info}>
-                    <span className={styles.climateTag}>❄ Indoor climate-controlled</span>
+                    <span
+                      className={styles.climateTag}
+                      style={unit.occupiedDemo ? { background: "#f4c7c7", color: "#762a2a" } : undefined}
+                    >
+                      {unit.occupiedDemo ? "Example availability • Fully occupied" : "❄ Indoor climate-controlled"}
+                    </span>
                     <p className={styles.infoSize}>{unit.size}</p>
                     <p className={styles.infoLabel}>{unit.label}</p>
-                    <ul className={styles.fitList}>
-                      {unit.fit.map((line) => <li key={line}>{line}</li>)}
-                    </ul>
+                    {unit.occupiedDemo ? (
+                      <div
+                        style={{
+                          maxWidth: "245px",
+                          color: "#dce8ef",
+                          fontSize: "9.5px",
+                          lineHeight: 1.5,
+                          marginTop: "1px",
+                        }}
+                      >
+                        This sold-out state is shown as a demo. If the smallest option is full, give us a call and we&apos;ll help compare the next size up and find a practical option at a reasonable rate.
+                      </div>
+                    ) : (
+                      <ul className={styles.fitList}>
+                        {unit.fit.map((line) => <li key={line}>{line}</li>)}
+                      </ul>
+                    )}
                     <div className={styles.actions}>
-                      <a className={styles.reserveLink} href={UNITS_URL}>View Availability →</a>
-                      <a className={styles.callLink} href={PHONE_LINK}>Call to Ask</a>
+                      {unit.occupiedDemo ? (
+                        <>
+                          <a className={styles.reserveLink} href={PHONE_LINK}>Call About the Next Size →</a>
+                          <a className={styles.callLink} href="#climate-unit-10x10">See Larger Options</a>
+                        </>
+                      ) : (
+                        <>
+                          <a className={styles.reserveLink} href={UNITS_URL}>View Availability →</a>
+                          <a className={styles.callLink} href={PHONE_LINK}>Call to Ask</a>
+                        </>
+                      )}
                     </div>
                   </div>
                   <div className={styles.door}>
-                    <span className={styles.doorClimate}>❄ Climate-Controlled</span>
+                    <span className={styles.doorClimate}>{unit.occupiedDemo ? "❄ Climate-Controlled • Demo" : "❄ Climate-Controlled"}</span>
                     <p>{unit.size}</p>
                     <span>{unit.sqft}</span>
-                    <small>{unit.label}</small>
+                    <small>{unit.occupiedDemo ? "Example: fully occupied" : unit.label}</small>
                     <i />
                   </div>
                   <span className={styles.sill} />
