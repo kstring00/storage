@@ -153,11 +153,11 @@ export default function Home() {
       <section className="heroClimate">
         <div className="shell heroClimateGrid">
           <div className="heroClimateCopy">
-            <div className="climateBadge"><SnowflakeIcon /> Indoor Climate-Controlled Storage</div>
-            <h1>Find Your Climate-Controlled Storage Unit</h1>
-            <p className="heroLead">Keep furniture, documents, electronics, mattresses, and household belongings in a more stable indoor environment than traditional unconditioned storage exposed to Florida heat.</p>
+            <div className="climateBadge"><GarageIcon /> Standard & Climate-Controlled Storage</div>
+            <h1>Find the Right Storage Space for You</h1>
+            <p className="heroLead">Whether you need convenient drive-up storage or a more stable indoor environment for sensitive belongings, Lake City Self Storage offers flexible unit options for moves, household overflow, business storage, and everything in between.</p>
             <div className="heroActions">
-              <a className="primaryButton" href="#unit-doors">Choose Your Climate-Controlled Size <span>→</span></a>
+              <a className="primaryButton" href="#unit-doors">Explore Storage Unit Sizes <span>→</span></a>
             </div>
             <div className="heroTrust">
               <span><ShieldIcon /> Secure Facility</span>
@@ -166,13 +166,13 @@ export default function Home() {
             </div>
           </div>
           <div className="heroClimateVisual">
-            <img src={HERO_IMAGE} alt="Indoor climate-controlled storage hallway at Lake City Self Storage" />
+            <img src={HERO_IMAGE} alt="Lake City Self Storage facility with a variety of storage unit options" />
             <div className="climateVisualOverlay">
-              <SnowflakeIcon />
+              <GarageIcon />
               <div>
-                <strong>Indoor Climate-Controlled</strong>
-                <span>Clean, enclosed storage environment</span>
-                <small>A better fit for furniture, electronics, documents, and household belongings.</small>
+                <strong>Storage Options for Every Need</strong>
+                <span>Standard + climate-controlled units</span>
+                <small>Choose the space and storage environment that best fits what you need to store.</small>
               </div>
             </div>
           </div>
