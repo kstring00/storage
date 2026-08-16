@@ -107,6 +107,8 @@ const config = {
       },
     ],
   },
+  hideUses: true,
+  hideDecision: true,
   usesTitle: "Belongings That Commonly Benefit from Climate Control",
   usesIntro:
     "You do not need climate control for everything, but it can be the better choice for items that are more vulnerable to heat, moisture, or environmental swings.",
