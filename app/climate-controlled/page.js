@@ -43,6 +43,10 @@ const config = {
     title: "What Florida Heat & Humidity Can Do to Stored Belongings",
     intro: "Heat, moisture, and repeated environmental swings can affect common household materials over time.",
     tabLabel: "Climate-controlled storage guidance",
+    footerNote: {
+      title: "Why climate control helps:",
+      copy: "it reduces environmental extremes by providing a more stable indoor storage environment. Exact temperature and humidity conditions can vary; ask the facility about current controls for items with special requirements.",
+    },
     tabs: [
       {
         label: "Sensitive Belongings",
@@ -74,10 +78,6 @@ const config = {
             copy: "Heat and moisture exposure can stress components and contribute to corrosion or performance issues. A more stable indoor environment can be a better fit.",
           },
         ],
-        note: {
-          title: "Why climate control helps:",
-          copy: "it reduces environmental extremes by providing a more stable indoor storage environment. Exact temperature and humidity conditions can vary; ask the facility about current controls for items with special requirements.",
-        },
       },
       {
         label: "Best Situations",
@@ -100,10 +100,6 @@ const config = {
           { icon: "⌑", visual: "patio", title: "Patio Furniture", copy: "Outdoor tables and chairs are typically built to tolerate changing temperatures better than indoor furniture." },
           { icon: "▤", visual: "totes", title: "Sealed Plastic Totes", copy: "Sturdy bins with non-sensitive contents can be a practical fit for non-climate-controlled storage." },
         ],
-        note: {
-          title: "Simple rule:",
-          copy: "if you would worry about keeping the item in a hot garage for an extended period, climate control is worth considering.",
-        },
       },
     ],
   },
