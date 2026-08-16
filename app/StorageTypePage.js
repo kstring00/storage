@@ -23,8 +23,8 @@ export default function StorageTypePage({ config }) {
           <nav aria-label="Primary navigation">
             <a href="#benefits">Benefits</a>
             <a href="#storage-fit">What to Store</a>
-            <a href="#best-uses">Best Uses</a>
-            <a href="#decision">Is It Right for Me?</a>
+            {!config.hideUses ? <a href="#best-uses">Best Uses</a> : null}
+            {!config.decisionNoteOnly ? <a href="#decision">Is It Right for Me?</a> : null}
             <a href="#faq">FAQ</a>
             <a href={PAY_ONLINE_URL}>Pay Online</a>
           </nav>
@@ -78,51 +78,61 @@ export default function StorageTypePage({ config }) {
 
       <StorageFitTabs config={config.storageFit} />
 
-      <section id="best-uses" className={styles.section}>
-        <div className={styles.shell}>
-          <div className={styles.heading}>
-            <h2>{config.usesTitle}</h2>
-            <p>{config.usesIntro}</p>
+      {!config.hideUses ? (
+        <section id="best-uses" className={styles.section}>
+          <div className={styles.shell}>
+            <div className={styles.heading}>
+              <h2>{config.usesTitle}</h2>
+              <p>{config.usesIntro}</p>
+            </div>
+            <div className={styles.useGrid}>
+              {config.uses.map((use) => (
+                <article className={styles.useCard} key={use.title}>
+                  <span className={styles.check}>✓</span>
+                  <div>
+                    <strong>{use.title}</strong>
+                    <p>{use.copy}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-          <div className={styles.useGrid}>
-            {config.uses.map((use) => (
-              <article className={styles.useCard} key={use.title}>
-                <span className={styles.check}>✓</span>
-                <div>
-                  <strong>{use.title}</strong>
-                  <p>{use.copy}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
-      <section id="decision" className={styles.sectionAlt}>
-        <div className={styles.shell}>
-          <div className={styles.heading}>
-            <h2>{config.decisionTitle}</h2>
-            <p>{config.decisionIntro}</p>
+      {config.decisionNoteOnly ? (
+        <section id="decision" className={styles.compactNoteSection}>
+          <div className={styles.shell}>
+            <div className={styles.note}><strong>{config.noteTitle}</strong> {config.noteCopy}</div>
           </div>
-          <div className={styles.decisionGrid}>
-            <article className={`${styles.decisionCard} ${styles.decisionCardAccent}`}>
-              <div className={styles.decisionLabel}>{config.goodFitLabel}</div>
-              <h3>{config.goodFitTitle}</h3>
-              <ul>
-                {config.goodFit.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-            </article>
-            <article className={styles.decisionCard}>
-              <div className={styles.decisionLabel}>{config.otherFitLabel}</div>
-              <h3>{config.otherFitTitle}</h3>
-              <ul>
-                {config.otherFit.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-            </article>
+        </section>
+      ) : (
+        <section id="decision" className={styles.sectionAlt}>
+          <div className={styles.shell}>
+            <div className={styles.heading}>
+              <h2>{config.decisionTitle}</h2>
+              <p>{config.decisionIntro}</p>
+            </div>
+            <div className={styles.decisionGrid}>
+              <article className={`${styles.decisionCard} ${styles.decisionCardAccent}`}>
+                <div className={styles.decisionLabel}>{config.goodFitLabel}</div>
+                <h3>{config.goodFitTitle}</h3>
+                <ul>
+                  {config.goodFit.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </article>
+              <article className={styles.decisionCard}>
+                <div className={styles.decisionLabel}>{config.otherFitLabel}</div>
+                <h3>{config.otherFitTitle}</h3>
+                <ul>
+                  {config.otherFit.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </article>
+            </div>
+            <div className={styles.note}><strong>{config.noteTitle}</strong> {config.noteCopy}</div>
           </div>
-          <div className={styles.note}><strong>{config.noteTitle}</strong> {config.noteCopy}</div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section id="faq" className={styles.section}>
         <div className={styles.shell}>
