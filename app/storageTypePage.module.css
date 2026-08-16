@@ -21,6 +21,7 @@
 .visualCard span{display:block;color:#5f7282;font-size:11px;line-height:1.45}
 .section{padding:64px 0}
 .sectionAlt{padding:64px 0;background:linear-gradient(180deg,#f3f9fd 0%,#edf6fb 100%);border-top:1px solid #dceaf3;border-bottom:1px solid #dceaf3}
+.compactNoteSection{padding:24px 0 34px;background:#fff}
 .shell{width:min(1100px,calc(100% - 48px));margin:0 auto}
 .heading{text-align:center;max-width:810px;margin:0 auto 30px}
 .heading h2{margin:0 0 8px;color:#082d4f;font-size:32px;line-height:1.15;letter-spacing:-.025em}
@@ -44,6 +45,7 @@
 .decisionCard li{position:relative;padding-left:23px;margin:10px 0;color:#566775;font-size:11px;line-height:1.55}
 .decisionCard li:before{content:"✓";position:absolute;left:0;top:0;color:#0874ba;font-weight:900}
 .note{margin-top:22px;background:#f8fbfd;border:1px solid #d9e7ef;border-radius:10px;padding:16px 18px;color:#5f7280;font-size:10.5px;line-height:1.6}
+.compactNoteSection .note{margin-top:0}
 .note strong{color:#123f61}
 .faq{max-width:850px;margin:0 auto}
 .faq details{border-top:1px solid #d9e4eb;padding:0}
@@ -63,4 +65,4 @@
 .final span{font-size:10.5px;color:#c8d7e2}
 .final a{background:#fff;color:#0e557e;border-radius:5px;padding:11px 16px;font-size:10px;font-weight:800;white-space:nowrap}
 @media(max-width:900px){.heroGrid{grid-template-columns:1fr}.hero h1{font-size:39px}.benefitGrid,.useGrid{grid-template-columns:1fr 1fr}.decisionGrid{grid-template-columns:1fr}.visual{min-height:320px}.visual img{min-height:320px}}
-@media(max-width:640px){.hero{padding:38px 0 45px}.heroGrid,.shell,.finalInner{width:min(100% - 30px,1100px)}.hero h1{font-size:34px}.benefitGrid,.useGrid{grid-template-columns:1fr}.section,.sectionAlt{padding:48px 0}.heading h2{font-size:27px}.crossLink,.finalInner{flex-direction:column;align-items:flex-start}.visualCard{left:14px;right:14px;bottom:14px}.trust{gap:12px}}
+@media(max-width:640px){.hero{padding:38px 0 45px}.heroGrid,.shell,.finalInner{width:min(100% - 30px,1100px)}.hero h1{font-size:34px}.benefitGrid,.useGrid{grid-template-columns:1fr}.section,.sectionAlt{padding:48px 0}.compactNoteSection{padding:20px 0 28px}.heading h2{font-size:27px}.crossLink,.finalInner{flex-direction:column;align-items:flex-start}.visualCard{left:14px;right:14px;bottom:14px}.trust{gap:12px}}
