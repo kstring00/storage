@@ -31,6 +31,8 @@ const standardUnits = [
     label: "Bedroom or apartment overflow",
     doorNote: "Bikes • bed set • desk",
     specialLabel: "Monthly Special",
+    mockRegularPrice: "$149",
+    mockSpecialPrice: "$119",
     bestFor: ["Bikes", "Bed set", "Desk"],
     helper: "A practical fit for the contents of a bedroom, small apartment overflow, or a few larger pieces you want protected indoors.",
     items: [
@@ -49,6 +51,8 @@ const standardUnits = [
     doorNote: "Furniture • mattresses • boxes",
     featured: true,
     specialLabel: "Featured Monthly Special",
+    mockRegularPrice: "$189",
+    mockSpecialPrice: "$149",
     bestFor: ["Living-room furniture", "Mattress sets", "Boxes & décor"],
     helper: "A strong middle-ground size for several rooms of furniture without immediately stepping up to the largest option.",
     items: [
@@ -67,6 +71,8 @@ const standardUnits = [
     label: "Larger household storage",
     doorNote: "Multiple rooms • appliances",
     specialLabel: "Monthly Special",
+    mockRegularPrice: "$239",
+    mockSpecialPrice: "$189",
     bestFor: ["Multiple rooms", "Large appliances", "Dining + living sets"],
     helper: "A better fit for larger moves, remodels, or households storing substantial furniture and appliances together.",
     items: [
@@ -144,7 +150,7 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false }) {
         <p className={styles.eyebrow}>Featured this month</p>
         <h2 id="door-carousel-title">Climate-Controlled Monthly Specials</h2>
         <p className={styles.subhead}>
-          These featured sizes are being highlighted as this month&apos;s promotional units. Open a door to see what each size is best suited for, then check current availability and promotional pricing with the facility.
+          These are sample promotional prices for the staging concept—not current facility rates. Open a door to see what each size is best suited for, then check live availability and actual pricing with the facility.
         </p>
       </div>
 
@@ -190,6 +196,14 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false }) {
                     <p className={styles.infoSize}>{unit.size}</p>
                     <p className={styles.infoLabel}>{unit.label}</p>
 
+                    {!unit.occupiedDemo ? (
+                      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: "7px", margin: "0 0 11px" }}>
+                        <span style={{ color: "#8da1ad", fontSize: "9px", textDecoration: "line-through", fontWeight: 750 }}>{unit.mockRegularPrice}/mo</span>
+                        <strong style={{ color: "#9be383", fontSize: "18px", lineHeight: 1, fontWeight: 900 }}>{unit.mockSpecialPrice}<span style={{ fontSize: "8px", color: "#cfe7d0", marginLeft: "2px" }}>/mo</span></strong>
+                        <span style={{ color: "#77c65b", fontSize: "7px", textTransform: "uppercase", letterSpacing: ".08em", fontWeight: 850 }}>demo</span>
+                      </div>
+                    ) : null}
+
                     <div className={styles.fitBlock}>
                       <span className={styles.fitEyebrow}>{unit.occupiedDemo ? "Typically fits" : "Best for"}</span>
                       <div className={styles.fitChips}>
@@ -214,7 +228,7 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false }) {
                         </>
                       ) : (
                         <>
-                          <a className={styles.reserveLink} href={UNITS_URL}>Check Special & Availability →</a>
+                          <a className={styles.reserveLink} href={UNITS_URL}>Check Live Price & Availability →</a>
                           <a className={styles.callLink} href={PHONE_LINK}>Call to Ask</a>
                         </>
                       )}
@@ -225,6 +239,13 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false }) {
                     <span className={styles.doorClimate}>{unit.occupiedDemo ? "❄ Climate-Controlled • Demo" : "❄ Climate-Controlled"}</span>
                     <p>{unit.size}</p>
                     <span>{unit.sqft}</span>
+                    {!unit.occupiedDemo ? (
+                      <div style={{ marginTop: "10px", display: "inline-flex", alignItems: "baseline", gap: "5px", background: "#e8f6e3", border: "1px solid #cfe8c8", borderRadius: "999px", padding: "5px 9px", color: "#2f7d27" }}>
+                        <span style={{ textDecoration: "line-through", fontSize: "7.5px", opacity: .68 }}>{unit.mockRegularPrice}</span>
+                        <strong style={{ fontSize: "12px", lineHeight: 1 }}>{unit.mockSpecialPrice}<span style={{ fontSize: "7px", marginLeft: "1px" }}>/mo</span></strong>
+                        <span style={{ fontSize: "6.5px", textTransform: "uppercase", letterSpacing: ".06em", fontWeight: 850 }}>mock</span>
+                      </div>
+                    ) : null}
                     <small>{unit.doorNote}</small>
                     <i />
                   </div>
