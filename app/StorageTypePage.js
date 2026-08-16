@@ -28,7 +28,7 @@ export default function StorageTypePage({ config }) {
             <a href="#benefits">Benefits</a>
             <a href="#storage-fit">What to Store</a>
             {!config.hideUses ? <a href="#best-uses">Best Uses</a> : null}
-            {!config.decisionNoteOnly ? <a href="#decision">Is It Right for Me?</a> : null}
+            {!config.decisionNoteOnly && !config.hideDecision ? <a href="#decision">Is It Right for Me?</a> : null}
             <a href="#faq">FAQ</a>
             <a href={PAY_ONLINE_URL}>Pay Online</a>
           </nav>
@@ -104,7 +104,7 @@ export default function StorageTypePage({ config }) {
         </section>
       ) : null}
 
-      {!config.decisionNoteOnly ? (
+      {!config.decisionNoteOnly && !config.hideDecision ? (
         <section id="decision" className={styles.sectionAlt}>
           <div className={styles.shell}>
             <div className={styles.heading}>
