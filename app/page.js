@@ -9,6 +9,11 @@ const PAY_ONLINE_URL = "https://www.lakecityselfstorage.com/payonline";
 const LOGO_URL = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/outlook-1lwjlfpa_01032024100037323.png";
 const HERO_IMAGE = ORIGINAL_HERO;
 
+// Placeholder destinations for the future dedicated feature pages.
+// Replace these with the final URLs once those pages are built.
+const STANDARD_STORAGE_FEATURE_URL = "#";
+const CLIMATE_STORAGE_FEATURE_URL = "#";
+
 const deteriorationCards = [
   {
     title: "Wood Furniture",
@@ -197,7 +202,18 @@ export default function Home() {
                 <Check>Better for items that can handle a less-controlled environment</Check>
                 <Check>Usually the lower monthly rate</Check>
               </ul>
-              <div className="bestFor"><strong>Best for:</strong><span>Tools, patio furniture, lawn equipment, durable plastic totes, and other less-sensitive items.</span></div>
+              <div className="bestFor">
+                <strong>Best for:</strong>
+                <span>Tools, patio furniture, lawn equipment, durable plastic totes, and other less-sensitive items.</span>
+                <a
+                  className="primaryButton"
+                  href={STANDARD_STORAGE_FEATURE_URL}
+                  aria-label="Explore Standard Storage feature page"
+                  style={{ alignSelf: "flex-start", marginTop: "12px" }}
+                >
+                  Explore Standard Storage <span>→</span>
+                </a>
+              </div>
             </article>
 
             <article className="comparisonCard climateCard">
@@ -212,7 +228,18 @@ export default function Home() {
                 <Check>Helps reduce exposure to Florida heat and temperature swings</Check>
                 <Check>Ideal for furniture, electronics, documents, textiles, and household items</Check>
               </ul>
-              <div className="bestFor"><strong>Best for:</strong><span>Furniture, electronics, mattresses, documents, clothing, décor, artwork, keepsakes, and household belongings.</span></div>
+              <div className="bestFor">
+                <strong>Best for:</strong>
+                <span>Furniture, electronics, mattresses, documents, clothing, décor, artwork, keepsakes, and household belongings.</span>
+                <a
+                  className="primaryButton"
+                  href={CLIMATE_STORAGE_FEATURE_URL}
+                  aria-label="Explore Climate-Controlled Storage feature page"
+                  style={{ alignSelf: "flex-start", marginTop: "12px" }}
+                >
+                  Explore Climate-Controlled Storage <span>→</span>
+                </a>
+              </div>
             </article>
           </div>
         </div>
