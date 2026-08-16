@@ -1,6 +1,7 @@
 import ORIGINAL_HERO from "./originalHero";
 import StorageFitTabs from "./StorageFitTabs";
 import NonClimateUnitDoors from "./NonClimateUnitDoors";
+import UnitDoorCarousel from "./UnitDoorCarousel";
 import styles from "./storageTypePage.module.css";
 
 const PHONE_DISPLAY = "(386) 292-5494";
@@ -29,6 +30,7 @@ export default function StorageTypePage({ config }) {
             <a href="#benefits">Benefits</a>
             <a href="#storage-fit">What to Store</a>
             {config.showDriveUpDoors ? <a href="#drive-up-sizes">Unit Sizes</a> : null}
+            {config.showClimateDoors ? <a href="#unit-doors">Unit Sizes</a> : null}
             {!config.hideUses ? <a href="#best-uses">Best Uses</a> : null}
             {!config.decisionNoteOnly && !config.hideDecision ? <a href="#decision">Is It Right for Me?</a> : null}
             <a href="#faq">FAQ</a>
@@ -85,6 +87,7 @@ export default function StorageTypePage({ config }) {
       <StorageFitTabs config={config.storageFit} footerNote={storageFitFooterNote} />
 
       {config.showDriveUpDoors ? <NonClimateUnitDoors /> : null}
+      {config.showClimateDoors ? <UnitDoorCarousel includeOccupiedSmallest /> : null}
 
       {!config.hideUses ? (
         <section id="best-uses" className={styles.section}>
