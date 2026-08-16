@@ -200,8 +200,8 @@ export default function Home() {
 
       <section className="finalCta">
         <div className="shell finalCtaInner">
-          <div><strong>Clean. Secure. Storage That Fits Your Needs.</strong><span>Choose the storage environment and amount of space that makes sense for what you are storing.</span></div>
-          <a className="finalButton" href="#unit-doors">Choose Your Size →</a>
+          <div><strong>Choose the Storage Type That Fits What You&apos;re Storing.</strong><span>Compare climate-controlled and non-climate-controlled options before deciding on a unit size.</span></div>
+          <a className="finalButton" href="#why-climate">Compare Storage Types →</a>
         </div>
       </section>
 
