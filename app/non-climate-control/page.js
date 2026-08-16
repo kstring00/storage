@@ -39,6 +39,74 @@ const config = {
         "It is a practical option for household overflow, garage cleanouts, outdoor gear, and other items where simple storage space is the main priority.",
     },
   ],
+  storageFit: {
+    title: "What Belongs in Non-Climate-Controlled Storage?",
+    intro: "The best fit is usually durable belongings that can tolerate Florida temperature changes and do not need a controlled indoor environment.",
+    tabLabel: "Non-climate-controlled storage guidance",
+    tabs: [
+      {
+        label: "Best Fits",
+        title: "Durable belongings that usually make sense here",
+        intro: "Think practical, sturdy, and less sensitive to heat or ordinary temperature swings.",
+        items: [
+          {
+            icon: "⚒",
+            visual: "tools",
+            title: "Tools & Hardware",
+            copy: "Hand tools, power-tool cases, ladders, work supplies, and other durable equipment are strong candidates when they do not require a controlled environment.",
+          },
+          {
+            icon: "↔",
+            visual: "lawn",
+            title: "Lawn & Outdoor Equipment",
+            copy: "Mowers, yard tools, garden supplies, and similar equipment are built for tougher conditions and often do not need climate control.",
+          },
+          {
+            icon: "⌑",
+            visual: "patio",
+            title: "Patio Furniture",
+            copy: "Outdoor chairs, tables, and similar pieces are typically designed to handle changing temperatures better than indoor furniture.",
+          },
+          {
+            icon: "▤",
+            visual: "totes",
+            title: "Durable Plastic Totes",
+            copy: "Sealed plastic bins containing non-sensitive seasonal goods, household overflow, or sturdy personal belongings can be a practical fit.",
+          },
+        ],
+        note: {
+          title: "A useful rule of thumb:",
+          copy: "if you would be comfortable keeping the item in a typical garage through changing weather, non-climate-controlled storage may be a reasonable fit.",
+        },
+      },
+      {
+        label: "Good Use Cases",
+        title: "Situations where simple storage space is often the main need",
+        intro: "Non-climate control works especially well when convenience, room, and lower cost matter more than environmental protection.",
+        items: [
+          { icon: "⌂", visual: "boxes", title: "Garage Cleanouts", copy: "Clear space at home by moving sturdy overflow, bins, tools, and project materials into a dedicated storage unit." },
+          { icon: "◷", visual: "calendar", title: "Seasonal Rotation", copy: "Store holiday décor, coolers, camping supplies, yard gear, and other durable seasonal items until you need them again." },
+          { icon: "⚙", visual: "gear", title: "Equipment Storage", copy: "Keep work gear, outdoor equipment, and durable supplies organized without paying for climate control they may not need." },
+          { icon: "▦", visual: "business", title: "Business & Project Overflow", copy: "Create extra room for sturdy supplies, display materials, tools, and non-sensitive inventory that simply needs secure space." },
+        ],
+      },
+      {
+        label: "Choose Climate Instead",
+        title: "Move sensitive belongings to climate control",
+        intro: "If heat, moisture, or repeated temperature swings could affect the item—or if it would be painful to replace—climate control is usually the safer direction.",
+        items: [
+          { icon: "▦", visual: "furniture", title: "Indoor Furniture", copy: "Wood and upholstered furniture can react to prolonged heat and moisture, especially during longer storage periods." },
+          { icon: "▣", visual: "electronics", title: "Electronics", copy: "Televisions, computers, audio equipment, and other sensitive components are better candidates for a more stable indoor environment." },
+          { icon: "▤", visual: "documents", title: "Photos & Documents", copy: "Paper records, photographs, books, and printed materials can be affected by heat, humidity, and moisture over time." },
+          { icon: "♧", visual: "fabrics", title: "Clothing & Textiles", copy: "Mattresses, clothing, rugs, bedding, and other fabrics can absorb moisture and may benefit from climate-controlled storage." },
+        ],
+        note: {
+          title: "When in doubt:",
+          copy: "if you would worry about the item sitting in a hot garage for weeks or months, compare the climate-controlled option before deciding.",
+        },
+      },
+    ],
+  },
   usesTitle: "Best Uses for Non-Climate-Controlled Storage",
   usesIntro:
     "The best candidates are belongings that are sturdy, replaceable, or designed to tolerate changing temperatures and ordinary outdoor conditions.",
