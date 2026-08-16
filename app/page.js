@@ -195,7 +195,6 @@ export default function Home() {
               <p>No. If you mainly need space for tougher, less-sensitive items such as tools, outdoor equipment, or durable plastic totes, non-climate-controlled storage may be a perfectly reasonable choice.</p>
             </details>
           </div>
-          <div className="standardExit"><GarageIcon /><span>Just storing durable items?</span><a href={NON_CLIMATE_STORAGE_FEATURE_URL}>View non-climate-controlled storage →</a></div>
         </div>
       </section>
 
