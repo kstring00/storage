@@ -1,4 +1,5 @@
 import StorageTypePage from "../StorageTypePage";
+import TenByTenLinkEnhancer from "../TenByTenLinkEnhancer";
 
 export const metadata = {
   title: "Climate-Controlled Storage in Lake City, FL | Lake City Self Storage",
@@ -123,5 +124,10 @@ const config = {
 };
 
 export default function ClimateControlledPage() {
-  return <StorageTypePage config={config} />;
+  return (
+    <>
+      <StorageTypePage config={config} />
+      <TenByTenLinkEnhancer />
+    </>
+  );
 }
