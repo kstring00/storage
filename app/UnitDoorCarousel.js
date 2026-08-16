@@ -64,15 +64,6 @@ const units = [
   },
 ];
 
-const reasons = [
-  "Furniture from multiple rooms",
-  "Moving or remodeling",
-  "Mattresses and bedroom sets",
-  "Electronics and appliances",
-  "Documents, photos, and keepsakes",
-  "Household overflow",
-];
-
 function ItemSymbols() {
   return (
     <svg className={styles.symbols} aria-hidden="true" focusable="false">
@@ -185,36 +176,6 @@ export default function UnitDoorCarousel() {
               </article>
             );
           })}
-        </div>
-      </div>
-
-      <div id="featured-1015" className={styles.recommendationPanel}>
-        <div className={styles.recommendationLead}>
-          <span className={styles.recommendationBadge}>★ Featured household size</span>
-          <div className={styles.recommendationSize}>10 × 15</div>
-          <div className={styles.recommendationSqft}>150 sq. ft. climate-controlled</div>
-          <h3>The practical middle ground for a lot of households.</h3>
-          <p>
-            Enough room for meaningful furniture and household storage without immediately stepping up to the largest option.
-          </p>
-          <div className={styles.recommendationActions}>
-            <a className={styles.primaryCta} href={UNITS_URL}>View 10 × 15 Availability →</a>
-            <a className={styles.secondaryCta} href={PHONE_LINK}>Call to Ask</a>
-          </div>
-        </div>
-
-        <div className={styles.reasonGrid}>
-          {reasons.map((reason) => (
-            <div className={styles.reasonItem} key={reason}>
-              <span>✓</span>
-              <strong>{reason}</strong>
-            </div>
-          ))}
-          <div className={styles.trustRow}>
-            <span>❄ Indoor climate-controlled</span>
-            <span>◉ 24-hour video surveillance</span>
-            <span>□ 150 sq. ft. of floor space</span>
-          </div>
         </div>
       </div>
     </section>
