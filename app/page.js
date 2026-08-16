@@ -1,4 +1,5 @@
 import UnitDoorCarousel from "./UnitDoorCarousel";
+import ORIGINAL_HERO from "./originalHero";
 
 const PHONE_DISPLAY = "(386) 292-5494";
 const PHONE_LINK = "tel:+13862925494";
@@ -6,7 +7,7 @@ const UNITS_URL = "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-l
 const CONTACT_URL = "https://www.lakecityselfstorage.com/contact-us";
 const PAY_ONLINE_URL = "https://www.lakecityselfstorage.com/payonline";
 const LOGO_URL = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/outlook-1lwjlfpa_01032024100037323.png";
-const HERO_IMAGE = "/images/climate-hero.svg";
+const HERO_IMAGE = ORIGINAL_HERO;
 
 const deteriorationCards = [
   {
