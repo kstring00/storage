@@ -9,10 +9,8 @@ const PAY_ONLINE_URL = "https://www.lakecityselfstorage.com/payonline";
 const LOGO_URL = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/outlook-1lwjlfpa_01032024100037323.png";
 const HERO_IMAGE = ORIGINAL_HERO;
 
-// Placeholder destinations for the future dedicated feature pages.
-// Replace these with the final URLs once those pages are built.
-const STANDARD_STORAGE_FEATURE_URL = "#";
-const CLIMATE_STORAGE_FEATURE_URL = "#";
+const NON_CLIMATE_STORAGE_FEATURE_URL = "/non-climate-control";
+const CLIMATE_STORAGE_FEATURE_URL = "/climate-controlled";
 
 const deteriorationCards = [
   {
@@ -158,7 +156,7 @@ export default function Home() {
       <section className="heroClimate">
         <div className="shell heroClimateGrid">
           <div className="heroClimateCopy">
-            <div className="climateBadge"><GarageIcon /> Standard & Climate-Controlled Storage</div>
+            <div className="climateBadge"><GarageIcon /> Non-Climate-Controlled & Climate-Controlled Storage</div>
             <h1>Find the Right Storage Space for You</h1>
             <p className="heroLead">Whether you need convenient drive-up storage or a more stable indoor environment for sensitive belongings, Lake City Self Storage offers flexible unit options for moves, household overflow, business storage, and everything in between.</p>
             <div className="heroActions">
@@ -176,7 +174,7 @@ export default function Home() {
               <GarageIcon />
               <div>
                 <strong>Storage Options for Every Need</strong>
-                <span>Standard + climate-controlled units</span>
+                <span>Non-climate-controlled + climate-controlled units</span>
                 <small>Choose the space and storage environment that best fits what you need to store.</small>
               </div>
             </div>
@@ -194,7 +192,7 @@ export default function Home() {
             <article className="comparisonCard standardCard">
               <div className="comparisonIcon"><GarageIcon /></div>
               <div>
-                <h3>Standard Storage</h3>
+                <h3>Non-Climate-Controlled Storage</h3>
                 <p className="comparisonSub">Great for tougher items</p>
               </div>
               <ul>
@@ -207,11 +205,11 @@ export default function Home() {
                 <span>Tools, patio furniture, lawn equipment, durable plastic totes, and other less-sensitive items.</span>
                 <a
                   className="primaryButton"
-                  href={STANDARD_STORAGE_FEATURE_URL}
-                  aria-label="Explore Standard Storage feature page"
+                  href={NON_CLIMATE_STORAGE_FEATURE_URL}
+                  aria-label="Explore Non-Climate-Controlled Storage feature page"
                   style={{ alignSelf: "flex-start", marginTop: "12px" }}
                 >
-                  Explore Standard Storage <span>→</span>
+                  Explore Non-Climate-Controlled Storage <span>→</span>
                 </a>
               </div>
             </article>
@@ -293,10 +291,10 @@ export default function Home() {
             </details>
             <details>
               <summary>Is climate-controlled storage necessary for everything?</summary>
-              <p>No. If you mainly need space for tougher, less-sensitive items such as tools, outdoor equipment, or durable plastic totes, standard storage may be a perfectly reasonable choice.</p>
+              <p>No. If you mainly need space for tougher, less-sensitive items such as tools, outdoor equipment, or durable plastic totes, non-climate-controlled storage may be a perfectly reasonable choice.</p>
             </details>
           </div>
-          <div className="standardExit"><GarageIcon /><span>Just storing durable items?</span><a href={UNITS_URL}>View standard drive-up storage →</a></div>
+          <div className="standardExit"><GarageIcon /><span>Just storing durable items?</span><a href={NON_CLIMATE_STORAGE_FEATURE_URL}>View non-climate-controlled storage →</a></div>
         </div>
       </section>
 
