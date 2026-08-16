@@ -91,9 +91,6 @@ export default function Home() {
             <div className="climateBadge"><GarageIcon /> Non-Climate-Controlled & Climate-Controlled Storage</div>
             <h1>Find the Right Storage Space for You</h1>
             <p className="heroLead">Whether you need convenient drive-up storage or a more stable indoor environment for sensitive belongings, Lake City Self Storage offers flexible unit options for moves, household overflow, business storage, and everything in between.</p>
-            <div className="heroActions">
-              <a className="primaryButton" href="#unit-doors">Explore Storage Unit Sizes <span>→</span></a>
-            </div>
             <div className="heroTrust">
               <span><ShieldIcon /> Secure Facility</span>
               <span><CameraIcon /> 24-Hour Video Surveillance</span>
