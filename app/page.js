@@ -78,7 +78,7 @@ export default function Home() {
         <div className="shell navRow">
           <nav aria-label="Primary navigation">
             <a href="#why-climate">Compare Storage Types</a>
-            <a href="#unit-doors">Choose a Size</a>
+            <a href="#unit-doors">Featured Specials</a>
             <a href="#faq">FAQ</a>
             <a href={PAY_ONLINE_URL}>Pay Online</a>
           </nav>
@@ -172,7 +172,7 @@ export default function Home() {
         </div>
       </section>
 
-      <UnitDoorCarousel />
+      <UnitDoorCarousel featuredHome />
 
       <section id="faq" className="section faqSection">
         <div className="shell faqShell">
