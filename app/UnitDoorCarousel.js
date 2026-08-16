@@ -30,6 +30,7 @@ const standardUnits = [
     sqft: "100 sq ft",
     label: "Bedroom or apartment overflow",
     doorNote: "Bikes • bed set • desk",
+    specialLabel: "Monthly Special",
     bestFor: ["Bikes", "Bed set", "Desk"],
     helper: "A practical fit for the contents of a bedroom, small apartment overflow, or a few larger pieces you want protected indoors.",
     items: [
@@ -47,6 +48,7 @@ const standardUnits = [
     label: "Recommended for most households",
     doorNote: "Furniture • mattresses • boxes",
     featured: true,
+    specialLabel: "Featured Monthly Special",
     bestFor: ["Living-room furniture", "Mattress sets", "Boxes & décor"],
     helper: "A strong middle-ground size for several rooms of furniture without immediately stepping up to the largest option.",
     items: [
@@ -64,6 +66,7 @@ const standardUnits = [
     sqft: "200 sq ft",
     label: "Larger household storage",
     doorNote: "Multiple rooms • appliances",
+    specialLabel: "Monthly Special",
     bestFor: ["Multiple rooms", "Large appliances", "Dining + living sets"],
     helper: "A better fit for larger moves, remodels, or households storing substantial furniture and appliances together.",
     items: [
@@ -138,10 +141,10 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false }) {
       <ItemSymbols />
 
       <div className={styles.headingShell}>
-        <p className={styles.eyebrow}>Choose your climate-controlled size</p>
-        <h2 id="door-carousel-title">How Much Space Do You Need?</h2>
+        <p className={styles.eyebrow}>Featured this month</p>
+        <h2 id="door-carousel-title">Climate-Controlled Monthly Specials</h2>
         <p className={styles.subhead}>
-          Open a door to see a practical example of what each size can hold. Inventory and rates can change, so use this as a visual sizing guide and confirm live availability with the facility.
+          These featured sizes are being highlighted as this month&apos;s promotional units. Open a door to see what each size is best suited for, then check current availability and promotional pricing with the facility.
         </p>
       </div>
 
@@ -167,7 +170,9 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false }) {
                   }
                 }}
               >
-                {unit.featured ? <div className={styles.featuredFlag}>★ Recommended</div> : null}
+                {unit.specialLabel && !unit.occupiedDemo ? (
+                  <div className={styles.featuredFlag}>{unit.featured ? "★ " : ""}{unit.specialLabel}</div>
+                ) : null}
                 <div className={styles.fascia}><span>{unit.number}</span></div>
                 <div className={styles.opening}>
                   <div className={styles.interior} />
@@ -209,7 +214,7 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false }) {
                         </>
                       ) : (
                         <>
-                          <a className={styles.reserveLink} href={UNITS_URL}>View Availability →</a>
+                          <a className={styles.reserveLink} href={UNITS_URL}>Check Special & Availability →</a>
                           <a className={styles.callLink} href={PHONE_LINK}>Call to Ask</a>
                         </>
                       )}
