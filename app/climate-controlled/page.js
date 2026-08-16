@@ -89,6 +89,7 @@ const config = {
   },
   hideUses: true,
   hideDecision: true,
+  showClimateDoors: true,
   faqs: [
     {
       question: "Why would I pay more for climate-controlled storage?",
