@@ -15,6 +15,7 @@ export default function StorageFitTabs({ config, footerNote }) {
   const [active, setActive] = useState(0);
   const tab = config.tabs[active];
   const persistentFooterNote = footerNote || config.footerNote || null;
+  const staticOnly = Boolean(config.staticOnly);
 
   return (
     <section id="storage-fit" className={styles.section}>
@@ -24,25 +25,29 @@ export default function StorageFitTabs({ config, footerNote }) {
           <p>{config.intro}</p>
         </div>
 
-        <div className={styles.tabs} role="tablist" aria-label={config.tabLabel || "Storage guidance"}>
-          {config.tabs.map((item, index) => (
-            <button
-              key={item.label}
-              type="button"
-              role="tab"
-              aria-selected={active === index}
-              className={active === index ? styles.activeTab : ""}
-              onClick={() => setActive(index)}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
+        {!staticOnly ? (
+          <div className={styles.tabs} role="tablist" aria-label={config.tabLabel || "Storage guidance"}>
+            {config.tabs.map((item, index) => (
+              <button
+                key={item.label}
+                type="button"
+                role="tab"
+                aria-selected={active === index}
+                className={active === index ? styles.activeTab : ""}
+                onClick={() => setActive(index)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        ) : null}
 
-        <div className={styles.tabIntro}>
-          <strong>{tab.title}</strong>
-          <span>{tab.intro}</span>
-        </div>
+        {!staticOnly ? (
+          <div className={styles.tabIntro}>
+            <strong>{tab.title}</strong>
+            <span>{tab.intro}</span>
+          </div>
+        ) : null}
 
         <div className={styles.grid}>
           {tab.items.map((item) => (
