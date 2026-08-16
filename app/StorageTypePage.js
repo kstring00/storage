@@ -15,6 +15,11 @@ export default function StorageTypePage({ config }) {
   const storageFitFooterNote = config.decisionNoteOnly
     ? { title: config.noteTitle, copy: config.noteCopy }
     : null;
+  const finalUnitsHref = config.showClimateDoors
+    ? "#unit-doors"
+    : config.showDriveUpDoors
+      ? "#drive-up-sizes"
+      : UNITS_URL;
 
   return (
     <main className={styles.page}>
@@ -139,7 +144,7 @@ export default function StorageTypePage({ config }) {
         </section>
       ) : null}
 
-      <section id="faq" className={styles.section}>
+      <section id="faq" className={`${styles.section} ${styles.faqSection}`}>
         <div className={styles.shell}>
           <div className={styles.heading}><h2>Frequently Asked Questions</h2></div>
           <div className={styles.faq}>
@@ -150,23 +155,30 @@ export default function StorageTypePage({ config }) {
               </details>
             ))}
           </div>
-          <div className={styles.crossLink}>
-            <div>
-              <strong>{config.crossTitle}</strong>
-              <span>{config.crossCopy}</span>
-            </div>
-            <a href={config.crossHref}>{config.crossCta} →</a>
-          </div>
         </div>
       </section>
 
       <section className={styles.final}>
         <div className={styles.finalInner}>
-          <div>
+          <div className={styles.finalCopyBlock}>
             <strong>{config.finalTitle}</strong>
             <span>{config.finalCopy}</span>
           </div>
-          <a href={UNITS_URL}>{config.finalCta} →</a>
+
+          <div className={styles.finalPrimary}>
+            <a className={styles.finalButton} href={finalUnitsHref}>
+              <span className={styles.finalButtonIcon}>{config.icon}</span>
+              <span className={styles.finalButtonText}>{config.finalCta}</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div className={styles.finalCompare}>
+            <span className={styles.compareLabel}>Also compare</span>
+            <strong>{config.crossTitle}</strong>
+            <span>{config.crossCopy}</span>
+            <a href={config.crossHref}>{config.crossCta} →</a>
+          </div>
         </div>
       </section>
 
