@@ -3,7 +3,6 @@ import ORIGINAL_HERO from "./originalHero";
 
 const PHONE_DISPLAY = "(386) 292-5494";
 const PHONE_LINK = "tel:+13862925494";
-const UNITS_URL = "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055";
 const CONTACT_URL = "https://www.lakecityselfstorage.com/contact-us";
 const PAY_ONLINE_URL = "https://www.lakecityselfstorage.com/payonline";
 const LOGO_URL = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/outlook-1lwjlfpa_01032024100037323.png";
@@ -11,29 +10,6 @@ const HERO_IMAGE = ORIGINAL_HERO;
 
 const NON_CLIMATE_STORAGE_FEATURE_URL = "/non-climate-control";
 const CLIMATE_STORAGE_FEATURE_URL = "/climate-controlled";
-
-const deteriorationCards = [
-  {
-    title: "Wood Furniture",
-    type: "furniture",
-    copy: "Repeated heat and moisture changes can make wood expand and contract, contributing to warping, cracking, swelling, joint stress, or finish changes over time.",
-  },
-  {
-    title: "Photos & Documents",
-    type: "documents",
-    copy: "Warm, humid conditions can accelerate fading, yellowing, curling, sticking, and deterioration of paper, photographs, books, and printed materials.",
-  },
-  {
-    title: "Clothing & Fabrics",
-    type: "fabrics",
-    copy: "Textiles can absorb moisture. In damp conditions that can contribute to musty odors, mildew risk, and stress on fabrics during longer storage periods.",
-  },
-  {
-    title: "Electronics & Sensitive Items",
-    type: "electronics",
-    copy: "Heat and moisture exposure can stress components and contribute to corrosion or performance issues. A more stable indoor environment can be a better fit.",
-  },
-];
 
 function SnowflakeIcon() {
   return (
@@ -80,42 +56,6 @@ function LockIcon() {
   );
 }
 
-function FurnitureIcon() {
-  return (
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <rect x="10" y="16" width="44" height="33" rx="2" />
-      <path d="M10 27h44M10 38h44M25 16v33M40 16v33M15 49v5M49 49v5" />
-    </svg>
-  );
-}
-
-function DocumentIcon() {
-  return (
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <path d="M18 9h21l8 8v38H18z" />
-      <path d="M39 9v10h10M24 28h18M24 35h18M24 42h13" />
-    </svg>
-  );
-}
-
-function FabricIcon() {
-  return (
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <path d="m24 14-11 8 8 12 7-5v27h21V29l7 5 8-12-11-8-8 5c-5 3-11 3-16 0l-5-5Z" />
-    </svg>
-  );
-}
-
-function MonitorIcon() {
-  return (
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <rect x="8" y="11" width="48" height="34" rx="2" />
-      <path d="M25 54h14M32 45v9" />
-      <circle cx="47" cy="35" r="3" />
-    </svg>
-  );
-}
-
 function Check({ children }) {
   return (
     <li>
@@ -123,13 +63,6 @@ function Check({ children }) {
       <span>{children}</span>
     </li>
   );
-}
-
-function DeteriorationIcon({ type }) {
-  if (type === "furniture") return <FurnitureIcon />;
-  if (type === "documents") return <DocumentIcon />;
-  if (type === "fabrics") return <FabricIcon />;
-  return <MonitorIcon />;
 }
 
 export default function Home() {
@@ -144,8 +77,7 @@ export default function Home() {
         </div>
         <div className="shell navRow">
           <nav aria-label="Primary navigation">
-            <a href="#why-climate">Why Climate Control</a>
-            <a href="#deterioration">What Heat Can Do</a>
+            <a href="#why-climate">Compare Storage Types</a>
             <a href="#unit-doors">Choose a Size</a>
             <a href="#faq">FAQ</a>
             <a href={PAY_ONLINE_URL}>Pay Online</a>
@@ -185,8 +117,8 @@ export default function Home() {
       <section id="why-climate" className="section whyClimateSection">
         <div className="shell">
           <div className="centerHeading">
-            <h2>Why Choose Climate Control?</h2>
-            <p>Florida weather can be tough on stored belongings. The right storage environment depends on what you are putting inside.</p>
+            <h2>Which Storage Environment Fits What You Need?</h2>
+            <p>Florida weather can be tough on stored belongings. Match the storage environment to what you are actually putting inside.</p>
           </div>
           <div className="comparisonGrid">
             <article className="comparisonCard standardCard">
@@ -243,34 +175,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="deterioration" className="section deteriorationSection">
-        <div className="shell">
-          <div className="centerHeading deteriorationHeading">
-            <h2>What Florida Heat & Humidity Can Do to Stored Belongings</h2>
-            <p>Heat, moisture, and repeated environmental swings can affect common household materials over time.</p>
-          </div>
-          <div className="deteriorationGrid">
-            {deteriorationCards.map((item) => (
-              <article className="deteriorationCard" key={item.title}>
-                <div className="deteriorationIcon"><DeteriorationIcon type={item.type} /></div>
-                <div className={`objectVisual ${item.type}`} aria-hidden="true">
-                  {item.type === "furniture" && <div className="dresser"><span /><span /><span /></div>}
-                  {item.type === "documents" && <div className="paperStack"><span /><span /><span /></div>}
-                  {item.type === "fabrics" && <div className="fabricStack"><span /><span /><span /></div>}
-                  {item.type === "electronics" && <div className="screenVisual"><span /></div>}
-                </div>
-                <h3>{item.title}</h3>
-                <p>{item.copy}</p>
-              </article>
-            ))}
-          </div>
-          <div className="stabilityNote">
-            <ShieldIcon />
-            <span><strong>Why climate control helps:</strong> it reduces environmental extremes by providing a more stable indoor storage environment. Exact temperature and humidity conditions can vary; ask the facility about current controls for items with special requirements.</span>
-          </div>
-        </div>
-      </section>
-
       <UnitDoorCarousel />
 
       <section id="faq" className="section faqSection">
@@ -300,7 +204,7 @@ export default function Home() {
 
       <section className="finalCta">
         <div className="shell finalCtaInner">
-          <div><strong>Clean. Secure. Climate Controlled.</strong><span>Choose the amount of climate-controlled space that fits the belongings you care about.</span></div>
+          <div><strong>Clean. Secure. Storage That Fits Your Needs.</strong><span>Choose the storage environment and amount of space that makes sense for what you are storing.</span></div>
           <a className="finalButton" href="#unit-doors">Choose Your Size →</a>
         </div>
       </section>
