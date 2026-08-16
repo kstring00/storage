@@ -11,9 +11,10 @@ function ItemVisual({ type }) {
   );
 }
 
-export default function StorageFitTabs({ config }) {
+export default function StorageFitTabs({ config, footerNote }) {
   const [active, setActive] = useState(0);
   const tab = config.tabs[active];
+  const hideActiveNote = Boolean(footerNote && active === 0);
 
   return (
     <section id="storage-fit" className={styles.section}>
@@ -54,10 +55,28 @@ export default function StorageFitTabs({ config }) {
           ))}
         </div>
 
-        {tab.note ? (
+        {tab.note && !hideActiveNote ? (
           <div className={styles.note}>
             <span className={styles.noteIcon}>◇</span>
             <span><strong>{tab.note.title}</strong> {tab.note.copy}</span>
+          </div>
+        ) : null}
+
+        {footerNote ? (
+          <div
+            style={{
+              maxWidth: "1100px",
+              margin: "28px auto 0",
+              background: "rgba(255,255,255,.82)",
+              border: "1px solid #cfe0ea",
+              borderRadius: "10px",
+              padding: "16px 18px",
+              color: "#5f7280",
+              fontSize: "10.5px",
+              lineHeight: 1.6,
+            }}
+          >
+            <strong style={{ color: "#123f61" }}>{footerNote.title}</strong> {footerNote.copy}
           </div>
         ) : null}
       </div>
