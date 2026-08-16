@@ -47,6 +47,7 @@
 .note{margin-top:22px;background:#f8fbfd;border:1px solid #d9e7ef;border-radius:10px;padding:16px 18px;color:#5f7280;font-size:10.5px;line-height:1.6}
 .compactNoteSection .note{margin-top:0}
 .note strong{color:#123f61}
+.faqSection{padding-bottom:42px}
 .faq{max-width:850px;margin:0 auto}
 .faq details{border-top:1px solid #d9e4eb;padding:0}
 .faq details:last-child{border-bottom:1px solid #d9e4eb}
@@ -55,14 +56,20 @@
 .faq summary:after{content:"+";position:absolute;right:5px;top:14px;color:#52738b;font-size:15px}
 .faq details[open] summary:after{content:"−"}
 .faq details p{margin:0 3px 16px;color:#657682;font-size:10.5px;line-height:1.65}
-.crossLink{margin-top:30px;border-radius:14px;background:#0e3558;color:#fff;padding:25px 28px;display:flex;justify-content:space-between;gap:24px;align-items:center}
-.crossLink strong{font-size:18px;display:block;margin-bottom:3px}
-.crossLink span{font-size:10.5px;color:#c7d8e5}
-.crossLink a{background:#fff;color:#0e557e;border-radius:5px;padding:11px 15px;font-size:10px;font-weight:800;white-space:nowrap}
-.final{background:#0d385b;color:#fff;padding:27px 0}
-.finalInner{width:min(1100px,calc(100% - 48px));margin:0 auto;display:flex;justify-content:space-between;gap:24px;align-items:center}
-.final strong{display:block;font-size:17px;margin-bottom:2px}
-.final span{font-size:10.5px;color:#c8d7e2}
-.final a{background:#fff;color:#0e557e;border-radius:5px;padding:11px 16px;font-size:10px;font-weight:800;white-space:nowrap}
-@media(max-width:900px){.heroGrid{grid-template-columns:1fr}.hero h1{font-size:39px}.benefitGrid,.useGrid{grid-template-columns:1fr 1fr}.decisionGrid{grid-template-columns:1fr}.visual{min-height:320px}.visual img{min-height:320px}}
-@media(max-width:640px){.hero{padding:38px 0 45px}.heroGrid,.shell,.finalInner{width:min(100% - 30px,1100px)}.hero h1{font-size:34px}.benefitGrid,.useGrid{grid-template-columns:1fr}.section,.sectionAlt{padding:48px 0}.compactNoteSection{padding:20px 0 28px}.heading h2{font-size:27px}.crossLink,.finalInner{flex-direction:column;align-items:flex-start}.visualCard{left:14px;right:14px;bottom:14px}.trust{gap:12px}}
+.final{background:linear-gradient(90deg,#0d3659 0%,#0b3d66 100%);color:#fff;padding:32px 0}
+.finalInner{width:min(1100px,calc(100% - 48px));margin:0 auto;display:grid;grid-template-columns:1.05fr .92fr 1.08fr;gap:30px;align-items:center}
+.finalCopyBlock strong{display:block;font-size:19px;line-height:1.22;margin-bottom:9px;letter-spacing:-.015em;max-width:340px}
+.finalCopyBlock span{display:block;font-size:11px;line-height:1.55;color:#d0dce6;max-width:330px}
+.finalPrimary{display:flex;justify-content:center;align-items:center}
+.finalButton{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#fff;color:#123f61;border-radius:6px;padding:12px 15px;font-size:10.5px;font-weight:800;white-space:nowrap;box-shadow:0 5px 14px rgba(3,23,39,.12);transition:transform .18s ease,box-shadow .18s ease}
+.finalButton:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(3,23,39,.18)}
+.finalButtonIcon{width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:#edf6fb;color:#0d5f91;font-size:13px;flex:0 0 25px}
+.finalButtonText{color:#123f61}
+.finalCompare{border-left:1px solid rgba(218,233,243,.32);padding-left:30px;min-width:0}
+.compareLabel{display:block;color:#8fc7e8;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.finalCompare strong{display:block;font-size:15px;line-height:1.3;margin-bottom:6px;color:#fff}
+.finalCompare>span:not(.compareLabel){display:block;font-size:10px;line-height:1.55;color:#d0dce6;max-width:355px}
+.finalCompare a{display:inline-block;margin-top:10px;color:#9dd4f3;font-size:11px;font-weight:800;transition:color .18s ease,transform .18s ease}
+.finalCompare a:hover{color:#fff;transform:translateX(2px)}
+@media(max-width:900px){.heroGrid{grid-template-columns:1fr}.hero h1{font-size:39px}.benefitGrid,.useGrid{grid-template-columns:1fr 1fr}.decisionGrid{grid-template-columns:1fr}.visual{min-height:320px}.visual img{min-height:320px}.finalInner{grid-template-columns:1fr 1fr;gap:24px}.finalCompare{grid-column:1/-1;border-left:0;border-top:1px solid rgba(218,233,243,.3);padding:20px 0 0}.finalPrimary{justify-content:flex-start}}
+@media(max-width:640px){.hero{padding:38px 0 45px}.heroGrid,.shell,.finalInner{width:min(100% - 30px,1100px)}.hero h1{font-size:34px}.benefitGrid,.useGrid{grid-template-columns:1fr}.section,.sectionAlt{padding:48px 0}.compactNoteSection{padding:20px 0 28px}.heading h2{font-size:27px}.faqSection{padding-bottom:34px}.visualCard{left:14px;right:14px;bottom:14px}.trust{gap:12px}.final{padding:28px 0}.finalInner{grid-template-columns:1fr;gap:19px}.finalPrimary{justify-content:flex-start}.finalButton{width:100%;white-space:normal}.finalCompare{grid-column:auto;padding-top:18px}.finalCopyBlock strong{font-size:18px}}
