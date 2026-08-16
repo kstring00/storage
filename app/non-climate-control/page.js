@@ -107,6 +107,8 @@ const config = {
       },
     ],
   },
+  hideUses: true,
+  decisionNoteOnly: true,
   usesTitle: "Best Uses for Non-Climate-Controlled Storage",
   usesIntro:
     "The best candidates are belongings that are sturdy, replaceable, or designed to tolerate changing temperatures and ordinary outdoor conditions.",
