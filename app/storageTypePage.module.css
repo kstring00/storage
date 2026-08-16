@@ -1,0 +1,66 @@
+.page{background:#fff;color:#445362}
+.hero{background:linear-gradient(180deg,#f5faff 0%,#fff 100%);border-bottom:1px solid #dbe7ef;padding:58px 0 64px}
+.heroGrid{width:min(1160px,calc(100% - 48px));margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#eaf6fd;color:#0874ba;border-radius:999px;padding:7px 12px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin:0 0 17px}
+.eyebrowIcon{width:21px;height:21px;display:grid;place-items:center;border-radius:50%;background:#fff}
+.hero h1{margin:0 0 17px;color:#082d4f;font-size:48px;line-height:1.03;letter-spacing:-.04em;max-width:690px}
+.heroLead{font-size:16px;line-height:1.65;color:#4a5d6d;max-width:680px;margin:0 0 23px;font-weight:500}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 24px}
+.primary,.secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:5px;padding:13px 18px;font-size:11px;font-weight:800;transition:.18s ease}
+.primary{background:#076fbc;color:#fff;box-shadow:0 5px 12px rgba(6,88,147,.16)}
+.primary:hover{background:#075f9f;transform:translateY(-1px)}
+.secondary{border:1px solid #7aa6c4;background:#fff;color:#124c73}
+.secondary:hover{background:#f3f9fc}
+.trust{display:flex;gap:20px;flex-wrap:wrap;color:#40596d;font-size:10px;font-weight:650}
+.trust span{display:flex;align-items:center;gap:7px}
+.visual{position:relative;min-height:390px;border-radius:18px;overflow:hidden;background:#dfeaf2;box-shadow:0 18px 45px rgba(17,59,88,.14)}
+.visual img{width:100%;height:100%;min-height:390px;object-fit:cover;filter:saturate(.78) brightness(1.02)}
+.visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,42,70,.26),transparent 58%)}
+.visualCard{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.8);border-radius:12px;padding:18px 19px;box-shadow:0 12px 28px rgba(17,54,80,.18)}
+.visualCard strong{display:block;color:#0e3558;font-size:17px;line-height:1.2;margin-bottom:4px}
+.visualCard span{display:block;color:#5f7282;font-size:11px;line-height:1.45}
+.section{padding:64px 0}
+.sectionAlt{padding:64px 0;background:linear-gradient(180deg,#f3f9fd 0%,#edf6fb 100%);border-top:1px solid #dceaf3;border-bottom:1px solid #dceaf3}
+.shell{width:min(1100px,calc(100% - 48px));margin:0 auto}
+.heading{text-align:center;max-width:810px;margin:0 auto 30px}
+.heading h2{margin:0 0 8px;color:#082d4f;font-size:32px;line-height:1.15;letter-spacing:-.025em}
+.heading p{margin:0;color:#71808c;font-size:12px;line-height:1.6}
+.benefitGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.benefitCard{background:#fff;border:1px solid #d6e3ec;border-radius:12px;padding:24px 22px;box-shadow:0 8px 22px rgba(24,63,92,.05)}
+.iconCircle{width:44px;height:44px;border-radius:50%;background:#eaf6fd;color:#0874ba;display:grid;place-items:center;font-size:20px;font-weight:800;margin-bottom:15px}
+.benefitCard h3{color:#0e3558;font-size:16px;margin:0 0 7px;line-height:1.25}
+.benefitCard p{font-size:11px;line-height:1.65;color:#596b79;margin:0}
+.useGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.useCard{background:#fff;border:1px solid #d8e3ea;border-radius:10px;padding:19px 18px;display:flex;gap:12px;align-items:flex-start;min-height:118px}
+.check{width:24px;height:24px;flex:0 0 24px;border-radius:50%;background:#e7f5e8;color:#36a047;display:grid;place-items:center;font-weight:900;font-size:13px}
+.useCard strong{display:block;color:#123e60;font-size:12px;margin-bottom:4px}
+.useCard p{margin:0;color:#697884;font-size:10.5px;line-height:1.5}
+.decisionGrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.decisionCard{border:1px solid #d4e1e9;border-radius:13px;padding:26px;background:#fff}
+.decisionCardAccent{border:2px solid #1678bd;box-shadow:0 9px 24px rgba(24,94,145,.08)}
+.decisionLabel{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#0874ba;margin-bottom:8px}
+.decisionCard h3{margin:0 0 12px;color:#0e3558;font-size:20px}
+.decisionCard ul{list-style:none;margin:0;padding:0}
+.decisionCard li{position:relative;padding-left:23px;margin:10px 0;color:#566775;font-size:11px;line-height:1.55}
+.decisionCard li:before{content:"✓";position:absolute;left:0;top:0;color:#0874ba;font-weight:900}
+.note{margin-top:22px;background:#f8fbfd;border:1px solid #d9e7ef;border-radius:10px;padding:16px 18px;color:#5f7280;font-size:10.5px;line-height:1.6}
+.note strong{color:#123f61}
+.faq{max-width:850px;margin:0 auto}
+.faq details{border-top:1px solid #d9e4eb;padding:0}
+.faq details:last-child{border-bottom:1px solid #d9e4eb}
+.faq summary{cursor:pointer;list-style:none;padding:16px 3px;color:#173f5e;font-size:11px;font-weight:700;position:relative;padding-right:26px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";position:absolute;right:5px;top:14px;color:#52738b;font-size:15px}
+.faq details[open] summary:after{content:"−"}
+.faq details p{margin:0 3px 16px;color:#657682;font-size:10.5px;line-height:1.65}
+.crossLink{margin-top:30px;border-radius:14px;background:#0e3558;color:#fff;padding:25px 28px;display:flex;justify-content:space-between;gap:24px;align-items:center}
+.crossLink strong{font-size:18px;display:block;margin-bottom:3px}
+.crossLink span{font-size:10.5px;color:#c7d8e5}
+.crossLink a{background:#fff;color:#0e557e;border-radius:5px;padding:11px 15px;font-size:10px;font-weight:800;white-space:nowrap}
+.final{background:#0d385b;color:#fff;padding:27px 0}
+.finalInner{width:min(1100px,calc(100% - 48px));margin:0 auto;display:flex;justify-content:space-between;gap:24px;align-items:center}
+.final strong{display:block;font-size:17px;margin-bottom:2px}
+.final span{font-size:10.5px;color:#c8d7e2}
+.final a{background:#fff;color:#0e557e;border-radius:5px;padding:11px 16px;font-size:10px;font-weight:800;white-space:nowrap}
+@media(max-width:900px){.heroGrid{grid-template-columns:1fr}.hero h1{font-size:39px}.benefitGrid,.useGrid{grid-template-columns:1fr 1fr}.decisionGrid{grid-template-columns:1fr}.visual{min-height:320px}.visual img{min-height:320px}}
+@media(max-width:640px){.hero{padding:38px 0 45px}.heroGrid,.shell,.finalInner{width:min(100% - 30px,1100px)}.hero h1{font-size:34px}.benefitGrid,.useGrid{grid-template-columns:1fr}.section,.sectionAlt{padding:48px 0}.heading h2{font-size:27px}.crossLink,.finalInner{flex-direction:column;align-items:flex-start}.visualCard{left:14px;right:14px;bottom:14px}.trust{gap:12px}}
