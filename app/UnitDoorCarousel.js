@@ -8,19 +8,17 @@ const PHONE_LINK = "tel:+13862925494";
 
 const occupiedSmallUnit = {
   id: "5x5",
-  number: "SMALL",
+  number: "SMALLEST",
   size: "5 × 5",
   sqft: "25 sq ft",
-  label: "Small climate-controlled storage",
+  label: "Compact climate-controlled storage",
+  doorNote: "Boxes • décor • small items",
   occupiedDemo: true,
-  fit: [
-    "A compact option for boxes, seasonal items, and smaller belongings",
-    "Example availability state: this size is shown as fully occupied",
-  ],
+  bestFor: ["Boxes", "Seasonal décor", "Small belongings"],
   items: [
-    ["boxstack", 60, 42, 58, 58],
+    ["boxstack", 58, 42, 60, 58],
     ["bin", 142, 69, 52, 29],
-    ["bin", 196, 72, 42, 26],
+    ["bin", 198, 72, 42, 26],
   ],
 };
 
@@ -30,16 +28,15 @@ const standardUnits = [
     number: "B-03",
     size: "10 × 10",
     sqft: "100 sq ft",
-    label: "Smaller household storage",
-    fit: [
-      "A bed set, sofa, and boxes",
-      "Electronics, documents, décor, and smaller furniture",
-    ],
+    label: "Bedroom or apartment overflow",
+    doorNote: "Bikes • bed set • desk",
+    bestFor: ["Bikes", "Bed set", "Desk"],
+    helper: "A practical fit for the contents of a bedroom, small apartment overflow, or a few larger pieces you want protected indoors.",
     items: [
-      ["bed", 6, 60, 76, 38],
-      ["sofa", 90, 61, 64, 37],
-      ["boxstack", 162, 44, 40, 54],
-      ["fridge", 234, 34, 32, 64],
+      ["bed", 8, 62, 74, 36],
+      ["bike", 88, 57, 64, 41],
+      ["desk", 160, 54, 58, 44],
+      ["boxstack", 226, 55, 40, 43],
     ],
   },
   {
@@ -48,17 +45,16 @@ const standardUnits = [
     size: "10 × 15",
     sqft: "150 sq ft",
     label: "Recommended for most households",
+    doorNote: "Furniture • mattresses • boxes",
     featured: true,
-    fit: [
-      "Furniture from multiple rooms",
-      "Mattresses, appliances, boxes, electronics, and décor",
-    ],
+    bestFor: ["Living-room furniture", "Mattress sets", "Boxes & décor"],
+    helper: "A strong middle-ground size for several rooms of furniture without immediately stepping up to the largest option.",
     items: [
-      ["bed", 4, 61, 74, 37],
-      ["dresser", 84, 56, 48, 42],
-      ["sofa", 138, 64, 60, 34],
-      ["boxstack", 204, 50, 36, 48],
-      ["fridge", 246, 42, 28, 56],
+      ["bed", 4, 63, 72, 35],
+      ["dresser", 82, 58, 46, 40],
+      ["sofa", 134, 65, 62, 33],
+      ["boxstack", 202, 51, 36, 47],
+      ["fridge", 246, 43, 27, 55],
     ],
   },
   {
@@ -67,16 +63,15 @@ const standardUnits = [
     size: "10 × 20",
     sqft: "200 sq ft",
     label: "Larger household storage",
-    fit: [
-      "Larger furniture and appliances",
-      "A substantial move, remodel, or long-term household storage",
-    ],
+    doorNote: "Multiple rooms • appliances",
+    bestFor: ["Multiple rooms", "Large appliances", "Dining + living sets"],
+    helper: "A better fit for larger moves, remodels, or households storing substantial furniture and appliances together.",
     items: [
-      ["bed", 2, 63, 70, 35],
-      ["sofa", 76, 66, 56, 32],
-      ["dresser", 138, 59, 44, 39],
-      ["boxstack", 188, 53, 34, 45],
-      ["fridge", 228, 46, 26, 52],
+      ["bed", 2, 64, 69, 34],
+      ["sofa", 74, 67, 57, 31],
+      ["dresser", 136, 60, 44, 38],
+      ["boxstack", 186, 54, 34, 44],
+      ["fridge", 226, 46, 27, 52],
       ["bin", 258, 76, 20, 22],
     ],
   },
@@ -119,6 +114,17 @@ function ItemSymbols() {
         <path d="M7 0 H63 L57 50 H13 Z" fill="currentColor" opacity=".58" />
         <rect x="2" y="0" width="66" height="7" rx="2" fill="currentColor" opacity=".9" />
       </symbol>
+      <symbol id="door-bike" viewBox="0 0 120 76">
+        <circle cx="25" cy="54" r="18" fill="none" stroke="currentColor" strokeWidth="5" opacity=".72" />
+        <circle cx="96" cy="54" r="18" fill="none" stroke="currentColor" strokeWidth="5" opacity=".72" />
+        <path d="M25 54 45 25 65 54H25Zm40 0 15-31h13M45 25h22M65 54l31 0M80 23l-7-11" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" opacity=".78" />
+      </symbol>
+      <symbol id="door-desk" viewBox="0 0 110 82">
+        <rect x="6" y="17" width="98" height="15" rx="3" fill="currentColor" opacity=".72" />
+        <rect x="14" y="32" width="8" height="47" rx="2" fill="currentColor" opacity=".58" />
+        <rect x="88" y="32" width="8" height="47" rx="2" fill="currentColor" opacity=".58" />
+        <rect x="34" y="0" width="42" height="18" rx="3" fill="currentColor" opacity=".48" />
+      </symbol>
     </svg>
   );
 }
@@ -135,15 +141,12 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false }) {
         <p className={styles.eyebrow}>Choose your climate-controlled size</p>
         <h2 id="door-carousel-title">How Much Space Do You Need?</h2>
         <p className={styles.subhead}>
-          Open a door to picture what fits. Climate-controlled inventory and rates can change, so use this guide to compare space and then check the facility&apos;s live availability.
+          Open a door to see a practical example of what each size can hold. Inventory and rates can change, so use this as a visual sizing guide and confirm live availability with the facility.
         </p>
       </div>
 
       <div className={styles.stage}>
-        <div
-          className={styles.rail}
-          style={includeOccupiedSmallest ? { gridTemplateColumns: "repeat(4, minmax(0, 1fr))" } : undefined}
-        >
+        <div className={`${styles.rail} ${includeOccupiedSmallest ? styles.fourAcross : ""}`}>
           {units.map((unit) => {
             const open = openId === unit.id;
             return (
@@ -174,32 +177,30 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false }) {
                     ))}
                   </svg>
                   <div className={styles.scrim} />
-                  <div className={styles.info}>
-                    <span
-                      className={styles.climateTag}
-                      style={unit.occupiedDemo ? { background: "#f4c7c7", color: "#762a2a" } : undefined}
-                    >
-                      {unit.occupiedDemo ? "Example availability • Fully occupied" : "❄ Indoor climate-controlled"}
+
+                  <div className={`${styles.info} ${unit.occupiedDemo ? styles.occupiedInfo : ""}`}>
+                    <span className={`${styles.climateTag} ${unit.occupiedDemo ? styles.fullTag : ""}`}>
+                      {unit.occupiedDemo ? "Example status • Fully occupied" : "❄ Indoor climate-controlled"}
                     </span>
                     <p className={styles.infoSize}>{unit.size}</p>
                     <p className={styles.infoLabel}>{unit.label}</p>
+
+                    <div className={styles.fitBlock}>
+                      <span className={styles.fitEyebrow}>{unit.occupiedDemo ? "Typically fits" : "Best for"}</span>
+                      <div className={styles.fitChips}>
+                        {unit.bestFor.map((item) => <span key={item}>{item}</span>)}
+                      </div>
+                    </div>
+
                     {unit.occupiedDemo ? (
-                      <div
-                        style={{
-                          maxWidth: "245px",
-                          color: "#dce8ef",
-                          fontSize: "9.5px",
-                          lineHeight: 1.5,
-                          marginTop: "1px",
-                        }}
-                      >
-                        This sold-out state is shown as a demo. If the smallest option is full, give us a call and we&apos;ll help compare the next size up and find a practical option at a reasonable rate.
+                      <div className={styles.soldOutMessage}>
+                        <strong>This smallest option is full in this demonstration.</strong>
+                        <span>Give us a call and we&apos;ll help compare the next size up and look for a practical option at a reasonable rate.</span>
                       </div>
                     ) : (
-                      <ul className={styles.fitList}>
-                        {unit.fit.map((line) => <li key={line}>{line}</li>)}
-                      </ul>
+                      <p className={styles.helperCopy}>{unit.helper}</p>
                     )}
+
                     <div className={styles.actions}>
                       {unit.occupiedDemo ? (
                         <>
@@ -214,11 +215,12 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false }) {
                       )}
                     </div>
                   </div>
+
                   <div className={styles.door}>
                     <span className={styles.doorClimate}>{unit.occupiedDemo ? "❄ Climate-Controlled • Demo" : "❄ Climate-Controlled"}</span>
                     <p>{unit.size}</p>
                     <span>{unit.sqft}</span>
-                    <small>{unit.occupiedDemo ? "Example: fully occupied" : unit.label}</small>
+                    <small>{unit.doorNote}</small>
                     <i />
                   </div>
                   <span className={styles.sill} />
