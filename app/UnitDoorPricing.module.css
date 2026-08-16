@@ -1,0 +1,19 @@
+.openPriceCard{width:min(250px,100%);margin:0 auto 12px;padding:10px 12px 11px;border:1px solid rgba(155,227,131,.34);border-radius:10px;background:linear-gradient(180deg,rgba(72,153,56,.2),rgba(255,255,255,.06));box-shadow:0 10px 22px rgba(0,0,0,.2)}
+.openPriceLabel{display:block;margin-bottom:6px;color:#a9e899;font-size:7px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+.openPriceRow{display:flex;align-items:baseline;justify-content:center;gap:7px;white-space:nowrap}
+.openPriceWas{color:#9aabb6;font-size:9px;font-weight:800;text-decoration:line-through;text-decoration-thickness:1.5px}
+.openPriceArrow{color:#7bcf65;font-size:11px;font-weight:900}
+.openPriceNow{color:#fff;font-size:22px;line-height:1;font-weight:950;letter-spacing:-.03em;text-shadow:0 2px 9px rgba(0,0,0,.4)}
+.openPriceNow small{margin-left:2px;color:#ccefc4;font-size:8px;font-weight:850;letter-spacing:0}
+.openSavings{display:inline-flex;margin-top:7px;padding:3px 7px;border-radius:999px;background:#78c95f;color:#102d19;font-size:7px;font-weight:950;letter-spacing:.06em;text-transform:uppercase}
+
+.doorPriceCard{margin-top:11px;display:flex;flex-direction:column;align-items:center;min-width:156px;padding:8px 11px 9px;border:1px solid #b8ddb0;border-radius:9px;background:rgba(237,249,233,.96);box-shadow:0 6px 16px rgba(54,124,43,.12)}
+.doorPriceLabel{margin-bottom:4px;color:#438b36;font-size:6.5px;font-weight:950;letter-spacing:.13em;text-transform:uppercase}
+.doorPriceRow{display:flex;align-items:baseline;gap:5px;white-space:nowrap}
+.doorPriceWas{color:#7d8e95;font-size:8px;font-weight:800;text-decoration:line-through;text-decoration-thickness:1.3px}
+.doorPriceArrow{color:#57a645;font-size:9px;font-weight:900}
+.doorPriceNow{color:#2d7e28;font-size:17px;line-height:1;font-weight:950;letter-spacing:-.03em}
+.doorPriceNow small{margin-left:1px;font-size:7px;font-weight:850;letter-spacing:0}
+.doorSavings{margin-top:4px;color:#4e9940;font-size:6.8px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+
+@media(max-width:680px){.doorPriceCard{min-width:145px}.openPriceCard{max-width:225px}.openPriceNow{font-size:20px}}
