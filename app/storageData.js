@@ -163,6 +163,10 @@ export const photoSets = {
   ],
   climate: [
     {
+      src: "/photos/unit-interior.jpg",
+      alt: "Empty storage unit interior supplied for the Lake City Self Storage prototype",
+    },
+    {
       src: `${MEDIA_ROOT}img_0008_07312025201301009.jpg`,
       alt: "Climate-controlled storage area at Lake City Self Storage",
     },
