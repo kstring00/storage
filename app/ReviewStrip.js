@@ -39,20 +39,13 @@ export default function ReviewStrip({ compact = false }) {
           </div>
           <p>Real feedback from Lake City Self Storage customers.</p>
         </div>
-      </div>
 
-      <div className={styles.viewport}>
-        <div className={styles.track}>
-          <div className={styles.group}>
-            {REVIEWS.map((review, index) => <ReviewCard key={`review-a-${index}`} review={review} />)}
-          </div>
-          <div className={styles.group} aria-hidden="true">
-            {REVIEWS.map((review, index) => <ReviewCard key={`review-b-${index}`} review={review} />)}
-          </div>
+        <div className={styles.grid}>
+          {REVIEWS.map((review, index) => (
+            <ReviewCard key={`review-${index}`} review={review} />
+          ))}
         </div>
-      </div>
 
-      <div className={styles.shell}>
         <div className={styles.sourceLine}>Recent public customer reviews for Lake City Self Storage.</div>
       </div>
     </section>
