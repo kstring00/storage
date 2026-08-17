@@ -132,3 +132,8 @@
     font-size: 20px !important;
   }
 }
+
+/* Improve readability of the footer legal/navigation row. */
+.footerLegal {
+  font-size: 10px;
+}
