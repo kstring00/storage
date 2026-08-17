@@ -123,7 +123,7 @@ export default function Home() {
             <p>Start with the type of storage that fits what you are storing. Then narrow down the size and current price.</p>
           </div>
           <div className="comparisonGrid">
-            <article className="comparisonCard standardCard">
+            <article className={`comparisonCard standardCard ${funnelStyles.levelCard}`}>
               <div className="comparisonIcon"><GarageIcon /></div>
               <div>
                 <h3>Non-Climate-Controlled Storage</h3>
@@ -143,11 +143,11 @@ export default function Home() {
                 <strong>{money(nonClimateFloor)}<small>/mo</small></strong>
               </div>
               <p className={funnelStyles.choiceNote}>Rates vary by size and availability.</p>
-              <ul>
+              <ul className={funnelStyles.featureList}>
                 <Check>Drive directly to the unit for straightforward loading and unloading.</Check>
                 <Check>A practical fit for garage-friendly items such as tools, lawn equipment, patio items, and sealed totes.</Check>
               </ul>
-              <div className="bestFor">
+              <div className={`bestFor ${funnelStyles.bestForAligned}`}>
                 <strong>Choose this when:</strong>
                 <span>You want direct vehicle access and are storing garage-friendly items that do not need climate control.</span>
                 <a className={`primaryButton ${funnelStyles.cardButton}`} href={NON_CLIMATE_STORAGE_FEATURE_URL}>
@@ -156,7 +156,7 @@ export default function Home() {
               </div>
             </article>
 
-            <article className="comparisonCard climateCard">
+            <article className={`comparisonCard climateCard ${funnelStyles.levelCard}`}>
               <div className="comparisonIcon climateIcon"><SnowflakeIcon /></div>
               <div>
                 <h3>Climate-Controlled Storage</h3>
@@ -176,11 +176,11 @@ export default function Home() {
                 <strong>{money(climateFloor)}<small>/mo</small></strong>
               </div>
               <p className={funnelStyles.choiceNote}>Rates vary by size and availability.</p>
-              <ul>
+              <ul className={funnelStyles.featureList}>
                 <Check>Reduces exposure to Florida heat and repeated environmental swings.</Check>
                 <Check>Strong fit for furniture, electronics, mattresses, documents, clothing, artwork, and keepsakes.</Check>
               </ul>
-              <div className="bestFor">
+              <div className={`bestFor ${funnelStyles.bestForAligned}`}>
                 <strong>Choose this when:</strong>
                 <span>You would worry about heat or moisture affecting the condition of the item, or the belongings are sentimental, expensive, or difficult to replace.</span>
                 <a className={`primaryButton ${funnelStyles.cardButton}`} href={CLIMATE_STORAGE_FEATURE_URL}>
