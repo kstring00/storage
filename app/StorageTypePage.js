@@ -1,6 +1,5 @@
 import StorageFitTabs from "./StorageFitTabs";
-import NonClimateUnitDoors from "./NonClimateUnitDoors";
-import UnitDoorCarousel from "./UnitDoorCarousel";
+import UnitSelectionStack from "./UnitSelectionStack";
 import FacilityPhotoCarousel from "./FacilityPhotoCarousel";
 import PersistentContactBar from "./PersistentContactBar";
 import { photoSets } from "./storageData";
@@ -91,8 +90,8 @@ export default function StorageTypePage({ config }) {
 
       <StorageFitTabs config={config.storageFit} footerNote={storageFitFooterNote} />
 
-      {config.showDriveUpDoors ? <NonClimateUnitDoors /> : null}
-      {config.showClimateDoors ? <UnitDoorCarousel includeOccupiedSmallest /> : null}
+      {config.showDriveUpDoors ? <UnitSelectionStack zone="driveup" /> : null}
+      {config.showClimateDoors ? <UnitSelectionStack zone="climate" /> : null}
 
       {!config.hideUses ? (
         <section id="best-uses" className={styles.section}>
