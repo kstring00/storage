@@ -1,10 +1,63 @@
 export const INVENTORY_SOURCE_URL = "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055";
 export const INVENTORY_AS_OF = "August 16, 2026";
 
+// Availability vocabulary the UI is built against. Nothing here is invented today:
+// every unit below reports unknown availability, and the components render the
+// unknown state honestly. When the Storable/API feed lands it only has to populate
+// `availabilityStatus` / `availableCount` / `promotion` / `checkoutHref` on these
+// records and the transaction column starts showing live states with no UI rewrite.
+export const AVAILABILITY_STATUS = {
+  AVAILABLE: "available",
+  LOW: "low",
+  SOLD_OUT: "sold_out",
+  UNKNOWN: "unknown",
+};
+
+// Count at or below which the feed should be presented as limited inventory.
+export const LOW_INVENTORY_THRESHOLD = 2;
+
+/**
+ * Normalizes whatever the inventory adapter knows about a unit into a single
+ * shape the UI can render without guessing. An explicit `availabilityStatus`
+ * from the feed always wins; otherwise it is derived from `availableCount`.
+ * With neither, the result is UNKNOWN and the UI must not claim availability.
+ */
+export function resolveAvailability(unit) {
+  const count = Number.isFinite(unit?.availableCount) ? unit.availableCount : null;
+  let status = unit?.availabilityStatus || null;
+
+  if (!status) {
+    if (count === null) status = AVAILABILITY_STATUS.UNKNOWN;
+    else if (count <= 0) status = AVAILABILITY_STATUS.SOLD_OUT;
+    else if (count <= LOW_INVENTORY_THRESHOLD) status = AVAILABILITY_STATUS.LOW;
+    else status = AVAILABILITY_STATUS.AVAILABLE;
+  }
+
+  const isSoldOut = status === AVAILABILITY_STATUS.SOLD_OUT;
+
+  return {
+    status,
+    count,
+    isKnown: status !== AVAILABILITY_STATUS.UNKNOWN,
+    isSoldOut,
+    // Sold out is the only state that should remove the rental action.
+    canRent: !isSoldOut,
+  };
+}
+
+/** The official rental handoff. Per-unit deep links override the facility page. */
+export function resolveCheckoutHref(unit) {
+  return unit?.checkoutHref || INVENTORY_SOURCE_URL;
+}
+
 // Temporary inventory adapter.
 // These rates are a manual snapshot of the facility's official online inventory.
 // Keep every page reading from this one shape. When the Storable/API feed is available,
 // replace this module's data-fetching layer rather than changing the page components.
+//
+// `scene` describes the belongings demonstration for each size: `front` is the
+// staged row pulled out of the unit, `back` is the smaller row tucked behind it.
+// Keys resolve against SCENE_ART in UnitSceneArt.js.
 export const climateUnits = [
   {
     id: "5x5",
@@ -18,7 +71,14 @@ export const climateUnits = [
     bestFor: ["Boxes", "Seasonal décor", "Small belongings"],
     helper: "A compact option for boxes, seasonal décor, files, and smaller belongings that benefit from a more stable indoor environment.",
     fromPrice: 69,
-    availability: null,
+    availabilityStatus: null,
+    availableCount: null,
+    promotion: null,
+    checkoutHref: null,
+    scene: {
+      front: ["boxTower", "totes", "decorStack"],
+      back: [],
+    },
   },
   {
     id: "10x10",
@@ -32,8 +92,15 @@ export const climateUnits = [
     bestFor: ["Bikes", "Bed set", "Desk"],
     helper: "A practical fit for the contents of a bedroom, small apartment overflow, or a few larger pieces you want protected indoors.",
     fromPrice: 128,
-    availability: null,
+    availabilityStatus: null,
+    availableCount: null,
+    promotion: null,
+    checkoutHref: null,
     conversionHref: "/climate-controlled/10x10",
+    scene: {
+      front: ["bedSet", "desk", "bike", "boxTower"],
+      back: ["totes"],
+    },
   },
   {
     id: "10x15",
@@ -47,7 +114,14 @@ export const climateUnits = [
     bestFor: ["Living-room furniture", "Mattress sets", "Boxes & décor"],
     helper: "A strong middle-ground size for several rooms of furniture without immediately stepping up to the largest option.",
     fromPrice: 148,
-    availability: null,
+    availabilityStatus: null,
+    availableCount: null,
+    promotion: null,
+    checkoutHref: null,
+    scene: {
+      front: ["sofa", "bedSet", "dresser", "tv", "boxTower"],
+      back: ["totes", "wardrobeBox"],
+    },
   },
   {
     id: "10x20",
@@ -61,7 +135,14 @@ export const climateUnits = [
     bestFor: ["Multiple rooms", "Large appliances", "Dining + living sets"],
     helper: "A better fit for larger moves, remodels, or households storing substantial furniture and appliances together.",
     fromPrice: 190,
-    availability: null,
+    availabilityStatus: null,
+    availableCount: null,
+    promotion: null,
+    checkoutHref: null,
+    scene: {
+      front: ["sofa", "bedSet", "diningSet", "fridge", "dresser"],
+      back: ["boxTower", "wardrobeBox", "totes"],
+    },
   },
 ];
 
@@ -77,7 +158,14 @@ export const nonClimateUnits = [
     bestFor: ["Tools", "Seasonal gear", "Totes"],
     helper: "A straightforward drive-up option for compact durable storage jobs and smaller household overflow.",
     fromPrice: 79,
-    availability: null,
+    availabilityStatus: null,
+    availableCount: null,
+    promotion: null,
+    checkoutHref: null,
+    scene: {
+      front: ["toolChest", "yardTools", "totes"],
+      back: [],
+    },
   },
   {
     id: "10x10",
@@ -90,7 +178,14 @@ export const nonClimateUnits = [
     bestFor: ["Lawn gear", "Patio items", "Durable totes"],
     helper: "A practical drive-up option for garage cleanouts, outdoor gear, and durable household overflow.",
     fromPrice: 98,
-    availability: null,
+    availabilityStatus: null,
+    availableCount: null,
+    promotion: null,
+    checkoutHref: null,
+    scene: {
+      front: ["mower", "toolChest", "patioSet"],
+      back: ["totes", "boxTower"],
+    },
   },
   {
     id: "10x15",
@@ -103,7 +198,14 @@ export const nonClimateUnits = [
     bestFor: ["Outdoor equipment", "Project overflow", "Sturdy household items"],
     helper: "Useful when you need more room for durable equipment, projects, or household overflow with direct vehicle access.",
     fromPrice: 129,
-    availability: null,
+    availabilityStatus: null,
+    availableCount: null,
+    promotion: null,
+    checkoutHref: null,
+    scene: {
+      front: ["mower", "workbench", "ladder", "toolChest"],
+      back: ["totes", "tires"],
+    },
   },
   {
     id: "10x20",
@@ -116,7 +218,14 @@ export const nonClimateUnits = [
     bestFor: ["Garage contents", "Equipment", "Bulky durable items"],
     helper: "A larger drive-up choice for substantial durable household or work-related storage.",
     fromPrice: 159,
-    availability: null,
+    availabilityStatus: null,
+    availableCount: null,
+    promotion: null,
+    checkoutHref: null,
+    scene: {
+      front: ["mower", "workbench", "patioSet", "shelving"],
+      back: ["toolChest", "tires", "totes"],
+    },
   },
   {
     id: "10x30",
@@ -129,7 +238,14 @@ export const nonClimateUnits = [
     bestFor: ["Large household overflow", "Business storage", "Bulky equipment"],
     helper: "The largest drive-up option represented here for substantial household, business, or equipment storage.",
     fromPrice: 259,
-    availability: null,
+    availabilityStatus: null,
+    availableCount: null,
+    promotion: null,
+    checkoutHref: null,
+    scene: {
+      front: ["mower", "workbench", "patioSet", "shelving", "wheelbarrow"],
+      back: ["ladder", "tires", "toolChest", "boxTower"],
+    },
   },
 ];
 
