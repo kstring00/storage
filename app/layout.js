@@ -1,5 +1,6 @@
 import "./globals.css";
 import "./polish.css";
+import ClarityAnalytics from "./ClarityAnalytics";
 import CookieConsent from "./CookieConsent";
 
 export const metadata = {
@@ -23,27 +24,11 @@ export const metadata = {
   referrer: "no-referrer",
 };
 
-const clarityBootstrap = `
-(function(c,l,a,r,i,t,y){
-  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-  var saved=null;
-  try{saved=c.localStorage.getItem("lcsc_analytics_consent");}catch(e){}
-  c[a]("consentv2",{
-    ad_Storage:"denied",
-    analytics_Storage:saved==="granted"?"granted":"denied"
-  });
-  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window,document,"clarity","script","y3uxc7af7u");
-`;
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: clarityBootstrap }} />
-      </head>
       <body>
+        <ClarityAnalytics />
         {children}
         <CookieConsent />
       </body>
