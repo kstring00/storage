@@ -3,7 +3,7 @@
 import { useState } from "react";
 import styles from "./NonClimateUnitDoors.module.css";
 import pricingStyles from "./LiveUnitPricing.module.css";
-import { INVENTORY_AS_OF, INVENTORY_SOURCE_URL, money, nonClimateUnits } from "./storageData";
+import { INVENTORY_SOURCE_URL, money, nonClimateUnits } from "./storageData";
 
 const PHONE_LINK = "tel:+13862925494";
 
@@ -33,9 +33,9 @@ export default function NonClimateUnitDoors() {
     <section id="drive-up-sizes" className={styles.section} aria-labelledby="drive-up-size-title">
       <ItemSymbols />
       <div className={styles.headingShell}>
-        <p className={styles.eyebrow}>Explore non-climate drive-up sizes</p>
-        <h2 id="drive-up-size-title">Choose the Space That Fits Your Storage Job</h2>
-        <p className={styles.subhead}>Price should be visible before you open a door. These starting rates use a {INVENTORY_AS_OF} snapshot of Lake City Self Storage&apos;s official online inventory; live availability, exact variants, and promotions remain on the facility&apos;s rental system.</p>
+        <p className={styles.eyebrow}>Choose your non-climate drive-up size</p>
+        <h2 id="drive-up-size-title">Drive-Up Sizes & Starting Rates</h2>
+        <p className={styles.subhead}>See size and price before you open a door. Open a door only when you want a quick visual of what fits—you can go straight to live availability at any time.</p>
       </div>
 
       <div className={styles.stage}>
@@ -72,10 +72,10 @@ export default function NonClimateUnitDoors() {
                     <span className={styles.driveTag}>Drive-Up Access</span>
                     <p className={styles.infoSize}>{unit.size}</p>
                     <p className={styles.infoLabel}>{unit.label}</p>
-                    <div className={styles.priceRow}><span>Current starting rate</span><strong>{money(unit.fromPrice)}/mo</strong></div>
+                    <div className={styles.priceRow}><span>Starting rate</span><strong>{money(unit.fromPrice)}/mo</strong></div>
                     <ul className={styles.fitList}>{unit.bestFor.map((line) => <li key={line}>{line}</li>)}</ul>
                     <div className={styles.actions}>
-                      <a className={styles.reserveLink} href={INVENTORY_SOURCE_URL}>View Official Live Inventory →</a>
+                      <a className={styles.reserveLink} href={INVENTORY_SOURCE_URL}>Check Live Availability →</a>
                       <a className={styles.callLink} href={PHONE_LINK}>Call to Ask</a>
                     </div>
                   </div>
@@ -89,13 +89,16 @@ export default function NonClimateUnitDoors() {
                   </div>
                   <span className={styles.sill} />
                 </div>
-                <div className={styles.tapHint}>{open ? "Tap to close" : "Hover or tap to open"}</div>
+                <div className={styles.tapHint}>
+                  <span>{open ? "Tap to close" : "See what fits"}</span>
+                  <a className={styles.footerAction} href={INVENTORY_SOURCE_URL}>Check availability →</a>
+                </div>
               </article>
             );
           })}
         </div>
       </div>
-      <div className={pricingStyles.sourceRow}><span>Pricing snapshot: {INVENTORY_AS_OF}.</span><a href={INVENTORY_SOURCE_URL}>Check current Lake City Self Storage inventory →</a></div>
+      <div className={pricingStyles.sourceRow}><span>Starting rates may change with availability.</span><a href={INVENTORY_SOURCE_URL}>Check current Lake City Self Storage inventory →</a></div>
     </section>
   );
 }
