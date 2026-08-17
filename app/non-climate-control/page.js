@@ -3,22 +3,23 @@ import StorageTypePage from "../StorageTypePage";
 export const metadata = {
   title: "Non-Climate-Controlled Storage in Lake City, FL | Lake City Self Storage",
   description:
-    "Learn when non-climate-controlled storage makes sense for durable belongings such as tools, lawn equipment, patio furniture, sealed plastic totes, and other less-sensitive items.",
+    "Learn when non-climate-controlled drive-up storage makes sense for durable belongings such as tools, lawn equipment, patio furniture, sealed plastic totes, and other less-sensitive items.",
 };
 
 const config = {
   icon: "⌂",
+  photoZone: "nonClimate",
   eyebrow: "Non-Climate-Controlled Storage",
-  title: "Simple, Practical Storage for Durable Belongings",
+  title: "Simple, Practical Drive-Up Storage for Durable Belongings",
   heroLead:
-    "Not everything needs climate control. Non-climate-controlled storage can be a smart, economical choice for tougher belongings that can handle Florida temperature changes, especially when convenience and lower monthly cost matter more than a controlled indoor environment.",
-  primaryCta: "View Non-Climate-Controlled Units",
-  visualTitle: "A practical choice for tougher items",
+    "Not everything needs climate control. For tougher belongings that can handle Florida temperature changes, non-climate-controlled drive-up storage can be the simpler and more economical choice—with the convenience of pulling your vehicle directly up to the unit.",
+  primaryCta: "Compare Drive-Up Sizes",
+  visualTitle: "See the real drive-up storage area",
   visualCopy:
-    "Use non-climate-controlled storage for belongings that are less sensitive to heat, humidity, and temperature swings.",
+    "These exterior facility photos show the access style customers actually use when they choose non-climate-controlled storage.",
   benefitsTitle: "Why Choose Non-Climate-Controlled Storage?",
   benefitsIntro:
-    "For the right belongings, non-climate-controlled storage keeps things simple: useful space, straightforward access, and usually a lower monthly rate.",
+    "For the right belongings, non-climate storage gives you useful space, direct vehicle access, and usually a lower monthly rate without paying for environmental protection you may not need.",
   benefits: [
     {
       icon: "$",
@@ -28,15 +29,15 @@ const config = {
     },
     {
       icon: "↔",
-      title: "Great for Durable Belongings",
+      title: "Direct Drive-Up Access",
       copy:
-        "Tools, lawn equipment, patio furniture, sturdy storage totes, and similar items can often tolerate a less-controlled environment well.",
+        "Drive-up access means you can park directly in front of the unit, which makes loading tools, outdoor equipment, totes, and bulky durable belongings simpler.",
     },
     {
       icon: "⌂",
-      title: "Straightforward Everyday Storage",
+      title: "Great for Garage-Friendly Items",
       copy:
-        "It is a practical option for household overflow, garage cleanouts, outdoor gear, and other items where simple storage space is the main priority.",
+        "Tools, lawn equipment, patio furniture, sturdy storage totes, and similar belongings are strong candidates when Florida temperature and humidity changes are not a concern.",
     },
   ],
   storageFit: {
@@ -49,30 +50,10 @@ const config = {
         title: "Durable belongings that usually make sense here",
         intro: "Think practical, sturdy, and less sensitive to heat or ordinary temperature swings.",
         items: [
-          {
-            icon: "⚒",
-            visual: "tools",
-            title: "Tools & Hardware",
-            copy: "Hand tools, power-tool cases, ladders, work supplies, and other durable equipment are strong candidates when they do not require a controlled environment.",
-          },
-          {
-            icon: "↔",
-            visual: "lawn",
-            title: "Lawn & Outdoor Equipment",
-            copy: "Mowers, yard tools, garden supplies, and similar equipment are built for tougher conditions and often do not need climate control.",
-          },
-          {
-            icon: "⌑",
-            visual: "patio",
-            title: "Patio Furniture",
-            copy: "Outdoor chairs, tables, and similar pieces are typically designed to handle changing temperatures better than indoor furniture.",
-          },
-          {
-            icon: "▤",
-            visual: "totes",
-            title: "Durable Plastic Totes",
-            copy: "Sealed plastic bins containing non-sensitive seasonal goods, household overflow, or sturdy personal belongings can be a practical fit.",
-          },
+          { icon: "⚒", visual: "tools", title: "Tools & Hardware", copy: "Hand tools, power-tool cases, ladders, work supplies, and other durable equipment are strong candidates when they do not require a controlled environment." },
+          { icon: "↔", visual: "lawn", title: "Lawn & Outdoor Equipment", copy: "Mowers, yard tools, garden supplies, and similar equipment are built for tougher conditions and often do not need climate control." },
+          { icon: "⌑", visual: "patio", title: "Patio Furniture", copy: "Outdoor chairs, tables, and similar pieces are typically designed to handle changing temperatures better than indoor furniture." },
+          { icon: "▤", visual: "totes", title: "Durable Plastic Totes", copy: "Sealed plastic bins containing non-sensitive seasonal goods, household overflow, or sturdy personal belongings can be a practical fit." },
         ],
         note: {
           title: "A useful rule of thumb:",
@@ -110,77 +91,36 @@ const config = {
   hideUses: true,
   decisionNoteOnly: true,
   showDriveUpDoors: true,
-  usesTitle: "Best Uses for Non-Climate-Controlled Storage",
-  usesIntro:
-    "The best candidates are belongings that are sturdy, replaceable, or designed to tolerate changing temperatures and ordinary outdoor conditions.",
-  uses: [
-    {
-      title: "Tools & Hardware",
-      copy: "Hand tools, power-tool cases, ladders, work supplies, and other durable equipment that does not require a controlled environment.",
-    },
-    {
-      title: "Lawn & Outdoor Equipment",
-      copy: "Mowers, yard tools, garden supplies, outdoor equipment, and similar items built for tougher conditions.",
-    },
-    {
-      title: "Patio Furniture",
-      copy: "Outdoor chairs, tables, umbrellas, and other furniture intended to handle exposure to changing temperatures.",
-    },
-    {
-      title: "Durable Plastic Totes",
-      copy: "Sealed plastic bins containing non-sensitive household goods, seasonal items, or sturdy personal belongings.",
-    },
-    {
-      title: "Sports & Recreation Gear",
-      copy: "Camping equipment, coolers, sporting goods, beach gear, and other durable recreational items.",
-    },
-    {
-      title: "Garage & Household Overflow",
-      copy: "Extra household items, project materials, and durable belongings that need space more than environmental protection.",
-    },
-  ],
-  decisionTitle: "When Does Non-Climate Control Make Sense?",
-  decisionIntro:
-    "The goal is to match the storage environment to what you are actually storing. If your belongings are durable and less sensitive, climate control may be unnecessary.",
-  goodFitLabel: "Non-climate control is a strong fit when",
-  goodFitTitle: "You mainly need space for tougher items",
-  goodFit: [
-    "Your belongings are durable and can tolerate Florida temperature changes.",
-    "You are storing tools, lawn equipment, patio furniture, sports gear, or sealed totes with non-sensitive contents.",
-    "Lower monthly cost is an important priority and the items do not require extra environmental protection.",
-    "You mainly want practical storage space rather than a more controlled indoor environment.",
-  ],
-  otherFitLabel: "Climate control may be better when",
-  otherFitTitle: "The condition of the belongings matters more",
-  otherFit: [
-    "You are storing wood or upholstered furniture, mattresses, electronics, documents, photos, books, or clothing.",
-    "Your belongings are sentimental, expensive, or difficult to replace.",
-    "The items may remain in storage for a long period and are sensitive to environmental changes.",
-    "You want to reduce exposure to Florida heat and repeated temperature swings.",
-  ],
   noteTitle: "A useful rule of thumb:",
   noteCopy:
     "If you would be comfortable keeping the item in a typical garage through changing weather, non-climate-controlled storage may be a reasonable fit. If you would worry about heat, moisture, or repeated temperature swings, consider climate control instead.",
+  faqTitle: "Non-Climate & Drive-Up Storage Questions",
+  faqIntro: "Questions specific to this exterior drive-up storage environment.",
   faqs: [
     {
-      question: "What is non-climate-controlled storage?",
+      question: "What does drive-up access mean?",
       answer:
-        "It is storage space that does not provide the same controlled indoor temperature environment as a climate-controlled unit. Conditions can change more with outdoor weather.",
+        "It means you can park your vehicle directly in front of the storage unit for easier loading and unloading. That convenience is one of the main reasons customers choose this storage type.",
     },
     {
       question: "What should I store in a non-climate-controlled unit?",
       answer:
-        "Durable belongings such as tools, lawn equipment, patio furniture, sealed plastic totes, sports gear, and other less-sensitive items are common uses.",
+        "Durable belongings such as tools, lawn equipment, patio furniture, sealed plastic totes, sports gear, project supplies, and other garage-friendly items are common uses.",
     },
     {
       question: "What should I avoid storing there?",
       answer:
-        "Items that are sensitive to heat, moisture, or temperature swings—such as important documents, photos, electronics, mattresses, clothing, artwork, and some furniture—may be better suited to climate-controlled storage.",
+        "Items that are sensitive to heat, moisture, or repeated temperature swings—such as important documents, photos, electronics, mattresses, clothing, artwork, and some indoor furniture—may be better suited to climate-controlled storage.",
     },
     {
-      question: "Is non-climate-controlled storage cheaper?",
+      question: "Is non-climate-controlled storage usually cheaper?",
       answer:
-        "It is usually the lower monthly rate compared with climate-controlled storage, although exact pricing and availability can vary by unit size and current inventory.",
+        "Usually, yes. You are not paying for the same indoor environmental control, but exact pricing still depends on size and current inventory. The unit doors above show the current starting-rate snapshot and link to the official live inventory.",
+    },
+    {
+      question: "When should I choose climate control instead?",
+      answer:
+        "If you would be uncomfortable leaving the item in a typical Florida garage through changing weather, or if the item is sentimental, expensive, or difficult to replace, compare climate-controlled storage before deciding.",
     },
   ],
   crossTitle: "Storing furniture, electronics, documents, or keepsakes?",
@@ -189,8 +129,7 @@ const config = {
   crossHref: "/climate-controlled",
   crossCta: "Explore Climate-Controlled Storage",
   finalTitle: "Pay for the storage environment your belongings actually need.",
-  finalCopy: "Choose non-climate-controlled space when simple, practical storage is the right fit.",
-  finalCta: "View Non-Climate-Controlled Units",
+  finalCopy: "Choose drive-up non-climate storage when simple access and practical value are the right fit.",
 };
 
 export default function NonClimateControlledPage() {
