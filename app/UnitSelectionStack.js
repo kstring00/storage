@@ -256,7 +256,6 @@ export default function UnitSelectionStack({ zone = "climate" }) {
       <div className={styles.heading}>
         <p className={styles.step}>Step 2 • Choose your size</p>
         <h2 id={`${sectionId}-title`}>{isClimate ? "Climate-Controlled Sizes" : "Drive-Up Sizes"}</h2>
-        <p>Size, price, and the rental action stay on screen. Open a unit only if you want to see what that much space holds.</p>
       </div>
 
       <div className={styles.stack}>
@@ -409,7 +408,7 @@ export default function UnitSelectionStack({ zone = "climate" }) {
                   </span>
 
                   <span className={styles.hint}>
-                    {open ? "Hide example" : "See what fits"}
+                    <span>{open ? `Fits: ${unit.doorNote}` : "See what fits"}</span>
                     <b aria-hidden="true">{open ? "×" : "→"}</b>
                   </span>
                 </button>

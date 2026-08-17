@@ -42,9 +42,9 @@ const config = {
     },
   ],
   storageFit: {
-    title: "What Florida Heat & Humidity Can Do to Stored Belongings",
+    title: "What Florida Heat Can Do to Stored Belongings",
     intro:
-      "Heat, moisture, and repeated environmental swings can affect common household materials over time—especially in non-climate-controlled storage.",
+      "Florida heat and repeated temperature swings can affect common household materials over time—especially in non-climate-controlled storage.",
     staticOnly: true,
     footerNote: {
       title: "Why climate control helps:",
@@ -54,7 +54,7 @@ const config = {
     tabs: [
       {
         label: "Sensitive Belongings",
-        title: "Items that can be more vulnerable to Florida heat and humidity",
+        title: "Items that can be more vulnerable to Florida heat",
         intro: "",
         items: [
           {
@@ -98,7 +98,7 @@ const config = {
     {
       question: "When is climate-controlled storage actually worth paying more for?",
       answer:
-        "It is most useful when heat, moisture, or repeated temperature changes could affect the condition of what you are storing. Furniture, electronics, mattresses, paper records, photos, clothing, artwork, and keepsakes are common examples. If your belongings are durable and garage-friendly, compare non-climate storage before paying extra.",
+        "It is most useful when heat, moisture, or repeated temperature changes could affect the condition of what you are storing. Furniture, electronics, mattresses, paper records, photos, clothing, artwork, and keepsakes are common examples. If your belongings are garage-friendly, compare non-climate storage before paying extra.",
     },
     {
       question: "Is climate-controlled the same as humidity-controlled?",

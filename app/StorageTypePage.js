@@ -23,9 +23,14 @@ export default function StorageTypePage({ config }) {
     <main className={styles.page}>
       <PersistentContactBar />
       <header className="siteHeader">
-        <div className="shell headerTop">
+        <div className="shell headerTop" style={{ minHeight: "clamp(82px, 9vw, 104px)" }}>
           <a href="/" aria-label="Lake City Self Storage landing page">
-            <img className="logo" src={LOGO_URL} alt="Lake City Self Storage" />
+            <img
+              className="logo"
+              style={{ width: "clamp(108px, 13vw, 150px)", height: "clamp(74px, 9vw, 100px)" }}
+              src={LOGO_URL}
+              alt="Lake City Self Storage"
+            />
           </a>
           <a className="callTop" href={PHONE_LINK}>Call Us Today! <strong>{PHONE_DISPLAY}</strong></a>
         </div>
