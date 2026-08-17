@@ -1,17 +1,15 @@
-import FacilityPhotoCarousel from "../../FacilityPhotoCarousel";
 import ReviewStrip from "../../ReviewStrip";
 import {
   climateUnits,
-  INVENTORY_AS_OF,
   INVENTORY_SOURCE_URL,
   money,
-  photoSets,
 } from "../../storageData";
 import styles from "./page.module.css";
 
 const PHONE_DISPLAY = "(386) 292-5494";
 const PHONE_LINK = "tel:+13862925494";
 const LOGO_URL = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/outlook-1lwjlfpa_01032024100037323.png";
+const CLIMATE_PHOTO = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%209y8a0202_08152025173121802.jpg";
 const unit = climateUnits.find((item) => item.id === "10x10");
 
 const fitItems = [
@@ -24,19 +22,19 @@ const fitItems = [
 const faqItems = [
   {
     question: `Is ${money(unit.fromPrice)}/mo guaranteed?`,
-    answer: `No. ${money(unit.fromPrice)}/mo is the starting-rate snapshot captured from Lake City Self Storage's official inventory on ${INVENTORY_AS_OF}. The live rental system remains the source of truth for the exact rate, promotions, and availability at the moment you rent.`,
+    answer: `Rates and availability can change. ${money(unit.fromPrice)}/mo is the current starting rate shown for this size. Check current availability before renting to see today's exact price and move-in options.`,
   },
   {
     question: "What happens if the 10 × 10 is sold out?",
-    answer: "Stay in the climate-controlled branch and compare the nearest practical size up or down. The goal is to keep the storage environment your belongings need without paying for unnecessary space.",
+    answer: "Stay in the climate-controlled section and compare the nearest practical size up or down. The goal is to keep the storage environment your belongings need without paying for unnecessary space.",
   },
   {
     question: "Can I reserve or move in online?",
-    answer: "Yes. The official Lake City Self Storage rental system handles current inventory and the final reservation or move-in transaction. This page is designed to help you arrive there already confident about the storage type and size you want.",
+    answer: "Yes. You can view current units and complete the rental process online. If you want help choosing the right size first, call the facility and someone can walk you through the options.",
   },
   {
     question: "What if I am not sure the 10 × 10 is the right size?",
-    answer: "Use the examples on this page as a guide, then compare the other climate-controlled sizes or call the facility. Choosing the smallest practical size that safely fits your belongings is usually better than paying for space you do not need.",
+    answer: "Use the examples on this page as a guide, then compare the other climate-controlled sizes or call the facility. Choosing the smallest practical size that safely fits your belongings can help you avoid paying for space you do not need.",
   },
 ];
 
@@ -68,35 +66,36 @@ export default function ClimateTenByTenPage() {
 
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
-              <p className={styles.eyebrow}>10 × 10 climate-controlled</p>
-              <h1>Keep the Decision Moving Forward.</h1>
-              <p className={styles.lead}>You already chose climate control and you are looking at a 10 × 10. This page keeps the next decision simple: confirm what fits, see the current starting price, and check the exact live inventory when you are ready.</p>
+              <p className={styles.eyebrow}>10 × 10 climate-controlled storage</p>
+              <h1>A practical amount of space without jumping to a larger unit.</h1>
+              <p className={styles.lead}>A 10 × 10 gives you 100 square feet of indoor climate-controlled storage. It is a strong fit for bedroom furniture, apartment overflow, bikes, a desk, boxes, and other belongings you want kept in a more stable environment.</p>
               <div className={styles.pills}>
                 <span>100 sq ft</span><span>Indoor</span><span>❄ Climate-Controlled</span>
               </div>
               <div className={styles.reassurance}>
-                <span>✓ Climate control already chosen</span>
-                <span>✓ 10 × 10 already chosen</span>
-                <span>✓ No need to browse unrelated sizes</span>
+                <span>✓ Great for bedroom or apartment overflow</span>
+                <span>✓ Climate-controlled indoor storage</span>
+                <span>✓ Compare before moving up a size</span>
               </div>
             </div>
 
             <aside className={styles.summaryCard}>
-              <span className={styles.summaryLabel}>Current starting-rate snapshot</span>
+              <span className={styles.summaryLabel}>Starting at</span>
               <div className={styles.price}>{money(unit.fromPrice)}<span>/mo</span></div>
-              <p>Snapshot from Lake City Self Storage&apos;s official online inventory on {INVENTORY_AS_OF}. Exact availability and promotions can change.</p>
-              <a className={styles.primaryCta} href={INVENTORY_SOURCE_URL}>Check Official 10 × 10 Availability →</a>
+              <p>See today&apos;s available 10 × 10 climate-controlled units, current pricing, and move-in options.</p>
+              <a className={styles.primaryCta} href={INVENTORY_SOURCE_URL}>See Available 10 × 10 Units →</a>
               <a className={styles.secondaryCta} href={PHONE_LINK}>Call About This Size</a>
             </aside>
           </div>
 
           <div className={styles.photoBlock}>
-            <FacilityPhotoCarousel
-              images={photoSets.climate}
-              title="This is the actual climate-controlled environment."
-              copy="Real facility photography keeps the promise on this page connected to what you will see when you arrive."
-              compact
-            />
+            <div className={styles.singlePhoto}>
+              <img src={CLIMATE_PHOTO} alt="Climate-controlled storage corridor at Lake City Self Storage" />
+              <div className={styles.photoCaption}>
+                <strong>Climate-controlled storage at Lake City Self Storage</strong>
+                <span>Indoor access for belongings that benefit from a more stable storage environment.</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -104,9 +103,9 @@ export default function ClimateTenByTenPage() {
       <section id="what-fits" className={styles.sectionAlt}>
         <div className={styles.shell}>
           <div className={styles.heading}>
-            <p className={styles.eyebrow}>Confirm the fit</p>
-            <h2>What does a 10 × 10 make sense for?</h2>
-            <p>The goal is not to sell you the biggest unit. It is to help you choose enough space for what you actually need to protect.</p>
+            <p className={styles.eyebrow}>Picture the space</p>
+            <h2>What fits well in a 10 × 10?</h2>
+            <p>You want enough room to store comfortably without automatically paying for a larger unit.</p>
           </div>
           <div className={styles.fitGrid}>
             {fitItems.map(([title, copy], index) => (
@@ -123,22 +122,22 @@ export default function ClimateTenByTenPage() {
       <section className={styles.guidanceSection}>
         <div className={styles.shell}>
           <div className={styles.heading}>
-            <p className={styles.eyebrow}>Tenant-first guidance</p>
-            <h2>Choose the 10 × 10 when it serves your storage job.</h2>
+            <p className={styles.eyebrow}>Choose the size with confidence</p>
+            <h2>Is the 10 × 10 enough for what you are storing?</h2>
           </div>
           <div className={styles.guidanceGrid}>
             <article className={styles.goodFit}>
-              <span>Strong fit</span>
-              <h3>Stay with the 10 × 10 if...</h3>
+              <span>10 × 10 is a strong fit</span>
+              <h3>Stay with this size if...</h3>
               <ul>
                 <li>You are storing a bedroom set, bikes, desk, boxes, or apartment overflow.</li>
                 <li>You want climate control but do not need several rooms worth of furniture space.</li>
-                <li>The belongings can be packed efficiently without forcing or damaging them.</li>
+                <li>Your belongings can be packed comfortably without forcing or damaging them.</li>
               </ul>
             </article>
             <article>
-              <span>Compare another size</span>
-              <h3>Consider the 10 × 15 instead if...</h3>
+              <span>You may need more room</span>
+              <h3>Compare the 10 × 15 if...</h3>
               <ul>
                 <li>You are moving multiple rooms of furniture or several large pieces together.</li>
                 <li>You expect to add more belongings during the storage period.</li>
@@ -153,9 +152,9 @@ export default function ClimateTenByTenPage() {
       <section id="availability" className={styles.availabilitySection}>
         <div className={styles.shell}>
           <div className={styles.heading}>
-            <p className={styles.eyebrow}>One product, one source of truth</p>
-            <h2>10 × 10 Climate-Controlled Price & Availability</h2>
-            <p>Until the live inventory API is connected, this page reads from one centralized rate snapshot and hands the final availability check to Lake City Self Storage&apos;s official rental system.</p>
+            <p className={styles.eyebrow}>Ready when you are</p>
+            <h2>Check 10 × 10 Climate-Controlled Availability</h2>
+            <p>See current availability and pricing, then choose the unit that works best for your move-in.</p>
           </div>
           <article className={styles.inventoryCard}>
             <div>
@@ -164,28 +163,28 @@ export default function ClimateTenByTenPage() {
               <p>Bedroom or apartment overflow • Bikes • Bed set • Desk</p>
             </div>
             <div className={styles.inventoryPrice}>
-              <small>Starting-rate snapshot</small>
+              <small>Starting at</small>
               <strong>{money(unit.fromPrice)}<span>/mo</span></strong>
             </div>
             <div className={styles.inventoryActions}>
-              <a href={INVENTORY_SOURCE_URL}>Check Live Availability →</a>
+              <a href={INVENTORY_SOURCE_URL}>See Available Units →</a>
               <a href={PHONE_LINK}>Call to Ask</a>
             </div>
           </article>
-          <div className={styles.apiReady}>
-            <strong>API-ready structure:</strong>
-            <span>When the live inventory feed is available, exact 10 × 10 variants, availability, promotions, and transaction links can populate this section without redesigning the page.</span>
+          <div className={styles.rentalNote}>
+            <strong>Not sure yet?</strong>
+            <span>Call before renting and we can help you compare this size with the next option up.</span>
           </div>
         </div>
       </section>
 
-      <ReviewStrip zone="climate" compact />
+      <ReviewStrip compact />
 
       <section id="faq" className={styles.faqSection}>
         <div className={styles.shell}>
           <div className={styles.heading}>
             <p className={styles.eyebrow}>Before you rent</p>
-            <h2>10 × 10 Reservation Questions</h2>
+            <h2>10 × 10 Storage Questions</h2>
           </div>
           <div className={styles.faq}>
             {faqItems.map((item) => (
@@ -203,8 +202,8 @@ export default function ClimateTenByTenPage() {
           <div className={styles.nextFitCard}>
             <div>
               <p className={styles.eyebrow}>Need a different fit?</p>
-              <h2>Stay in climate control and compare the other sizes.</h2>
-              <p>The 10 × 10 is the first conversion-page prototype. The rest of the size pages can use this same structure once this interaction is proven.</p>
+              <h2>Compare the other climate-controlled sizes.</h2>
+              <p>If the 10 × 10 feels too tight or larger than you need, compare the nearby sizes before making your decision.</p>
             </div>
             <a href="/climate-controlled#unit-doors">Compare Other Climate Sizes →</a>
           </div>
