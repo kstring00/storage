@@ -2,6 +2,7 @@ import UnitDoorCarousel from "./UnitDoorCarousel";
 import FacilityPhotoCarousel from "./FacilityPhotoCarousel";
 import ReviewStrip from "./ReviewStrip";
 import PersistentContactBar from "./PersistentContactBar";
+import LocationMap from "./LocationMap";
 import funnelStyles from "./HomeFunnel.module.css";
 import { climateUnits, nonClimateUnits, photoSets, money } from "./storageData";
 
@@ -204,6 +205,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LocationMap />
 
       <section className="finalCta">
         <div className="shell finalCtaInner">
