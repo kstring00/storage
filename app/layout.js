@@ -1,5 +1,6 @@
 import "./globals.css";
 import "./polish.css";
+import "./unitInteriorReveal.css";
 import ClarityAnalytics from "./ClarityAnalytics";
 import GoogleAnalytics from "./GoogleAnalytics";
 import CookieConsent from "./CookieConsent";
