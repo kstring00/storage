@@ -17,6 +17,7 @@ const config = {
   visualTitle: "See the real climate-controlled storage area",
   visualCopy:
     "These indoor facility photos show the environment customers actually walk into when they choose climate-controlled storage.",
+  hideBenefits: true,
   benefitsTitle: "Why Choose Climate-Controlled Storage?",
   benefitsIntro:
     "Climate control is useful when the added environmental protection solves a real problem for what you are storing. If it does not, the non-climate option may be the better value.",
