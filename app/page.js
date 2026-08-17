@@ -1,7 +1,9 @@
 import UnitDoorCarousel from "./UnitDoorCarousel";
 import FacilityPhotoCarousel from "./FacilityPhotoCarousel";
 import ReviewStrip from "./ReviewStrip";
-import { photoSets } from "./storageData";
+import PersistentContactBar from "./PersistentContactBar";
+import funnelStyles from "./HomeFunnel.module.css";
+import { climateUnits, nonClimateUnits, photoSets, money } from "./storageData";
 
 const PHONE_DISPLAY = "(386) 292-5494";
 const PHONE_LINK = "tel:+13862925494";
@@ -11,6 +13,8 @@ const LOGO_URL = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6
 
 const NON_CLIMATE_STORAGE_FEATURE_URL = "/non-climate-control";
 const CLIMATE_STORAGE_FEATURE_URL = "/climate-controlled";
+const climateTen = climateUnits.find((unit) => unit.id === "10x10");
+const nonClimateTen = nonClimateUnits.find((unit) => unit.id === "10x10");
 
 function SnowflakeIcon() {
   return (
@@ -69,6 +73,7 @@ function Check({ children }) {
 export default function Home() {
   return (
     <main>
+      <PersistentContactBar />
       <header className="siteHeader">
         <div className="shell headerTop">
           <a href="https://www.lakecityselfstorage.com" aria-label="Lake City Self Storage">
@@ -101,7 +106,7 @@ export default function Home() {
           <FacilityPhotoCarousel
             images={photoSets.general}
             title="One facility. Two useful storage environments."
-            copy="We will help you compare the tradeoffs first, then choose the amount of space that fits."
+            copy="Choose the environment first, then the size and price that fit what you are storing."
           />
         </div>
       </section>
@@ -109,26 +114,31 @@ export default function Home() {
       <section id="why-climate" className="section whyClimateSection">
         <div className="shell">
           <div className="centerHeading">
+            <span className={funnelStyles.funnelPrompt}>Step 1 • Choose your storage environment</span>
             <h2>Choose the Environment Your Belongings Actually Need</h2>
-            <p>Neither option is automatically better. The right choice depends on what you are storing, how sensitive it is, how often you want direct vehicle access, and what you want to spend.</p>
+            <p>Neither option is automatically better. Pick the environment that fits what you are storing, then we will narrow the size and current price from there.</p>
           </div>
           <div className="comparisonGrid">
             <article className="comparisonCard standardCard">
               <div className="comparisonIcon"><GarageIcon /></div>
               <div>
                 <h3>Non-Climate-Controlled Storage</h3>
-                <p className="comparisonSub">Practical drive-up space for tougher belongings</p>
+                <p className="comparisonSub">Drive-up convenience for durable belongings</p>
               </div>
+              <div className={funnelStyles.priceReference}>
+                <span><strong>10 × 10 price reference</strong>Same-size comparison</span>
+                <strong>{money(nonClimateTen.fromPrice)}<small>/mo</small></strong>
+              </div>
+              <p className={funnelStyles.choiceNote}>Other sizes and live availability may vary.</p>
               <ul>
-                <Check>Usually the lower-cost choice when extra environmental protection is unnecessary</Check>
-                <Check>Drive-up access makes loading tools, outdoor gear, totes, and bulky durable items straightforward</Check>
-                <Check>Best when the belongings can tolerate Florida temperature and humidity changes</Check>
+                <Check>Drive directly to the unit for straightforward loading and unloading.</Check>
+                <Check>Best for durable belongings that can tolerate Florida heat and humidity changes.</Check>
               </ul>
               <div className="bestFor">
                 <strong>Choose this when:</strong>
-                <span>You would be comfortable keeping the item in a typical garage through changing weather and you value simple drive-up access.</span>
-                <a className="primaryButton" href={NON_CLIMATE_STORAGE_FEATURE_URL} style={{ alignSelf: "flex-start", marginTop: "12px" }}>
-                  Explore Non-Climate-Controlled Storage <span>→</span>
+                <span>You would be comfortable keeping the item in a typical garage and easy drive-up access matters to you.</span>
+                <a className={`primaryButton ${funnelStyles.cardButton}`} href={NON_CLIMATE_STORAGE_FEATURE_URL}>
+                  <span className={funnelStyles.ctaLabel}>See Non-Climate Sizes & Prices</span> <span>→</span>
                 </a>
               </div>
             </article>
@@ -139,16 +149,20 @@ export default function Home() {
                 <h3>Climate-Controlled Storage</h3>
                 <p className="comparisonSub">A more stable indoor environment for sensitive belongings</p>
               </div>
+              <div className={`${funnelStyles.priceReference} ${funnelStyles.climatePrice}`}>
+                <span><strong>10 × 10 price reference</strong>Same-size comparison</span>
+                <strong>{money(climateTen.fromPrice)}<small>/mo</small></strong>
+              </div>
+              <p className={funnelStyles.choiceNote}>Other sizes and live availability may vary.</p>
               <ul>
-                <Check>Reduces exposure to Florida heat and repeated environmental swings</Check>
-                <Check>Strong fit for furniture, electronics, mattresses, documents, clothing, artwork, and keepsakes</Check>
-                <Check>Usually costs more, so the added protection should solve a real need for what you are storing</Check>
+                <Check>Reduces exposure to Florida heat and repeated environmental swings.</Check>
+                <Check>Strong fit for furniture, electronics, mattresses, documents, clothing, artwork, and keepsakes.</Check>
               </ul>
               <div className="bestFor">
                 <strong>Choose this when:</strong>
                 <span>You would worry about heat or moisture affecting the condition of the item, or the belongings are sentimental, expensive, or difficult to replace.</span>
-                <a className="primaryButton" href={CLIMATE_STORAGE_FEATURE_URL} style={{ alignSelf: "flex-start", marginTop: "12px" }}>
-                  Explore Climate-Controlled Storage <span>→</span>
+                <a className={`primaryButton ${funnelStyles.cardButton}`} href={CLIMATE_STORAGE_FEATURE_URL}>
+                  <span className={funnelStyles.ctaLabel}>See Climate Sizes & Prices</span> <span>→</span>
                 </a>
               </div>
             </article>
