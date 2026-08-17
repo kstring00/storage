@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./UnitSelectionStack.module.css";
 import { SceneSprite, SCENE_ART, artId } from "./UnitSceneArt";
 import {
@@ -197,9 +197,60 @@ export default function UnitSelectionStack({ zone = "climate" }) {
   // One demonstration open at a time. Switching simply reverses the previous
   // card's transitions while the new one plays — nothing teleports.
   const [openId, setOpenId] = useState(null);
+  const sectionRef = useRef(null);
+  const autoPlayedRef = useRef(new Set());
+
+  // Give each unit one quiet automatic demonstration when it crosses the middle
+  // band of the viewport. It never loops and never replays when the customer
+  // scrolls back up. The next centered unit simply replaces the previous open one.
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+
+    const section = sectionRef.current;
+    if (!section || !("IntersectionObserver" in window)) return undefined;
+
+    const cards = Array.from(section.querySelectorAll("[data-auto-unit-id]"));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const viewportCenter = window.innerHeight / 2;
+        const candidate = entries
+          .filter((entry) => {
+            const unitId = entry.target.getAttribute("data-auto-unit-id");
+            return entry.isIntersecting && unitId && !autoPlayedRef.current.has(unitId);
+          })
+          .sort((a, b) => {
+            const aCenter = a.boundingClientRect.top + a.boundingClientRect.height / 2;
+            const bCenter = b.boundingClientRect.top + b.boundingClientRect.height / 2;
+            return Math.abs(aCenter - viewportCenter) - Math.abs(bCenter - viewportCenter);
+          })[0];
+
+        if (!candidate) return;
+
+        const unitId = candidate.target.getAttribute("data-auto-unit-id");
+        autoPlayedRef.current.add(unitId);
+        setOpenId(unitId);
+      },
+      {
+        root: null,
+        rootMargin: "-42% 0px -42% 0px",
+        threshold: 0,
+      },
+    );
+
+    cards.forEach((card) => observer.observe(card));
+    return () => observer.disconnect();
+  }, [zone]);
+
+  const toggleUnit = (unitId) => {
+    // Manual interaction counts as this unit's demonstration, so scrolling away
+    // and back will not surprise the customer by auto-playing it again.
+    autoPlayedRef.current.add(unitId);
+    setOpenId((current) => (current === unitId ? null : unitId));
+  };
 
   return (
-    <section id={sectionId} className={styles.section} aria-labelledby={`${sectionId}-title`}>
+    <section ref={sectionRef} id={sectionId} className={styles.section} aria-labelledby={`${sectionId}-title`}>
       <SceneSprite className={styles.sprite} />
 
       <div className={styles.heading}>
@@ -220,6 +271,7 @@ export default function UnitSelectionStack({ zone = "climate" }) {
             <article
               id={`${anchorPrefix}-${unit.slug}`}
               key={unit.id}
+              data-auto-unit-id={unit.id}
               className={[
                 styles.card,
                 open ? styles.open : "",
@@ -311,7 +363,7 @@ export default function UnitSelectionStack({ zone = "climate" }) {
                       ? `Hide the ${unit.size} ${typeLabel} example`
                       : `See what fits in a ${unit.size} ${typeLabel} unit`
                   }
-                  onClick={() => setOpenId(open ? null : unit.id)}
+                  onClick={() => toggleUnit(unit.id)}
                 >
                   <span className={styles.scene} aria-hidden="true">
                     <span className={styles.unit}>
