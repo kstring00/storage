@@ -30,7 +30,7 @@ export default function StorageTypePage({ config }) {
         </div>
         <div className="shell navRow">
           <nav aria-label="Primary navigation">
-            <a href="#benefits">Benefits</a>
+            {!config.hideBenefits ? <a href="#benefits">Benefits</a> : null}
             <a href="#storage-fit">What to Store</a>
             {config.showDriveUpDoors ? <a href="#drive-up-sizes">Unit Sizes</a> : null}
             {config.showClimateDoors ? <a href="#unit-doors">Unit Sizes</a> : null}
@@ -70,23 +70,25 @@ export default function StorageTypePage({ config }) {
         </div>
       </section>
 
-      <section id="benefits" className={styles.section}>
-        <div className={styles.shell}>
-          <div className={styles.heading}>
-            <h2>{config.benefitsTitle}</h2>
-            <p>{config.benefitsIntro}</p>
+      {!config.hideBenefits ? (
+        <section id="benefits" className={styles.section}>
+          <div className={styles.shell}>
+            <div className={styles.heading}>
+              <h2>{config.benefitsTitle}</h2>
+              <p>{config.benefitsIntro}</p>
+            </div>
+            <div className={styles.benefitGrid}>
+              {config.benefits.map((benefit) => (
+                <article className={styles.benefitCard} key={benefit.title}>
+                  <div className={styles.iconCircle}>{benefit.icon}</div>
+                  <h3>{benefit.title}</h3>
+                  <p>{benefit.copy}</p>
+                </article>
+              ))}
+            </div>
           </div>
-          <div className={styles.benefitGrid}>
-            {config.benefits.map((benefit) => (
-              <article className={styles.benefitCard} key={benefit.title}>
-                <div className={styles.iconCircle}>{benefit.icon}</div>
-                <h3>{benefit.title}</h3>
-                <p>{benefit.copy}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <StorageFitTabs config={config.storageFit} footerNote={storageFitFooterNote} />
 
