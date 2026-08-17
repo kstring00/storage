@@ -6,6 +6,7 @@ export const metadata = {
 };
 
 const MICROSOFT_PRIVACY = "https://privacy.microsoft.com/privacystatement";
+const GOOGLE_PRIVACY = "https://policies.google.com/privacy";
 const CONTACT_URL = "https://www.lakecityselfstorage.com/contact-us";
 
 export default function PrivacyPage() {
@@ -20,24 +21,27 @@ export default function PrivacyPage() {
         <section>
           <h2>Website analytics</h2>
           <p>
-            Lake City Self Storage uses Microsoft Clarity to better understand how visitors interact with this website. Clarity can provide behavioral analytics such as page usage, clicks, scrolling, heatmaps, and session recordings. We use this information to improve website navigation, storage comparisons, and the online rental experience.
+            Lake City Self Storage uses Microsoft Clarity and Google Analytics to better understand how visitors interact with this website. These services can provide information such as page usage, traffic and device information, clicks, scrolling, heatmaps, and session behavior. We use this information to improve website navigation, storage comparisons, and the online rental experience.
           </p>
         </section>
 
         <section>
           <h2>Analytics cookies and consent</h2>
           <p>
-            Microsoft Clarity analytics cookies are optional on this website. Until you accept analytics cookies, our Clarity implementation keeps analytics storage denied and may operate in a limited cookieless mode. If you accept analytics cookies, Clarity may use cookies and similar technologies to associate activity across page views and sessions.
+            Analytics cookies are optional on this website. Our consent controls keep analytics storage denied until you choose Accept Analytics. If you accept, Microsoft Clarity and Google Analytics may use analytics cookies or similar technologies to associate activity across page views and sessions.
           </p>
           <p>
-            Our Clarity configuration keeps advertising storage denied. We are not using your Clarity consent choice to enable Microsoft advertising storage through this website.
+            If you decline, analytics storage remains denied. Clarity and Google Analytics may still receive limited cookieless measurement signals designed to operate without reading or writing analytics cookies.
+          </p>
+          <p>
+            Advertising storage, advertising user data, and advertising personalization remain denied in our Google configuration, and Clarity advertising storage remains denied. Your analytics choice is not used by this website to enable advertising cookies or personalized advertising.
           </p>
         </section>
 
         <section>
-          <h2>Clarity cookies</h2>
+          <h2>Analytics cookies</h2>
           <p>
-            When analytics consent is granted, Clarity may set cookies such as <strong>_clck</strong>, which helps persist a pseudonymous Clarity user identifier for this site, and <strong>_clsk</strong>, which helps connect page views into a session. Microsoft may also use related Microsoft-domain cookies as part of Clarity's analytics service.
+            When analytics consent is granted, Clarity may set cookies such as <strong>_clck</strong>, which helps persist a pseudonymous Clarity user identifier for this site, and <strong>_clsk</strong>, which helps connect page views into a session. Google Analytics may also set first-party analytics cookies, commonly including cookies beginning with <strong>_ga</strong>, to distinguish visits and measure site usage.
           </p>
         </section>
 
@@ -51,14 +55,17 @@ export default function PrivacyPage() {
         <section>
           <h2>Session recording privacy</h2>
           <p>
-            Clarity includes privacy protections designed to mask sensitive content in recordings. We also avoid intentionally using analytics to capture information that is not needed to understand website usability. Rental and payment experiences that occur on third-party systems are governed by those providers' own privacy practices.
+            Microsoft Clarity includes privacy protections designed to mask sensitive content in recordings. We also avoid intentionally using analytics to capture information that is not needed to understand website usability. Rental and payment experiences that occur on third-party systems are governed by those providers' own privacy practices.
           </p>
         </section>
 
         <section>
-          <h2>Microsoft privacy information</h2>
+          <h2>Analytics provider privacy information</h2>
           <p>
-            Microsoft processes Clarity data as the provider of the analytics service. You can learn more in the <a href={MICROSOFT_PRIVACY} target="_blank" rel="noreferrer">Microsoft Privacy Statement</a>.
+            Microsoft processes Clarity data as the provider of the Clarity service. You can learn more in the <a href={MICROSOFT_PRIVACY} target="_blank" rel="noreferrer">Microsoft Privacy Statement</a>.
+          </p>
+          <p>
+            Google processes Google Analytics data as the provider of that service. You can learn more in the <a href={GOOGLE_PRIVACY} target="_blank" rel="noreferrer">Google Privacy Policy</a>.
           </p>
         </section>
 
