@@ -6,7 +6,6 @@ import pricingStyles from "./LiveUnitPricing.module.css";
 import {
   climateUnits,
   featuredUnits,
-  INVENTORY_AS_OF,
   INVENTORY_SOURCE_URL,
   money,
 } from "./storageData";
@@ -57,12 +56,12 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false, feat
     <section id="unit-doors" className={styles.section} aria-labelledby="door-carousel-title">
       <ItemSymbols />
       <div className={styles.headingShell}>
-        <p className={styles.eyebrow}>{featuredHome ? "Featured current options" : "Explore climate-controlled sizes"}</p>
-        <h2 id="door-carousel-title">{featuredHome ? "Compare Real Current Starting Rates" : "Available Climate-Controlled Unit Sizes"}</h2>
+        <p className={styles.eyebrow}>{featuredHome ? "Popular storage options" : "Choose your climate-controlled size"}</p>
+        <h2 id="door-carousel-title">{featuredHome ? "Featured Storage Options & Starting Rates" : "Climate-Controlled Sizes & Starting Rates"}</h2>
         <p className={styles.subhead}>
           {featuredHome
-            ? `These featured starting rates use a ${INVENTORY_AS_OF} snapshot of Lake City Self Storage's official online inventory. They are not invented discounts. Current availability and promotions can change.`
-            : `Price should not be hidden. Each size shows the current starting-rate snapshot below, while the official inventory remains the source of truth for live availability, exact unit variants, and promotions.`}
+            ? "Compare a few popular options by storage type, size, and starting rate. Choose the storage environment first, then narrow the exact unit from there."
+            : "See size and price before you open a door. Open a door only when you want a quick visual of what fits—you can go straight to availability at any time."}
         </p>
       </div>
 
@@ -74,8 +73,12 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false, feat
             const featureHref = isDriveUp ? "/non-climate-control" : "/climate-controlled";
             const inventoryHref = unit.conversionHref || INVENTORY_SOURCE_URL;
             const primaryText = featuredHome
-              ? (isDriveUp ? "Explore Drive-Up Storage →" : "Explore Climate Storage →")
-              : (unit.conversionHref ? `View ${unit.size} Availability →` : "View Official Live Inventory →");
+              ? (isDriveUp ? "See Drive-Up Sizes & Prices →" : "See Climate Sizes & Prices →")
+              : (unit.conversionHref ? `View ${unit.size} Availability →` : "Check Live Availability →");
+            const footerHref = featuredHome ? featureHref : inventoryHref;
+            const footerText = featuredHome
+              ? "Compare options →"
+              : (unit.conversionHref ? "View availability →" : "Check availability →");
 
             return (
               <article
@@ -113,7 +116,7 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false, feat
                     <p className={styles.infoSize}>{unit.size}</p>
                     <p className={styles.infoLabel}>{unit.label}</p>
                     <div className={pricingStyles.livePriceBlock}>
-                      <span>Current starting-rate snapshot</span>
+                      <span>Starting rate</span>
                       <strong>{money(unit.fromPrice)}<small>/mo</small></strong>
                     </div>
                     <div className={styles.fitBlock}>
@@ -139,15 +142,18 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false, feat
                   </div>
                   <span className={styles.sill} />
                 </div>
-                <div className={styles.tapHint}>{open ? "Tap to close" : "Hover or tap to open"}</div>
+                <div className={styles.tapHint}>
+                  <span>{open ? "Tap to close" : "See what fits"}</span>
+                  <a className={styles.footerAction} href={footerHref}>{footerText}</a>
+                </div>
               </article>
             );
           })}
         </div>
       </div>
       <div className={pricingStyles.priceSource}>
-        <span>Pricing snapshot: {INVENTORY_AS_OF}. Live rates and availability can change.</span>
-        <a href={INVENTORY_SOURCE_URL}>Check Lake City Self Storage live inventory →</a>
+        <span>Starting rates may change with availability.</span>
+        <a href={INVENTORY_SOURCE_URL}>Check live Lake City Self Storage inventory →</a>
       </div>
     </section>
   );
