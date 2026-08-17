@@ -2,6 +2,7 @@ import StorageFitTabs from "./StorageFitTabs";
 import NonClimateUnitDoors from "./NonClimateUnitDoors";
 import UnitDoorCarousel from "./UnitDoorCarousel";
 import FacilityPhotoCarousel from "./FacilityPhotoCarousel";
+import PersistentContactBar from "./PersistentContactBar";
 import { photoSets } from "./storageData";
 import styles from "./storageTypePage.module.css";
 
@@ -20,6 +21,7 @@ export default function StorageTypePage({ config }) {
 
   return (
     <main className={styles.page}>
+      <PersistentContactBar />
       <header className="siteHeader">
         <div className="shell headerTop">
           <a href="/" aria-label="Lake City Self Storage landing page">
