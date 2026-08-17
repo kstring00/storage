@@ -16,6 +16,7 @@ export default function StorageTypePage({ config }) {
     ? { title: config.noteTitle, copy: config.noteCopy }
     : null;
   const zone = config.photoZone || (config.showClimateDoors ? "climate" : "nonClimate");
+  const displayPhotos = zone === "climate" ? photoSets.climate.slice(1, 2) : photoSets[zone];
   const unitAnchor = config.showClimateDoors ? "#unit-doors" : config.showDriveUpDoors ? "#drive-up-sizes" : "#storage-fit";
 
   return (
@@ -63,7 +64,7 @@ export default function StorageTypePage({ config }) {
           </div>
 
           <FacilityPhotoCarousel
-            images={photoSets[zone]}
+            images={displayPhotos}
             title={config.visualTitle}
             copy={config.visualCopy}
           />
