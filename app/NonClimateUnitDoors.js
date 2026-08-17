@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./NonClimateUnitDoors.module.css";
+import pricingStyles from "./LiveUnitPricing.module.css";
 import { INVENTORY_AS_OF, INVENTORY_SOURCE_URL, money, nonClimateUnits } from "./storageData";
 
 const PHONE_LINK = "tel:+13862925494";
@@ -82,7 +83,7 @@ export default function NonClimateUnitDoors() {
                     <span className={styles.doorType}>Drive-Up Storage</span>
                     <p>{unit.size}</p>
                     <span>{unit.sqft} sq ft</span>
-                    <div className={styles.doorRate}><small>From</small><strong>{money(unit.fromPrice)}<em>/mo</em></strong></div>
+                    <div className={pricingStyles.doorRate}><small>From</small><strong>{money(unit.fromPrice)}<em>/mo</em></strong></div>
                     <small>{unit.label}</small>
                     <i />
                   </div>
@@ -94,7 +95,7 @@ export default function NonClimateUnitDoors() {
           })}
         </div>
       </div>
-      <div className={styles.sourceRow}><span>Pricing snapshot: {INVENTORY_AS_OF}.</span><a href={INVENTORY_SOURCE_URL}>Check current Lake City Self Storage inventory →</a></div>
+      <div className={pricingStyles.sourceRow}><span>Pricing snapshot: {INVENTORY_AS_OF}.</span><a href={INVENTORY_SOURCE_URL}>Check current Lake City Self Storage inventory →</a></div>
     </section>
   );
 }
