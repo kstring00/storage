@@ -1,12 +1,13 @@
-import ORIGINAL_HERO from "./originalHero";
 import StorageFitTabs from "./StorageFitTabs";
 import NonClimateUnitDoors from "./NonClimateUnitDoors";
 import UnitDoorCarousel from "./UnitDoorCarousel";
+import FacilityPhotoCarousel from "./FacilityPhotoCarousel";
+import ReviewStrip from "./ReviewStrip";
+import { photoSets } from "./storageData";
 import styles from "./storageTypePage.module.css";
 
 const PHONE_DISPLAY = "(386) 292-5494";
 const PHONE_LINK = "tel:+13862925494";
-const UNITS_URL = "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055";
 const CONTACT_URL = "https://www.lakecityselfstorage.com/contact-us";
 const PAY_ONLINE_URL = "https://www.lakecityselfstorage.com/payonline";
 const LOGO_URL = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/outlook-1lwjlfpa_01032024100037323.png";
@@ -15,6 +16,8 @@ export default function StorageTypePage({ config }) {
   const storageFitFooterNote = config.decisionNoteOnly
     ? { title: config.noteTitle, copy: config.noteCopy }
     : null;
+  const zone = config.photoZone || (config.showClimateDoors ? "climate" : "nonClimate");
+  const unitAnchor = config.showClimateDoors ? "#unit-doors" : config.showDriveUpDoors ? "#drive-up-sizes" : "#storage-fit";
 
   return (
     <main className={styles.page}>
@@ -40,13 +43,16 @@ export default function StorageTypePage({ config }) {
       </header>
 
       <section className={styles.hero}>
+        <div className={styles.breadcrumbs} aria-label="Breadcrumb">
+          <a href="/">Home</a><span>›</span><strong>{config.eyebrow}</strong>
+        </div>
         <div className={styles.heroGrid}>
           <div>
             <p className={styles.eyebrow}><span className={styles.eyebrowIcon}>{config.icon}</span>{config.eyebrow}</p>
             <h1>{config.title}</h1>
             <p className={styles.heroLead}>{config.heroLead}</p>
             <div className={styles.actions}>
-              <a className={styles.primary} href={UNITS_URL}>{config.primaryCta} <span>→</span></a>
+              <a className={styles.primary} href={unitAnchor}>{config.primaryCta} <span>↓</span></a>
               <a className={styles.secondary} href={PHONE_LINK}>Call to Ask</a>
             </div>
             <div className={styles.trust}>
@@ -56,13 +62,11 @@ export default function StorageTypePage({ config }) {
             </div>
           </div>
 
-          <div className={styles.visual}>
-            <img src={ORIGINAL_HERO} alt="Lake City Self Storage facility" />
-            <div className={styles.visualCard}>
-              <strong>{config.visualTitle}</strong>
-              <span>{config.visualCopy}</span>
-            </div>
-          </div>
+          <FacilityPhotoCarousel
+            images={photoSets[zone]}
+            title={config.visualTitle}
+            copy={config.visualCopy}
+          />
         </div>
       </section>
 
@@ -100,10 +104,7 @@ export default function StorageTypePage({ config }) {
               {config.uses.map((use) => (
                 <article className={styles.useCard} key={use.title}>
                   <span className={styles.check}>✓</span>
-                  <div>
-                    <strong>{use.title}</strong>
-                    <p>{use.copy}</p>
-                  </div>
+                  <div><strong>{use.title}</strong><p>{use.copy}</p></div>
                 </article>
               ))}
             </div>
@@ -114,24 +115,17 @@ export default function StorageTypePage({ config }) {
       {!config.decisionNoteOnly && !config.hideDecision ? (
         <section id="decision" className={styles.sectionAlt}>
           <div className={styles.shell}>
-            <div className={styles.heading}>
-              <h2>{config.decisionTitle}</h2>
-              <p>{config.decisionIntro}</p>
-            </div>
+            <div className={styles.heading}><h2>{config.decisionTitle}</h2><p>{config.decisionIntro}</p></div>
             <div className={styles.decisionGrid}>
               <article className={`${styles.decisionCard} ${styles.decisionCardAccent}`}>
                 <div className={styles.decisionLabel}>{config.goodFitLabel}</div>
                 <h3>{config.goodFitTitle}</h3>
-                <ul>
-                  {config.goodFit.map((item) => <li key={item}>{item}</li>)}
-                </ul>
+                <ul>{config.goodFit.map((item) => <li key={item}>{item}</li>)}</ul>
               </article>
               <article className={styles.decisionCard}>
                 <div className={styles.decisionLabel}>{config.otherFitLabel}</div>
                 <h3>{config.otherFitTitle}</h3>
-                <ul>
-                  {config.otherFit.map((item) => <li key={item}>{item}</li>)}
-                </ul>
+                <ul>{config.otherFit.map((item) => <li key={item}>{item}</li>)}</ul>
               </article>
             </div>
             <div className={styles.note}><strong>{config.noteTitle}</strong> {config.noteCopy}</div>
@@ -139,9 +133,14 @@ export default function StorageTypePage({ config }) {
         </section>
       ) : null}
 
+      <ReviewStrip zone={zone} compact />
+
       <section id="faq" className={`${styles.section} ${styles.faqSection}`}>
         <div className={styles.shell}>
-          <div className={styles.heading}><h2>Frequently Asked Questions</h2></div>
+          <div className={styles.heading}>
+            <h2>{config.faqTitle || "Frequently Asked Questions"}</h2>
+            {config.faqIntro ? <p>{config.faqIntro}</p> : null}
+          </div>
           <div className={styles.faq}>
             {config.faqs.map((faq) => (
               <details key={faq.question}>
@@ -155,19 +154,12 @@ export default function StorageTypePage({ config }) {
 
       <section className={styles.final}>
         <div className={styles.finalInner}>
-          <div className={styles.finalCopyBlock}>
-            <strong>{config.finalTitle}</strong>
-            <span>{config.finalCopy}</span>
-          </div>
-
+          <div className={styles.finalCopyBlock}><strong>{config.finalTitle}</strong><span>{config.finalCopy}</span></div>
           <div className={styles.finalCompare}>
             <span className={styles.compareLabel}>Explore the other option</span>
             <strong>{config.crossTitle}</strong>
             <span>{config.crossCopy}</span>
-            <a className={styles.finalButton} href={config.crossHref}>
-              <span className={styles.finalButtonText}>{config.crossCta}</span>
-              <span aria-hidden="true">→</span>
-            </a>
+            <a className={styles.finalButton} href={config.crossHref}><span className={styles.finalButtonText}>{config.crossCta}</span><span aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>
