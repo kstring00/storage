@@ -2,7 +2,6 @@ import StorageFitTabs from "./StorageFitTabs";
 import NonClimateUnitDoors from "./NonClimateUnitDoors";
 import UnitDoorCarousel from "./UnitDoorCarousel";
 import FacilityPhotoCarousel from "./FacilityPhotoCarousel";
-import ReviewStrip from "./ReviewStrip";
 import { photoSets } from "./storageData";
 import styles from "./storageTypePage.module.css";
 
@@ -132,8 +131,6 @@ export default function StorageTypePage({ config }) {
           </div>
         </section>
       ) : null}
-
-      <ReviewStrip zone={zone} compact />
 
       <section id="faq" className={`${styles.section} ${styles.faqSection}`}>
         <div className={styles.shell}>
