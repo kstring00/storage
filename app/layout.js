@@ -1,6 +1,7 @@
 import "./globals.css";
 import "./polish.css";
 import ClarityAnalytics from "./ClarityAnalytics";
+import GoogleAnalytics from "./GoogleAnalytics";
 import CookieConsent from "./CookieConsent";
 
 export const metadata = {
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <GoogleAnalytics />
         <ClarityAnalytics />
         {children}
         <CookieConsent />
