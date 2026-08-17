@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Clarity from "@microsoft/clarity";
 import styles from "./CookieConsent.module.css";
 
 const CONSENT_KEY = "lcsc_analytics_consent";
 
 function sendClarityConsent(value) {
-  if (typeof window === "undefined" || typeof window.clarity !== "function") return;
-
-  window.clarity("consentv2", {
+  Clarity.consentV2({
     ad_Storage: "denied",
     analytics_Storage: value,
   });
