@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./FacilityPhotoCarousel.module.css";
 
@@ -21,12 +22,15 @@ export default function FacilityPhotoCarousel({ images, title, copy, interval = 
     <div className={`${styles.carousel} ${compact ? styles.compact : ""}`}>
       <div className={styles.frame}>
         {safeImages.map((image, index) => (
-          <img
+          <Image
             key={image.src}
             className={`${styles.image} ${index === active ? styles.active : ""}`}
             src={image.src}
             alt={image.alt}
-            loading={index === 0 ? "eager" : "lazy"}
+            fill
+            sizes="(max-width: 900px) 100vw, 50vw"
+            quality={72}
+            {...(index === 0 ? { priority: true } : { loading: "eager" })}
           />
         ))}
         {(title || copy) ? (
