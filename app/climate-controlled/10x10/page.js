@@ -1,53 +1,44 @@
+import FacilityPhotoCarousel from "../../FacilityPhotoCarousel";
+import ReviewStrip from "../../ReviewStrip";
+import {
+  climateUnits,
+  INVENTORY_AS_OF,
+  INVENTORY_SOURCE_URL,
+  money,
+  photoSets,
+} from "../../storageData";
 import styles from "./page.module.css";
 
 const PHONE_DISPLAY = "(386) 292-5494";
 const PHONE_LINK = "tel:+13862925494";
-const RENTAL_URL = "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055";
 const LOGO_URL = "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/outlook-1lwjlfpa_01032024100037323.png";
-
-const demoInventory = [
-  {
-    label: "10 × 10 Climate-Controlled",
-    detail: "Level 1 • Interior access",
-    note: "Standard interior unit",
-    price: "$129",
-    badge: "Best value",
-  },
-  {
-    label: "10 × 10 Climate-Controlled",
-    detail: "Level 1 • Near entrance",
-    note: "Shorter walk from entry",
-    price: "$129",
-    badge: "Popular",
-  },
-  {
-    label: "10 × 10 Climate-Controlled",
-    detail: "Level 1 • End unit",
-    note: "Convenient access position",
-    price: "$139",
-    badge: null,
-  },
-];
+const unit = climateUnits.find((item) => item.id === "10x10");
 
 const fitItems = [
-  ["Bed set", "Queen or king mattress set"],
-  ["Bikes", "2–3 bicycles"],
-  ["Desk", "Desk + office chair"],
-  ["Boxes", "Bedroom or apartment overflow"],
+  ["Bed set", "A queen or king mattress set plus bedroom pieces"],
+  ["Bikes", "Several bicycles with room for boxes or gear"],
+  ["Desk", "Desk, office chair, and home-office overflow"],
+  ["Boxes", "Bedroom, apartment, or seasonal household overflow"],
 ];
 
-function PreviewRoom() {
-  return (
-    <div className={styles.room} aria-label="Illustration showing example belongings that can fit in a 10 by 10 climate-controlled storage unit">
-      <div className={`${styles.item} ${styles.bed}`}><span>Bed set</span></div>
-      <div className={`${styles.item} ${styles.desk}`}><span>Desk</span></div>
-      <div className={`${styles.item} ${styles.bike}`}><span>Bikes</span></div>
-      <div className={`${styles.item} ${styles.boxes}`}><span>Boxes</span></div>
-      <div className={styles.roomFloor} />
-      <div className={styles.roomCaption}>Example 10 × 10 layout</div>
-    </div>
-  );
-}
+const faqItems = [
+  {
+    question: `Is ${money(unit.fromPrice)}/mo guaranteed?`,
+    answer: `No. ${money(unit.fromPrice)}/mo is the starting-rate snapshot captured from Lake City Self Storage's official inventory on ${INVENTORY_AS_OF}. The live rental system remains the source of truth for the exact rate, promotions, and availability at the moment you rent.`,
+  },
+  {
+    question: "What happens if the 10 × 10 is sold out?",
+    answer: "Stay in the climate-controlled branch and compare the nearest practical size up or down. The goal is to keep the storage environment your belongings need without paying for unnecessary space.",
+  },
+  {
+    question: "Can I reserve or move in online?",
+    answer: "Yes. The official Lake City Self Storage rental system handles current inventory and the final reservation or move-in transaction. This page is designed to help you arrive there already confident about the storage type and size you want.",
+  },
+  {
+    question: "What if I am not sure the 10 × 10 is the right size?",
+    answer: "Use the examples on this page as a guide, then compare the other climate-controlled sizes or call the facility. Choosing the smallest practical size that safely fits your belongings is usually better than paying for space you do not need.",
+  },
+];
 
 export default function ClimateTenByTenPage() {
   return (
@@ -61,10 +52,10 @@ export default function ClimateTenByTenPage() {
         </div>
         <div className="shell navRow">
           <nav aria-label="Primary navigation">
-            <a href="/">Home</a>
             <a href="/climate-controlled">Climate-Controlled</a>
-            <a href="#availability">10 × 10 Availability</a>
-            <a href={PHONE_LINK}>Call</a>
+            <a href="#what-fits">What Fits</a>
+            <a href="#availability">Price & Availability</a>
+            <a href="#faq">FAQ</a>
           </nav>
         </div>
       </header>
@@ -76,106 +67,132 @@ export default function ClimateTenByTenPage() {
           </div>
 
           <div className={styles.heroGrid}>
-            <div className={styles.heroMain}>
-              <p className={styles.eyebrow}>Size conversion page prototype</p>
-              <h1>10 × 10 Climate-Controlled Storage</h1>
-              <p className={styles.sqft}>100 square feet</p>
+            <div className={styles.heroCopy}>
+              <p className={styles.eyebrow}>10 × 10 climate-controlled</p>
+              <h1>Keep the Decision Moving Forward.</h1>
+              <p className={styles.lead}>You already chose climate control and you are looking at a 10 × 10. This page keeps the next decision simple: confirm what fits, see the current starting price, and check the exact live inventory when you are ready.</p>
               <div className={styles.pills}>
-                <span>Indoor</span>
-                <span>❄ Climate-Controlled</span>
-                <span>Level 1 examples</span>
+                <span>100 sq ft</span><span>Indoor</span><span>❄ Climate-Controlled</span>
               </div>
-
-              <PreviewRoom />
-
-              <div className={styles.perfectFor}>
-                <div>
-                  <span className={styles.sectionLabel}>Perfect for</span>
-                  <h2>A practical fit for a bedroom or apartment overflow.</h2>
-                </div>
-                <p>Use this page after a customer has already chosen climate control and the 10 × 10 size. It keeps them focused on this exact product instead of sending them back into the full inventory catalog.</p>
+              <div className={styles.reassurance}>
+                <span>✓ Climate control already chosen</span>
+                <span>✓ 10 × 10 already chosen</span>
+                <span>✓ No need to browse unrelated sizes</span>
               </div>
             </div>
 
             <aside className={styles.summaryCard}>
-              <span className={styles.demoBadge}>Demo data for staging</span>
-              <div className={styles.summaryBlock}>
-                <small>Current availability</small>
-                <strong className={styles.available}>3 example units</strong>
-              </div>
-              <div className={styles.summaryBlock}>
-                <small>Example monthly rate</small>
-                <div className={styles.price}>$129<span>/mo</span></div>
-                <p>Real availability, rates, and promotions would come from the facility&apos;s inventory system.</p>
-              </div>
-              <a className={styles.primaryCta} href="#availability">See 10 × 10 Options</a>
+              <span className={styles.summaryLabel}>Current starting-rate snapshot</span>
+              <div className={styles.price}>{money(unit.fromPrice)}<span>/mo</span></div>
+              <p>Snapshot from Lake City Self Storage&apos;s official online inventory on {INVENTORY_AS_OF}. Exact availability and promotions can change.</p>
+              <a className={styles.primaryCta} href={INVENTORY_SOURCE_URL}>Check Official 10 × 10 Availability →</a>
               <a className={styles.secondaryCta} href={PHONE_LINK}>Call About This Size</a>
-              <div className={styles.reassurance}>
-                <span>✓ You already chose climate control</span>
-                <span>✓ You already chose 10 × 10</span>
-                <span>✓ Only relevant inventory appears below</span>
-              </div>
             </aside>
+          </div>
+
+          <div className={styles.photoBlock}>
+            <FacilityPhotoCarousel
+              images={photoSets.climate}
+              title="This is the actual climate-controlled environment."
+              copy="Real facility photography keeps the promise on this page connected to what you will see when you arrive."
+              compact
+            />
           </div>
         </div>
       </section>
 
-      <section className={styles.fitSection}>
+      <section id="what-fits" className={styles.sectionAlt}>
         <div className={styles.shell}>
-          <div className={styles.headingRow}>
-            <div>
-              <p className={styles.eyebrow}>Picture what fits</p>
-              <h2>What can you expect to store in a 10 × 10?</h2>
-            </div>
-            <p>These are simple examples to help customers confirm the size before they reserve.</p>
+          <div className={styles.heading}>
+            <p className={styles.eyebrow}>Confirm the fit</p>
+            <h2>What does a 10 × 10 make sense for?</h2>
+            <p>The goal is not to sell you the biggest unit. It is to help you choose enough space for what you actually need to protect.</p>
           </div>
           <div className={styles.fitGrid}>
-            {fitItems.map(([title, copy]) => (
+            {fitItems.map(([title, copy], index) => (
               <article key={title}>
-                <div className={styles.fitIcon}>{title === "Bed set" ? "▤" : title === "Bikes" ? "◎" : title === "Desk" ? "⌑" : "□"}</div>
+                <span className={styles.fitIcon}>{["▤", "◎", "⌑", "□"][index]}</span>
                 <strong>{title}</strong>
-                <span>{copy}</span>
+                <p>{copy}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
+      <section className={styles.guidanceSection}>
+        <div className={styles.shell}>
+          <div className={styles.heading}>
+            <p className={styles.eyebrow}>Tenant-first guidance</p>
+            <h2>Choose the 10 × 10 when it serves your storage job.</h2>
+          </div>
+          <div className={styles.guidanceGrid}>
+            <article className={styles.goodFit}>
+              <span>Strong fit</span>
+              <h3>Stay with the 10 × 10 if...</h3>
+              <ul>
+                <li>You are storing a bedroom set, bikes, desk, boxes, or apartment overflow.</li>
+                <li>You want climate control but do not need several rooms worth of furniture space.</li>
+                <li>The belongings can be packed efficiently without forcing or damaging them.</li>
+              </ul>
+            </article>
+            <article>
+              <span>Compare another size</span>
+              <h3>Consider the 10 × 15 instead if...</h3>
+              <ul>
+                <li>You are moving multiple rooms of furniture or several large pieces together.</li>
+                <li>You expect to add more belongings during the storage period.</li>
+                <li>You would otherwise need to stack or squeeze sensitive items too tightly.</li>
+              </ul>
+              <a href="/climate-controlled#unit-doors">Compare Climate-Controlled Sizes →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="availability" className={styles.availabilitySection}>
         <div className={styles.shell}>
-          <div className={styles.headingRow}>
-            <div>
-              <p className={styles.eyebrow}>Stay focused on the size they chose</p>
-              <h2>Available 10 × 10 Climate-Controlled Units</h2>
-            </div>
-            <div className={styles.demoNote}>Prototype only — these three listings and prices are sample data.</div>
+          <div className={styles.heading}>
+            <p className={styles.eyebrow}>One product, one source of truth</p>
+            <h2>10 × 10 Climate-Controlled Price & Availability</h2>
+            <p>Until the live inventory API is connected, this page reads from one centralized rate snapshot and hands the final availability check to Lake City Self Storage&apos;s official rental system.</p>
           </div>
+          <article className={styles.inventoryCard}>
+            <div>
+              <span className={styles.inventoryBadge}>10 × 10 • Climate-Controlled</span>
+              <h3>100 sq ft of indoor climate-controlled storage</h3>
+              <p>Bedroom or apartment overflow • Bikes • Bed set • Desk</p>
+            </div>
+            <div className={styles.inventoryPrice}>
+              <small>Starting-rate snapshot</small>
+              <strong>{money(unit.fromPrice)}<span>/mo</span></strong>
+            </div>
+            <div className={styles.inventoryActions}>
+              <a href={INVENTORY_SOURCE_URL}>Check Live Availability →</a>
+              <a href={PHONE_LINK}>Call to Ask</a>
+            </div>
+          </article>
+          <div className={styles.apiReady}>
+            <strong>API-ready structure:</strong>
+            <span>When the live inventory feed is available, exact 10 × 10 variants, availability, promotions, and transaction links can populate this section without redesigning the page.</span>
+          </div>
+        </div>
+      </section>
 
-          <div className={styles.inventoryList}>
-            {demoInventory.map((unit, index) => (
-              <article className={styles.inventoryCard} key={`${unit.detail}-${index}`}>
-                <div className={styles.unitThumb} aria-hidden="true">
-                  <span className={styles.thumbBed} />
-                  <span className={styles.thumbBoxOne} />
-                  <span className={styles.thumbBoxTwo} />
-                  <span className={styles.thumbDesk} />
-                </div>
-                <div className={styles.unitDetails}>
-                  {unit.badge ? <span className={styles.unitBadge}>{unit.badge}</span> : null}
-                  <h3>{unit.label}</h3>
-                  <p>{unit.detail}</p>
-                  <span>{unit.note}</span>
-                </div>
-                <div className={styles.unitPrice}>
-                  <small>Demo rate</small>
-                  <strong>{unit.price}<span>/mo</span></strong>
-                </div>
-                <div className={styles.unitActions}>
-                  <a href={RENTAL_URL}>Reserve</a>
-                  <a href={RENTAL_URL} className={styles.moveIn}>Move In</a>
-                  <a href={PHONE_LINK} className={styles.textLink}>Call for details</a>
-                </div>
-              </article>
+      <ReviewStrip zone="climate" compact />
+
+      <section id="faq" className={styles.faqSection}>
+        <div className={styles.shell}>
+          <div className={styles.heading}>
+            <p className={styles.eyebrow}>Before you rent</p>
+            <h2>10 × 10 Reservation Questions</h2>
+          </div>
+          <div className={styles.faq}>
+            {faqItems.map((item) => (
+              <details key={item.question}>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
             ))}
           </div>
         </div>
@@ -186,10 +203,10 @@ export default function ClimateTenByTenPage() {
           <div className={styles.nextFitCard}>
             <div>
               <p className={styles.eyebrow}>Need a different fit?</p>
-              <h2>Go back to compare the other climate-controlled sizes.</h2>
-              <p>The smart template would eventually exist for every meaningful size, but this prototype only connects the 10 × 10.</p>
+              <h2>Stay in climate control and compare the other sizes.</h2>
+              <p>The 10 × 10 is the first conversion-page prototype. The rest of the size pages can use this same structure once this interaction is proven.</p>
             </div>
-            <a href="/climate-controlled#unit-doors">Compare Other Sizes →</a>
+            <a href="/climate-controlled#unit-doors">Compare Other Climate Sizes →</a>
           </div>
         </div>
       </section>
