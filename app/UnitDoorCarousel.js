@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./UnitDoorCarousel.module.css";
+import pricingStyles from "./LiveUnitPricing.module.css";
 import {
   climateUnits,
   featuredUnits,
@@ -111,7 +112,7 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false, feat
                     </span>
                     <p className={styles.infoSize}>{unit.size}</p>
                     <p className={styles.infoLabel}>{unit.label}</p>
-                    <div className={styles.livePriceBlock}>
+                    <div className={pricingStyles.livePriceBlock}>
                       <span>Current starting-rate snapshot</span>
                       <strong>{money(unit.fromPrice)}<small>/mo</small></strong>
                     </div>
@@ -132,7 +133,7 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false, feat
                     </span>
                     <p>{unit.size}</p>
                     <span>{unit.sqft} sq ft</span>
-                    <div className={styles.doorPrice}><small>From</small><strong>{money(unit.fromPrice)}<em>/mo</em></strong></div>
+                    <div className={pricingStyles.doorPrice}><small>From</small><strong>{money(unit.fromPrice)}<em>/mo</em></strong></div>
                     <small>{unit.doorNote}</small>
                     <i />
                   </div>
@@ -144,7 +145,7 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false, feat
           })}
         </div>
       </div>
-      <div className={styles.priceSource}>
+      <div className={pricingStyles.priceSource}>
         <span>Pricing snapshot: {INVENTORY_AS_OF}. Live rates and availability can change.</span>
         <a href={INVENTORY_SOURCE_URL}>Check Lake City Self Storage live inventory →</a>
       </div>
