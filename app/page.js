@@ -222,7 +222,13 @@ export default function Home() {
           <div className="footerDetail"><span className="footerIcon">☎</span><a href={PHONE_LINK}>{PHONE_DISPLAY}</a></div>
           <div className="footerDetail"><span className="footerIcon">◷</span><span>Access Hours<br />7:00 AM - 8:00 PM</span></div>
         </div>
-        <div className="shell footerLegal"><span>© Lake City Self Storage</span><span>All sizes are approximate. Restrictions may apply.</span><a href={CONTACT_URL}>Contact</a></div>
+        <div className="shell footerLegal">
+          <span>© Lake City Self Storage</span>
+          <span>All sizes are approximate. Restrictions may apply.</span>
+          <a href={CONTACT_URL}>Contact</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="#cookie-settings">Cookie Settings</a>
+        </div>
       </footer>
     </main>
   );
