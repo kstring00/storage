@@ -129,6 +129,15 @@ export default function Home() {
                 <h3>Non-Climate-Controlled Storage</h3>
                 <p className="comparisonSub">Safe, simple drive-up storage</p>
               </div>
+              <div className={funnelStyles.storageTypePhoto}>
+                <img
+                  src={photoSets.nonClimate[0].src}
+                  alt={photoSets.nonClimate[0].alt}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className={funnelStyles.photoLabel}>Drive-Up Storage</span>
+              </div>
               <div className={funnelStyles.priceReference}>
                 <span><strong>Prices as low as</strong>Current listed starting rate</span>
                 <strong>{money(nonClimateFloor)}<small>/mo</small></strong>
@@ -152,6 +161,15 @@ export default function Home() {
               <div>
                 <h3>Climate-Controlled Storage</h3>
                 <p className="comparisonSub">A more stable indoor environment for sensitive belongings</p>
+              </div>
+              <div className={funnelStyles.storageTypePhoto}>
+                <img
+                  src={photoSets.climate[1].src}
+                  alt={photoSets.climate[1].alt}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className={funnelStyles.photoLabel}>Indoor Climate-Controlled</span>
               </div>
               <div className={`${funnelStyles.priceReference} ${funnelStyles.climatePrice}`}>
                 <span><strong>Prices as low as</strong>Current listed starting rate</span>
