@@ -1,5 +1,4 @@
 import StorageTypePage from "../StorageTypePage";
-import TenByTenLinkEnhancer from "../TenByTenLinkEnhancer";
 
 export const metadata = {
   title: "Climate-Controlled Storage in Lake City, FL | Lake City Self Storage",
@@ -9,17 +8,18 @@ export const metadata = {
 
 const config = {
   icon: "❄",
+  photoZone: "climate",
   eyebrow: "Climate-Controlled Storage",
   title: "A More Stable Environment for the Belongings You Care About",
   heroLead:
     "Florida heat and temperature swings can be hard on sensitive belongings. Climate-controlled storage provides a more stable indoor environment for furniture, electronics, documents, mattresses, clothing, décor, keepsakes, and other household items you want to store with extra care.",
-  primaryCta: "View Climate-Controlled Units",
-  visualTitle: "Designed for sensitive household belongings",
+  primaryCta: "Compare Climate-Controlled Sizes",
+  visualTitle: "See the real climate-controlled storage area",
   visualCopy:
-    "Choose climate control when the condition of what you are storing matters as much as having enough space for it.",
+    "These indoor facility photos show the environment customers actually walk into when they choose climate-controlled storage.",
   benefitsTitle: "Why Choose Climate-Controlled Storage?",
   benefitsIntro:
-    "Climate control is about reducing environmental extremes around belongings that can be affected by prolonged heat or repeated temperature changes.",
+    "Climate control is useful when the added environmental protection solves a real problem for what you are storing. If it does not, the non-climate option may be the better value.",
   benefits: [
     {
       icon: "❄",
@@ -35,9 +35,9 @@ const config = {
     },
     {
       icon: "⌂",
-      title: "Useful for Moves and Longer Storage",
+      title: "Worth It When Condition Matters",
       copy:
-        "When belongings may stay stored for months during a move, remodel, transition, or household overflow, a more stable environment can provide added peace of mind.",
+        "Paying more can make sense when the belongings are difficult to replace, sentimental, or likely to be affected by heat and repeated environmental changes.",
     },
   ],
   storageFit: {
@@ -91,43 +91,44 @@ const config = {
   hideUses: true,
   hideDecision: true,
   showClimateDoors: true,
+  faqTitle: "Climate-Controlled Storage Questions",
+  faqIntro: "Questions specifically about this indoor storage environment—not general facility questions you already answered on the homepage.",
   faqs: [
     {
-      question: "Why would I pay more for climate-controlled storage?",
+      question: "When is climate-controlled storage actually worth paying more for?",
       answer:
-        "Because the value is not only the square footage. You are also choosing a more stable indoor storage environment for belongings that can be affected by heat, moisture, and repeated environmental changes.",
-    },
-    {
-      question: "What items are best suited for climate-controlled storage?",
-      answer:
-        "Furniture, mattresses, electronics, documents, photographs, books, clothing, artwork, décor, keepsakes, and mixed household belongings are common reasons customers choose climate control.",
-    },
-    {
-      question: "Is climate-controlled storage necessary for every item?",
-      answer:
-        "No. Durable items such as tools, outdoor equipment, patio furniture, and sealed plastic totes may be perfectly reasonable in non-climate-controlled storage.",
+        "It is most useful when heat, moisture, or repeated temperature changes could affect the condition of what you are storing. Furniture, electronics, mattresses, paper records, photos, clothing, artwork, and keepsakes are common examples. If your belongings are durable and garage-friendly, compare non-climate storage before paying extra.",
     },
     {
       question: "Is climate-controlled the same as humidity-controlled?",
       answer:
-        "No. Those terms are not interchangeable. If your belongings require a specific humidity or temperature range, contact the facility to ask about the current controls.",
+        "No. Those terms are not interchangeable. If your belongings require a specific temperature or humidity range, call Lake City Self Storage and ask about the current environmental controls before renting.",
+    },
+    {
+      question: "Are the climate-controlled units indoors?",
+      answer:
+        "Yes. The climate-controlled units shown on this site are in the indoor storage area. The facility photos above show the actual interior corridors and unit doors.",
+    },
+    {
+      question: "What if the climate-controlled size I want is unavailable?",
+      answer:
+        "Compare the next size up or down before abandoning climate control. The goal is to keep the storage environment you need while finding the closest practical amount of space. You can also call the facility for help comparing current inventory.",
+    },
+    {
+      question: "What are the facility access hours for my stored belongings?",
+      answer:
+        "Lake City Self Storage lists daily access hours of 7:00 AM to 8:00 PM. If you need special access arrangements, contact the facility before renting.",
     },
   ],
   crossTitle: "Need tougher-item storage instead?",
   crossCopy:
-    "Non-climate-controlled storage may be the more practical and economical choice for tougher belongings.",
+    "Non-climate-controlled drive-up storage may be the more practical and economical choice when your belongings can handle Florida temperature changes.",
   crossHref: "/non-climate-control",
   crossCta: "Explore Non-Climate-Controlled Storage",
-  finalTitle: "Give sensitive belongings a more stable place to stay.",
-  finalCopy: "Choose the amount of climate-controlled space that fits what you need to store.",
-  finalCta: "View Climate-Controlled Units",
+  finalTitle: "Protect what needs protection—without paying for more than you need.",
+  finalCopy: "Compare the available climate-controlled sizes, prices, and what each one is best suited for.",
 };
 
 export default function ClimateControlledPage() {
-  return (
-    <>
-      <StorageTypePage config={config} />
-      <TenByTenLinkEnhancer />
-    </>
-  );
+  return <StorageTypePage config={config} />;
 }
