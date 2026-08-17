@@ -13,6 +13,22 @@ function sendClarityConsent(value) {
   });
 }
 
+function sendGoogleConsent(value) {
+  if (typeof window === "undefined") return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function gtag() {
+    window.dataLayer.push(arguments);
+  };
+
+  window.gtag("consent", "update", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: value,
+  });
+}
+
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
@@ -47,6 +63,7 @@ export default function CookieConsent() {
     }
 
     sendClarityConsent(value);
+    sendGoogleConsent(value);
     setVisible(false);
   };
 
@@ -57,7 +74,7 @@ export default function CookieConsent() {
       <div className={styles.copy}>
         <strong>Help us improve this website</strong>
         <p>
-          We use optional analytics cookies through Microsoft Clarity to understand how visitors use this site and improve the storage rental experience.
+          We use optional analytics cookies through Microsoft Clarity and Google Analytics to understand how visitors use this site and improve the storage rental experience.
         </p>
         <a href="/privacy">Privacy Policy</a>
       </div>
