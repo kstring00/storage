@@ -49,7 +49,7 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false, feat
     : includeOccupiedSmallest
       ? climateUnits
       : climateUnits.filter((unit) => unit.id !== "5x5");
-  const [openId, setOpenId] = useState(featuredHome ? "featured-climate-10x15" : "10x15");
+  const [openId, setOpenId] = useState(featuredHome ? null : "10x15");
   const useFourAcross = featuredHome || includeOccupiedSmallest;
 
   return (
@@ -84,7 +84,7 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false, feat
               <article
                 id={`climate-unit-${unit.slug}`}
                 key={unit.id}
-                className={`${styles.unit} ${open ? styles.open : ""} ${unit.featured ? styles.featured : ""}`}
+                className={`${styles.unit} ${open ? styles.open : ""} ${unit.featured && !featuredHome ? styles.featured : ""}`}
                 tabIndex={0}
                 aria-label={`${unit.size} ${isDriveUp ? "non-climate drive-up" : "climate-controlled"} storage starting at ${money(unit.fromPrice)} per month.`}
                 onClick={(event) => {
@@ -98,7 +98,7 @@ export default function UnitDoorCarousel({ includeOccupiedSmallest = false, feat
                   }
                 }}
               >
-                {featuredHome ? <div className={styles.featuredFlag}>{unit.featured ? "★ " : ""}{unit.featureLabel}</div> : null}
+                {featuredHome ? <div className={styles.featuredFlag}>{unit.featureLabel}</div> : null}
                 <div className={styles.fascia}><span>{isDriveUp ? "DRIVE-UP" : unit.number}</span></div>
                 <div className={styles.opening}>
                   <div className={styles.interior} />
