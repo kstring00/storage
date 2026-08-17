@@ -84,7 +84,6 @@ export default function Home() {
         </div>
         <div className="shell navRow">
           <nav aria-label="Primary navigation">
-            <a href="#why-climate">Compare Storage Types</a>
             <a href="/climate-controlled#unit-doors">Climate-Controlled Units</a>
             <a href="/non-climate-control#drive-up-sizes">Non-Climate-Controlled Units</a>
             <a href="#faq">FAQ</a>
