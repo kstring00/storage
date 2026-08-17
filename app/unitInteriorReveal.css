@@ -1,0 +1,41 @@
+/* Animated information reveal inside the storage-unit door demonstration. */
+
+article[id^="climate-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2),
+article[id^="drive-up-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2) { isolation:isolate; }
+
+article[id^="climate-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::before,
+article[id^="drive-up-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::before {
+  content:"";position:absolute;inset:3%;z-index:4;border-radius:3px;opacity:0;
+  transform:scale(.88) translateY(12%);transform-origin:50% 62%;
+  background:radial-gradient(90% 70% at 50% 84%,rgba(39,103,143,.22),transparent 64%),linear-gradient(180deg,#07141d 0%,#081722 52%,#0b1b26 100%);
+  box-shadow:inset 0 0 0 1px rgba(151,208,239,.12),inset 0 18px 28px rgba(0,0,0,.34),0 12px 24px rgba(4,21,31,.22);
+  transition:opacity .16s ease,transform .24s cubic-bezier(.22,.86,.28,1);pointer-events:none;
+}
+article[id^="climate-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::before { box-shadow:inset 0 3px 0 #0b86c9,inset 0 0 0 1px rgba(151,208,239,.12),inset 0 18px 28px rgba(0,0,0,.34),0 12px 24px rgba(4,21,31,.22); }
+article[id^="drive-up-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::before { background:radial-gradient(90% 70% at 50% 84%,rgba(69,130,79,.2),transparent 64%),linear-gradient(180deg,#09150d 0%,#0b1910 52%,#0e2014 100%);box-shadow:inset 0 3px 0 #4b975a,inset 0 0 0 1px rgba(177,218,183,.12),inset 0 18px 28px rgba(0,0,0,.34),0 12px 24px rgba(4,21,31,.22); }
+
+article[id^="climate-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::after,
+article[id^="drive-up-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::after {
+  content:"WHAT FITS INSIDE\A" var(--inside-fits) "\A\A" var(--inside-copy);
+  position:absolute;inset:7% 8% 8% 9%;z-index:5;display:flex;align-items:center;justify-content:center;padding:8% 7% 6%;
+  color:#f4fbff;white-space:pre-line;text-align:center;font-family:inherit;font-size:clamp(7px,.72vw,9.5px);line-height:1.38;font-weight:650;letter-spacing:.005em;text-shadow:0 1px 8px rgba(0,0,0,.55);
+  opacity:0;filter:blur(2.4px);transform:translateY(34%) scale(.78);transform-origin:50% 70%;
+  transition:opacity .14s linear,filter .16s ease,transform .2s cubic-bezier(.22,.86,.28,1);pointer-events:none;
+}
+article[id^="climate-unit-"] button[aria-expanded="true"] > span:first-child > span:first-child > span:nth-child(2)::before,
+article[id^="drive-up-unit-"] button[aria-expanded="true"] > span:first-child > span:first-child > span:nth-child(2)::before { opacity:1;transform:scale(1) translateY(0);transition:opacity .28s ease .16s,transform .5s cubic-bezier(.16,.86,.25,1) .16s; }
+article[id^="climate-unit-"] button[aria-expanded="true"] > span:first-child > span:first-child > span:nth-child(2)::after,
+article[id^="drive-up-unit-"] button[aria-expanded="true"] > span:first-child > span:first-child > span:nth-child(2)::after { opacity:1;filter:blur(0);transform:translateY(0) scale(1);transition:opacity .3s linear .25s,filter .42s ease .22s,transform .56s cubic-bezier(.16,.88,.24,1) .2s; }
+
+article[id="climate-unit-5x5"]{--inside-fits:"Boxes • Seasonal décor • Small belongings";--inside-copy:"A compact option for boxes, seasonal décor, files, and smaller belongings that benefit from a more stable indoor environment.";}
+article[id="climate-unit-10x10"]{--inside-fits:"Bikes • Bed set • Desk";--inside-copy:"A practical fit for the contents of a bedroom, small apartment overflow, or a few larger pieces you want protected indoors.";}
+article[id="climate-unit-10x15"]{--inside-fits:"Living-room furniture • Mattress sets • Boxes & décor";--inside-copy:"A strong middle-ground size for several rooms of furniture without immediately stepping up to the largest option.";}
+article[id="climate-unit-10x20"]{--inside-fits:"Multiple rooms • Large appliances • Dining + living sets";--inside-copy:"A better fit for larger moves, remodels, or households storing substantial furniture and appliances together.";}
+article[id="drive-up-unit-5x10"]{--inside-fits:"Tools • Seasonal gear • Sealed totes";--inside-copy:"A straightforward drive-up option for tools, seasonal gear, sealed totes, and smaller household overflow.";}
+article[id="drive-up-unit-10x10"]{--inside-fits:"Lawn gear • Patio items • Sealed totes";--inside-copy:"A practical drive-up option for garage cleanouts, outdoor gear, patio items, and sturdy household overflow.";}
+article[id="drive-up-unit-10x15"]{--inside-fits:"Outdoor equipment • Project overflow • Sturdy household items";--inside-copy:"Useful when you need more room for outdoor equipment, project materials, or household overflow with direct vehicle access.";}
+article[id="drive-up-unit-10x20"]{--inside-fits:"Garage contents • Equipment • Bulky household items";--inside-copy:"A larger drive-up choice for substantial household or work-related storage that benefits from direct vehicle access.";}
+article[id="drive-up-unit-10x30"]{--inside-fits:"Large household overflow • Business storage • Bulky equipment";--inside-copy:"The largest drive-up option for major household overflow, business storage, or bulky equipment.";}
+
+@media(max-width:680px){article[id^="climate-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::after,article[id^="drive-up-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::after{inset:5% 5% 6%;padding:6% 4% 4%;font-size:clamp(6.2px,1.7vw,7.4px);line-height:1.22;}}
+@media(prefers-reduced-motion:reduce){article[id^="climate-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::before,article[id^="climate-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::after,article[id^="drive-up-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::before,article[id^="drive-up-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::after{transition:none!important;filter:none!important;}}
