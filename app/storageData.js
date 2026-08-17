@@ -40,9 +40,32 @@ export function resolveAvailability(unit) {
     count,
     isKnown: status !== AVAILABILITY_STATUS.UNKNOWN,
     isSoldOut,
-    // Sold out is the only state that should remove the rental action.
+    // Sold out is the only state that removes the rental action. An unknown unit
+    // keeps its normal handoff — the official inventory page is where the real
+    // answer lives.
     canRent: !isSoldOut,
+    // Strictly stronger than `canRent`: the feed has actually told us this size
+    // can be rented right now. Unknown does NOT qualify.
+    isConfirmedAvailable:
+      status === AVAILABILITY_STATUS.AVAILABLE || status === AVAILABILITY_STATUS.LOW,
   };
+}
+
+/**
+ * Picks the size to offer someone whose unit is sold out.
+ *
+ * Only confirmed-available sizes qualify. A unit whose availability is unknown
+ * must never be presented as a "closest available option" — that would be a
+ * claim the inventory feed has not made. When nothing qualifies the caller is
+ * expected to fall back to contacting the facility rather than guessing.
+ */
+export function closestConfirmedAvailable(units, currentIndex) {
+  return (
+    units
+      .map((unit, index) => ({ unit, index, distance: Math.abs(index - currentIndex) }))
+      .filter(({ unit, index }) => index !== currentIndex && resolveAvailability(unit).isConfirmedAvailable)
+      .sort((a, b) => a.distance - b.distance || a.index - b.index)[0]?.unit || null
+  );
 }
 
 /** The official rental handoff. Per-unit deep links override the facility page. */

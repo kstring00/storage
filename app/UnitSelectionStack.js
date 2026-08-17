@@ -7,6 +7,7 @@ import {
   climateUnits,
   nonClimateUnits,
   money,
+  closestConfirmedAvailable,
   resolveAvailability,
   resolveCheckoutHref,
   AVAILABILITY_STATUS,
@@ -165,15 +166,6 @@ function buildScene(scene) {
   ];
 }
 
-function nextAvailable(units, currentIndex) {
-  return (
-    units
-      .map((unit, index) => ({ unit, distance: Math.abs(index - currentIndex), index }))
-      .filter(({ unit, index }) => index !== currentIndex && resolveAvailability(unit).canRent)
-      .sort((a, b) => a.distance - b.distance || a.index - b.index)[0]?.unit || null
-  );
-}
-
 function AvailabilityStatus({ availability }) {
   if (availability.status === AVAILABILITY_STATUS.SOLD_OUT) {
     return <span className={styles.statusSold}>Sold out</span>;
@@ -220,7 +212,8 @@ export default function UnitSelectionStack({ zone = "climate" }) {
         {units.map((unit, index) => {
           const open = openId === unit.id;
           const availability = resolveAvailability(unit);
-          const alternative = availability.canRent ? null : nextAvailable(units, index);
+          // Only offered when the feed has confirmed the neighbour is rentable.
+          const alternative = availability.canRent ? null : closestConfirmedAvailable(units, index);
           const items = buildScene(unit.scene);
 
           return (
