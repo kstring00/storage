@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+// Keep analytics, map, image, and font origins explicit so the CSP stays easy to audit.
 const nextConfig = {
   images: {
     remotePatterns: [
