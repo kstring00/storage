@@ -76,6 +76,9 @@ export default function StorageTypePage({ config }) {
         </div>
       </section>
 
+      {config.showDriveUpDoors ? <UnitSelectionStack zone="driveup" /> : null}
+      {config.showClimateDoors ? <UnitSelectionStack zone="climate" /> : null}
+
       {!config.hideBenefits ? (
         <section id="benefits" className={styles.section}>
           <div className={styles.shell}>
@@ -97,9 +100,6 @@ export default function StorageTypePage({ config }) {
       ) : null}
 
       <StorageFitTabs config={config.storageFit} footerNote={storageFitFooterNote} />
-
-      {config.showDriveUpDoors ? <UnitSelectionStack zone="driveup" /> : null}
-      {config.showClimateDoors ? <UnitSelectionStack zone="climate" /> : null}
 
       {!config.hideUses ? (
         <section id="best-uses" className={styles.section}>
