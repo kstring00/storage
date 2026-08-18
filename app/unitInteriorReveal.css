@@ -39,3 +39,11 @@ article[id="drive-up-unit-10x30"]{--inside-fits:"Large household overflow • Bu
 
 @media(max-width:680px){article[id^="climate-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::after,article[id^="drive-up-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::after{inset:5% 5% 6%;padding:6% 4% 4%;font-size:clamp(6.2px,1.7vw,7.4px);line-height:1.22;}}
 @media(prefers-reduced-motion:reduce){article[id^="climate-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::before,article[id^="climate-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::after,article[id^="drive-up-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::before,article[id^="drive-up-unit-"] button[aria-expanded] > span:first-child > span:first-child > span:nth-child(2)::after{transition:none!important;filter:none!important;}}
+
+/* Keep the storage-unit shell face-on so the reveal text stays crisp on laptops.
+   The rolling door, interior reveal, and belongings still animate independently. */
+article[id^="climate-unit-"] button[aria-expanded] > span:first-child > span:first-child,
+article[id^="drive-up-unit-"] button[aria-expanded] > span:first-child > span:first-child {
+  transform:none!important;
+  transition:none!important;
+}
