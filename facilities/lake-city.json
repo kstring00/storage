@@ -1,0 +1,61 @@
+{
+  "name": "Lake City Self Storage",
+  "tagline": "Climate-controlled and drive-up storage at one secure facility with gated access and 24-hour video surveillance.",
+  "address": {
+    "street": "1143 NW Lake Jeffrey Rd",
+    "city": "Lake City",
+    "state": "FL",
+    "zip": "32055"
+  },
+  "geo": { "lat": null, "lng": null },
+  "phone": "(386) 292-5494",
+  "email": "",
+  "officeHours": [
+    { "days": "Mon-Fri", "opens": "09:00", "closes": "20:00" },
+    { "days": "Sat", "opens": "11:00", "closes": "16:00" },
+    { "days": "Sun", "opens": "11:00", "closes": "15:00" }
+  ],
+  "gateHours": [
+    { "days": "Daily", "opens": "07:00", "closes": "20:00" }
+  ],
+  "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=1143+NW+Lake+Jeffrey+Rd%2C+Lake+City%2C+FL+32055",
+  "google": { "rating": null, "reviewCount": null, "url": "" },
+  "colors": { "primary": "#076fbc", "accent": "#4aa834" },
+  "logo": {
+    "src": "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/outlook-1lwjlfpa_01032024100037323.png",
+    "alt": "Lake City Self Storage logo"
+  },
+  "photos": [
+    { "src": "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%20dji_20250814143718_0215_d-1_08152025173146479.jpg", "alt": "Aerial overview of Lake City Self Storage" },
+    { "src": "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%209y8a0202_08152025173121802.jpg", "alt": "Indoor climate-controlled storage corridor at Lake City Self Storage" },
+    { "src": "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%20dji_20250814070645_0033_d_08152025174232437.jpg", "alt": "Drive-up storage buildings at Lake City Self Storage" },
+    { "src": "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%20dji_20250814143659_0214_d_08152025172434571.jpg", "alt": "Lake City Self Storage facility grounds" },
+    { "src": "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/img_0008_07312025201301009.jpg", "alt": "Climate-controlled storage area at Lake City Self Storage" },
+    { "src": "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%20dji_20250814143859_0223_d_08152025172159485.jpg", "alt": "Storage buildings and drive aisles at Lake City Self Storage" },
+    { "src": "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%20dji_20250814070349_0015_d_08152025172725162.jpg", "alt": "Non-climate drive-up storage area at Lake City Self Storage" },
+    { "src": "https://uploads.website.storedge.com/4ee8d3a8-7790-4195-9d2f-6b28480bad77/copy%20of%20dji_20250814070642_0032_d_08152025173132891.jpg", "alt": "Lake City Self Storage climate-controlled building" }
+  ],
+  "features": [
+    "climate-control",
+    "drive-up",
+    "gated-access",
+    "24-hour-cameras",
+    "online-rental",
+    "online-payments"
+  ],
+  "units": [
+    { "size": "5x5", "fits": "Boxes, seasonal décor, files and smaller belongings", "climateControlled": true, "price": 69, "rentUrl": "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055" },
+    { "size": "10x10", "fits": "Contents of a bedroom or small apartment overflow: bed set, desk, bikes", "climateControlled": true, "price": 128, "rentUrl": "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055" },
+    { "size": "10x15", "fits": "Several rooms of furniture: living-room set, mattresses, boxes and décor", "climateControlled": true, "price": 148, "rentUrl": "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055" },
+    { "size": "10x20", "fits": "Larger moves and remodels: multiple rooms, appliances, dining and living sets", "climateControlled": true, "price": 190, "rentUrl": "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055" },
+    { "size": "5x10", "fits": "Tools, seasonal gear, totes and smaller household overflow", "climateControlled": false, "driveUp": true, "price": 79, "rentUrl": "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055" },
+    { "size": "10x10", "fits": "Garage cleanouts: lawn gear, patio items and durable totes", "climateControlled": false, "driveUp": true, "price": 98, "rentUrl": "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055" },
+    { "size": "10x15", "fits": "Outdoor equipment, project overflow and sturdy household items", "climateControlled": false, "driveUp": true, "price": 129, "rentUrl": "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055" },
+    { "size": "10x20", "fits": "Garage contents, equipment and bulky durable items", "climateControlled": false, "driveUp": true, "price": 159, "rentUrl": "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055" },
+    { "size": "10x30", "fits": "Large household overflow, business storage and bulky equipment", "climateControlled": false, "driveUp": true, "price": 259, "rentUrl": "https://www.lakecityselfstorage.com/1143-nw-lake-jeffrey-rd-lake-city-fl-32055" }
+  ],
+  "pricesAsOf": "August 16, 2026",
+  "faqs": [],
+  "officialWebsite": "https://www.lakecityselfstorage.com",
+  "payUrl": "https://www.lakecityselfstorage.com/payonline"
+}
