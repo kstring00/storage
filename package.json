@@ -1,15 +1,16 @@
 {
-  "name": "lake-city-climate-storage",
+  "name": "storage-facility-demos",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "new-demo": "node scripts/new-demo.mjs",
+    "check-demos": "node scripts/check-demos.mjs"
   },
   "dependencies": {
-    "@microsoft/clarity": "1.0.2",
     "next": "^15.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

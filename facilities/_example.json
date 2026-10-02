@@ -1,0 +1,53 @@
+{
+  "name": "Example Storage",
+  "tagline": "Clean, well-lit storage with drive-up and climate-controlled units, plus covered RV and boat parking.",
+  "address": {
+    "street": "123 Example Ave",
+    "city": "Springfield",
+    "state": "MO",
+    "zip": "65804"
+  },
+  "geo": { "lat": 37.1803, "lng": -93.2546 },
+  "phone": "(555) 010-0142",
+  "email": "office@example.com",
+  "officeHours": [
+    { "days": "Mon-Fri", "opens": "09:00", "closes": "18:00" },
+    { "days": "Sat", "opens": "09:00", "closes": "14:00" }
+  ],
+  "gateHours": [
+    { "days": "Daily", "opens": "06:00", "closes": "22:00" }
+  ],
+  "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Springfield%2C+MO+65804",
+  "google": { "rating": 4.8, "reviewCount": 127, "url": "https://www.example.com/reviews" },
+  "colors": { "primary": "#1f5f8b", "accent": "#e8a33d" },
+  "logo": null,
+  "photos": [
+    { "src": "/neutral/drive-up-row.jpg", "alt": "Illustration of a row of drive-up storage units with roll-up doors" },
+    { "src": "/neutral/indoor-hallway.jpg", "alt": "Illustration of an indoor climate-controlled storage hallway" },
+    { "src": "/neutral/gate-entry.jpg", "alt": "Illustration of a gated storage facility entrance with a keypad" }
+  ],
+  "features": [
+    "climate-control",
+    "drive-up",
+    "rv-boat-parking",
+    "24-hour-cameras",
+    "gated-access",
+    "online-rental",
+    "boxes-supplies"
+  ],
+  "units": [
+    { "size": "5x5", "fits": "Boxes, seasonal decorations and a few small items", "climateControlled": true, "price": 49, "rentUrl": "https://www.example.com/rent/5x5-climate" },
+    { "size": "5x10", "fits": "A studio apartment or a dorm room", "climateControlled": false, "driveUp": true, "price": 65, "rentUrl": "https://www.example.com/rent/5x10" },
+    { "size": "10x10", "fits": "A one-bedroom apartment", "climateControlled": true, "price": 119, "rentUrl": "https://www.example.com/rent/10x10-climate" },
+    { "size": "10x10", "fits": "A one-bedroom apartment or a garage cleanout", "climateControlled": false, "driveUp": true, "price": 95, "rentUrl": "https://www.example.com/rent/10x10" },
+    { "size": "10x15", "fits": "A two-bedroom apartment", "climateControlled": false, "driveUp": true, "price": 129, "rentUrl": "" },
+    { "size": "10x20", "fits": "A three-bedroom house or one car", "climateControlled": false, "driveUp": true, "price": null, "rentUrl": "https://www.example.com/rent/10x20" },
+    { "size": "12x40", "fits": "Outdoor parking for an RV, boat or trailer up to 40 ft", "climateControlled": false, "price": 110, "rentUrl": "https://www.example.com/rent/parking" }
+  ],
+  "pricesAsOf": "",
+  "faqs": [
+    { "question": "Do I need my own lock?", "answer": "Yes. Bring a disc or padlock, or buy one in the office." }
+  ],
+  "officialWebsite": "https://www.example.com",
+  "payUrl": ""
+}
